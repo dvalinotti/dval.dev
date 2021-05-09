@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'danvalinotti.com-static',
+    titleTemplate: '%s | Dan Valinotti',
     htmlAttrs: {
       lang: 'en'
     },

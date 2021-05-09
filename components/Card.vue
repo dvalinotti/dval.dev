@@ -1,7 +1,10 @@
 <template>
   <div class="card dark:bg-gray-900">
-    <div class="w-full h-full sm:w-1/3">
-      <div class="card-img">
+    <div
+      class="w-full h-full sm:w-1/3"
+      :class="{ 'sm:w-1/4': imgSize === 'sqr' }"
+    >
+      <div class="card-img" :class="{ 'card-img-sqr': imgSize === 'sqr' }">
         <slot name="img"></slot>
       </div>
     </div>
@@ -12,6 +15,17 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    imgSize: {
+      type: String,
+      default: 'rect'
+    }
+  }
+}
+</script>
 
 <style>
 .card {
@@ -32,6 +46,9 @@
   width: 100%;
   height: 0;
   padding-top: 66%;
+}
+.card-img-sqr {
+  padding-top: 100% !important;
 }
 .card-img img {
   position: absolute;

@@ -2,6 +2,10 @@
   <main class="container mx-auto px-4 max-w-4xl">
     <div>
       <h1 class="h-underline font-bold text-4xl dark:text-white">Contact Me</h1>
+      <p class="mt-8 mb-4 max-w-md">
+        If you'd like to get in touch with me, you can contact me through any of
+        the following links:
+      </p>
       <ul class="mt-4">
         <li
           v-for="(link, index) in links"
@@ -47,7 +51,12 @@ export default {
         label: 'HackerRank'
       }
     ]
-  })
+  }),
+  head() {
+    return {
+      title: 'Contact Me'
+    }
+  }
 }
 </script>
 

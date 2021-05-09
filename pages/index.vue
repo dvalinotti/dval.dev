@@ -18,7 +18,7 @@ export default {
   name: 'Home',
   head() {
     return {
-      title: 'Home | Dan Valinotti'
+      title: 'Home'
     }
   }
 }

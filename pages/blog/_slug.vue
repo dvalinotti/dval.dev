@@ -37,6 +37,11 @@ export default {
   data: () => ({
     document: undefined
   }),
+  head() {
+    return {
+      title: this.document?.title || ''
+    }
+  },
   computed: {
     publishDate() {
       return this.document && this.document.date

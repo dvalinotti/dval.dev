@@ -33,7 +33,12 @@ export default {
   },
   data: () => ({
     posts: undefined
-  })
+  }),
+  head() {
+    return {
+      title: 'Blog'
+    }
+  }
 }
 </script>
 
