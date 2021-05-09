@@ -1,11 +1,61 @@
 <template>
-  <div>
-    <nav-bar />
-    <div class="page">
-      <Nuxt />
+  <div class="bg-white dark:bg-gray-800">
+    <div class="min-h-screen">
+      <NavBar :items="navItems" @toggle-theme="toggleTheme" />
+      <div class="page">
+        <Nuxt />
+      </div>
     </div>
+    <Footer :items="navItems" />
   </div>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    navItems: [
+      {
+        label: 'Home',
+        path: '/'
+      },
+      {
+        label: 'Blog',
+        path: '/blog'
+      },
+      {
+        label: 'Projects',
+        path: '/projects'
+      },
+      {
+        label: 'Contact',
+        path: '/contact'
+      }
+    ]
+  }),
+  mounted() {
+    if (
+      localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  },
+  methods: {
+    toggleTheme() {
+      const next = document.documentElement.classList.contains('dark')
+        ? 'light'
+        : 'dark'
+      const current = next === 'dark' ? 'light' : 'dark'
+      document.documentElement.classList.remove(current)
+      document.documentElement.classList.add(next)
+      localStorage.theme = next
+    }
+  }
+}
+</script>
 
 <style>
 html {
@@ -56,6 +106,6 @@ html {
   background-color: #35495e;
 }
 .page {
-  margin-top: 75px;
+  padding-top: 45px;
 }
 </style>

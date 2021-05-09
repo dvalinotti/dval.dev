@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card dark:bg-gray-900">
     <div class="w-full h-full sm:w-1/3">
       <div class="card-img">
         <slot name="img"></slot>

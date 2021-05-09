@@ -1,6 +1,6 @@
 <template>
-  <main id="blog" class="container mx-auto px-4">
-    <h1>Latest Posts</h1>
+  <main class="container mx-auto px-4">
+    <h1 class="dark:text-white">Latest Posts</h1>
     <ul class="flex flex-col items-start justify-start w-full max-w-3xl">
       <li v-for="(post, index) in posts" :key="index" class="pb-6 w-full">
         <nuxt-link :to="`/blog/${post.slug}`">
@@ -12,11 +12,15 @@
               />
             </template>
             <template #text>
-              <h2 class="text-lg font-bold leading-5 mb-1">{{ post.title }}</h2>
-              <span class="text-sm text-gray-700 italic">
+              <h2 class="text-lg font-bold leading-5 mb-1 dark:text-white">
+                {{ post.title }}
+              </h2>
+              <span class="text-sm text-gray-700 italic dark:text-gray-200">
                 {{ fmtDate(post.date) }} - {{ post.readingTime.text }}
               </span>
-              <p class="text-base text-gray-700 mt-2">{{ post.subtitle }}</p>
+              <p class="text-base text-gray-700 mt-2 dark:text-gray-200">
+                {{ post.subtitle }}
+              </p>
             </template>
           </card>
         </nuxt-link>

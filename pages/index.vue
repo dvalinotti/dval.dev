@@ -1,9 +1,9 @@
 <template>
-  <div class="container mx-auto px-4">
-    <main id="home">
+  <div class="container mx-auto px-4 md:px-8">
+    <main class="dark:text-white">
       <span class="text-lg italic leading-3">Hi, my name is</span>
-      <h1>Dan Valinotti</h1>
-      <p class="p-4 bg-gray-100 max-w-sm">
+      <h1 class="dark:text-white">Dan Valinotti</h1>
+      <p class="p-4 bg-gray-100 max-w-sm dark:bg-gray-700">
         I am a Full-Stack Software Engineer with a focus on front-end
         development and a passion for UX/UI Design. Adaptable, design oriented,
         and user-focused applications are my specialty, along with strong
