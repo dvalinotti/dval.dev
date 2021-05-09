@@ -1,6 +1,6 @@
 <template>
   <main class="container mx-auto px-4">
-    <h1 class="dark:text-white">Latest Posts</h1>
+    <h1 class="h-underline dark:text-white">Latest Posts</h1>
     <ul class="flex flex-col items-start justify-start w-full max-w-3xl">
       <li v-for="(post, index) in posts" :key="index" class="pb-6 w-full">
         <nuxt-link :to="`/blog/${post.slug}`">
@@ -69,9 +69,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 h1 {
-  color: #111827;
   font-weight: 800;
   font-size: 2.25em;
   margin-top: 0;

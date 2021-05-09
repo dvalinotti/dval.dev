@@ -1,7 +1,7 @@
 <template>
   <main class="container mx-auto px-4">
     <div>
-      <h1 class="font-bold text-4xl dark:text-white">Contact Me</h1>
+      <h1 class="h-underline font-bold text-4xl dark:text-white">Contact Me</h1>
       <ul class="mt-4">
         <li
           v-for="(link, index) in links"
