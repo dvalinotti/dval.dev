@@ -46,12 +46,15 @@
   line-height: 1.125;
 }
 
-@media screen and (min-width: 625px) {
+@media screen and (min-width: 640px) {
   .card {
     display: flex;
   }
   .card-text {
     padding: 0.5rem;
+  }
+  .card-img {
+    padding-top: 75%;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <main class="container mx-auto px-4">
+  <main class="container mx-auto px-4 max-w-4xl">
     <div class="prose">
       <h1 class="h-underline dark:text-white">Projects</h1>
     </div>

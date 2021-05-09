@@ -5,7 +5,7 @@ date: "2020-04-25"
 category: "Migration"
 featuredImage: nextjs-part-2-thumbnail.png
 featuredImageAlt: A brain-exploding emoji with React, GraphQL and Next.js logos above
-tags: ["nextjs", "migration"]
+tags: ["nextjs", "react"]
 ---
 
 Hello. It's been a while.

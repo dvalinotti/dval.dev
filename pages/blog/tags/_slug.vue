@@ -1,10 +1,10 @@
 <template>
   <main class="container mx-auto px-4 max-w-4xl">
-    <h1 class="h-underline dark:text-white">Latest Posts</h1>
+    <h1 class="h-underline dark:text-white capitalize">{{ tag }}</h1>
     <ul class="flex flex-col items-start justify-start w-full">
       <li v-for="(post, index) in posts" :key="index" class="pb-6 w-full">
         <nuxt-link :to="`/blog/${post.slug}`">
-          <blog-post-card :post="post"></blog-post-card>
+          <blog-post-card :post="post" />
         </nuxt-link>
       </li>
     </ul>
@@ -13,18 +13,21 @@
 
 <script>
 export default {
-  async asyncData({ $content, error }) {
+  async asyncData({ $content, params, error }) {
     try {
+      const tag = params.slug
       const posts = await $content('blog')
-        .sortBy('date', 'desc')
+        .where({ tags: { $contains: tag } })
         .fetch()
         .catch(() => {
           error({
             statusCode: 404,
-            message: 'Page not found.'
+            message: 'No posts found.'
           })
         })
+
       return {
+        tag,
         posts
       }
     } catch (err) {
@@ -32,7 +35,8 @@ export default {
     }
   },
   data: () => ({
-    posts: undefined
+    posts: [],
+    tag: ''
   })
 }
 </script>

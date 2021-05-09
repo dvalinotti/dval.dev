@@ -1,5 +1,5 @@
 <template>
-  <main class="container mx-auto px-4 md:px-8">
+  <main class="container mx-auto px-4 md:px-8 max-w-4xl">
     <article class="prose text-left dark:text-white">
       <h1>{{ document.title }}</h1>
       <span class="text-gray-700 text-sm dark:text-gray-200"

@@ -1,5 +1,5 @@
 <template>
-  <main class="container mx-auto px-4">
+  <main class="container mx-auto px-4 max-w-4xl">
     <div>
       <h1 class="h-underline font-bold text-4xl dark:text-white">Contact Me</h1>
       <ul class="mt-4">

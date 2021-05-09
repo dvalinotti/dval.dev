@@ -5,7 +5,7 @@ featuredImage: hello.jpg
 featuredImageAlt: "\"Hello\" text on a smartphone screen"
 category: "Other"
 subtitle: "Hello world!"
-tags: ["general", "first-post", "introduction"]
+tags: ["other"]
 ---
 
 ### Welcome to my blog!
