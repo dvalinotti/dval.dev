@@ -32,6 +32,9 @@ footer a:hover::after {
   background: #0087d6;
   bottom: -3px;
 }
+html.dark footer a:hover::after {
+  background: #0087d6;
+}
 footer a::after {
   content: '';
   position: absolute;
@@ -40,7 +43,7 @@ footer a::after {
   width: 100%;
   height: 2px;
   background: black;
-  transition: bottom 0.25s ease-in-out;
+  transition: bottom 0.25s ease-in-out, background 0.25s ease-in-out;
 }
 html.dark footer a::after {
   background: white;

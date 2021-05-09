@@ -48,8 +48,8 @@ export default {
   },
 
   fontawesome: {
-    component: 'fa',
-    suffix: true,
+    component: 'Fa',
+    suffix: false,
     icons: {
       regular: ['faEnvelope'],
       brands: ['faGithub', 'faLinkedin', 'faHackerrank']
