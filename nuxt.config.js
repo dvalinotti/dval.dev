@@ -20,7 +20,7 @@ export default {
   css: ['~/assets/css/main.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/vuesax'],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -29,6 +29,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxtjs/fontawesome',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss'
   ],
@@ -43,6 +44,15 @@ export default {
     config: {
       darkMode: 'class',
       plugins: [require('@tailwindcss/typography')]
+    }
+  },
+
+  fontawesome: {
+    component: 'fa',
+    suffix: true,
+    icons: {
+      regular: ['faEnvelope'],
+      brands: ['faGithub', 'faLinkedin', 'faHackerrank']
     }
   },
 

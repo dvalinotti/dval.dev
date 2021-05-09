@@ -78,17 +78,4 @@ h1 {
   margin-bottom: 0.8888889em;
   line-height: 1.1111111;
 }
-#blog .vs-card {
-  min-width: 100%;
-}
-#blog .vs-card .vs-card__img {
-  width: 100%;
-  min-height: 240px;
-}
-@media screen and (min-width: 768px) {
-  #blog .vs-card .vs-card__img {
-    min-height: 100%;
-    min-width: 240px;
-  }
-}
 </style>
