@@ -99,4 +99,13 @@ html.dark .prose code .language-css .token.string,
 html.dark .prose code .style .token.string {
   color: #ff8a00;
 }
+html.dark .prose code .token.boolean,
+html.dark .prose code .token.constant,
+html.dark .prose code .token.deleted,
+html.dark .prose code .token.number,
+html.dark .prose code .token.property,
+html.dark .prose code .token.symbol,
+html.dark .prose code .token.tag {
+  color: #ff34a5;
+}
 </style>

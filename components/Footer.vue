@@ -10,7 +10,12 @@
       </ul>
       <ul class="w-full max-w-md mx-auto mt-4 flex items-center justify-center">
         <li v-for="(link, index) in socialLinks" :key="index" class="mx-2">
-          <a :href="link.path" target="_blank">
+          <a
+            :href="link.path"
+            target="_blank"
+            :aria-label="link.label"
+            rel="noopener"
+          >
             <fa :icon="[link.iconPrefix, link.icon]" class="fa-lg" />
           </a>
         </li>

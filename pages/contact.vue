@@ -13,7 +13,7 @@
           class="dark:text-white flex items-center justify-start my-4"
         >
           <fa :icon="[link.iconPrefix, link.icon]" class="fa-2x" />
-          <a :href="link.value" target="_blank" class="ml-4">
+          <a :href="link.value" target="_blank" class="ml-4" rel="noopener">
             {{ link.label }}
           </a>
         </li>
