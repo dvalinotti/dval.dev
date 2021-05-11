@@ -55,7 +55,9 @@ export default {
   }),
   head() {
     return {
-      title: 'Projects'
+      title: 'Projects',
+      description:
+        'Latest professional and personal projects from Dan Valinotti'
     }
   },
   methods: {

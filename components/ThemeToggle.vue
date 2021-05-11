@@ -1,5 +1,9 @@
 <template>
-  <button class="p-4 dark:text-white" @click="toggleTheme">
+  <button
+    class="p-4 dark:text-white"
+    aria-label="Toggle theme"
+    @click="toggleTheme"
+  >
     <fa :icon="['far', isDark ? 'sun' : 'moon']" />
   </button>
 </template>

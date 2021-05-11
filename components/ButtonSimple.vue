@@ -35,8 +35,8 @@ export default {
         `dark:hover:bg-red-600`
       ],
       green: [
-        `bg-green-600`,
-        `hover:bg-green-500`,
+        `bg-green-700`,
+        `hover:bg-green-600`,
         `dark:bg-green-700`,
         `dark:hover:bg-green-600`
       ]

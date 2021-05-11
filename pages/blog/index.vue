@@ -36,7 +36,8 @@ export default {
   }),
   head() {
     return {
-      title: 'Blog'
+      title: 'Blog',
+      description: 'Latest blog posts from Dan Valinotti'
     }
   }
 }

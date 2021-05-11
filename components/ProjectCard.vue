@@ -9,13 +9,31 @@
       </h2>
       <nuxt-content :document="project" class="mb-4 dark:text-gray-200" />
       <div class="flex items-center justify-start mb-2">
-        <a v-if="project.github" :href="project.github" target="_blank">
+        <a
+          v-if="project.github"
+          :href="project.github"
+          target="_blank"
+          :aria-label="`${project.title} Github Repo`"
+          rel="noopener"
+        >
           <button-simple color="blue"> GitHub Repo </button-simple>
         </a>
-        <a v-if="project.liveUrl" :href="project.liveUrl" target="_blank">
+        <a
+          v-if="project.liveUrl"
+          :href="project.liveUrl"
+          target="_blank"
+          :aria-label="`${project.title} Live Site`"
+          rel="noopener"
+        >
           <button-simple color="green"> Live Site </button-simple>
         </a>
-        <a v-if="project.npm" :href="project.npm" target="_blank">
+        <a
+          v-if="project.npm"
+          :href="project.npm"
+          target="_blank"
+          :aria-label="`${project.title} NPM page`"
+          rel="noopener"
+        >
           <button-simple color="red">NPM</button-simple>
         </a>
       </div>

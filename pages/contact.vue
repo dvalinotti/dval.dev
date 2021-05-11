@@ -54,7 +54,8 @@ export default {
   }),
   head() {
     return {
-      title: 'Contact Me'
+      title: 'Contact Me',
+      description: 'How to get in contact with me - Dan Valinotti'
     }
   }
 }

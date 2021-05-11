@@ -18,7 +18,9 @@ export default {
   name: 'Home',
   head() {
     return {
-      title: 'Home'
+      title: 'Home',
+      description:
+        "Welcome to Dan Valinotti's web development portfolio website!"
     }
   }
 }
