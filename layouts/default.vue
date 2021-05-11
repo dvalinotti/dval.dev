@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white dark:bg-gray-800">
     <div class="min-h-screen">
-      <NavBar :items="navItems" @toggle-theme="toggleTheme" />
+      <NavBar :items="navItems" />
       <div class="page">
         <Nuxt />
       </div>
@@ -31,29 +31,7 @@ export default {
         path: '/contact'
       }
     ]
-  }),
-  mounted() {
-    if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-  },
-  methods: {
-    toggleTheme() {
-      const next = document.documentElement.classList.contains('dark')
-        ? 'light'
-        : 'dark'
-      const current = next === 'dark' ? 'light' : 'dark'
-      document.documentElement.classList.remove(current)
-      document.documentElement.classList.add(next)
-      localStorage.theme = next
-    }
-  }
+  })
 }
 </script>
 

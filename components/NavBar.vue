@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-white dark:bg-gray-900 dark:text-white">
+  <nav class="bg-white dark:bg-gray-900 dark:text-white relative">
     <ul class="mx-auto flex items-center justify-center py-4">
       <li v-for="(item, index) in items" :key="index">
         <nuxt-link
@@ -11,6 +11,7 @@
         </nuxt-link>
       </li>
     </ul>
+    <theme-toggle class="absolute right-0 top-0" />
   </nav>
 </template>
 
@@ -22,7 +23,6 @@ export default {
       default: () => []
     }
   },
-  emits: ['toggle-theme'],
   data: () => ({
     activeTab: ''
   }),
@@ -38,9 +38,6 @@ export default {
     isActivePath(path) {
       const current = this.$route.path
       return path === '/' ? current === '/' : current.startsWith(path)
-    },
-    onToggleTheme() {
-      this.$emit('toggle-theme')
     }
   }
 }

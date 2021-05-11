@@ -51,7 +51,7 @@ export default {
     component: 'Fa',
     suffix: false,
     icons: {
-      regular: ['faEnvelope'],
+      regular: ['faEnvelope', 'faSun', 'faMoon'],
       brands: ['faGithub', 'faLinkedin', 'faHackerrank']
     }
   },
