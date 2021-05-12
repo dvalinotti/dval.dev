@@ -37,7 +37,13 @@ export default {
   head() {
     return {
       title: 'Blog',
-      description: 'Latest blog posts from Dan Valinotti'
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Latest blog posts from Dan Valinotti'
+        }
+      ]
     }
   }
 }

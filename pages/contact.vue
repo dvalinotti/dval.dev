@@ -55,7 +55,13 @@ export default {
   head() {
     return {
       title: 'Contact Me',
-      description: 'How to get in contact with me - Dan Valinotti'
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'How to get in contact with me - Dan Valinotti'
+        }
+      ]
     }
   }
 }

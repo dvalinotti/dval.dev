@@ -37,7 +37,20 @@ export default {
   data: () => ({
     posts: [],
     tag: ''
-  })
+  }),
+  head() {
+    return {
+      title: 'Blog - "' + this.tag + '"',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Latest blog posts from Dan Valinotti tagged "' + this.tag + '"'
+        }
+      ]
+    }
+  }
 }
 </script>
 

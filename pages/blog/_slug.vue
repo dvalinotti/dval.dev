@@ -39,7 +39,14 @@ export default {
   }),
   head() {
     return {
-      title: this.document?.title || ''
+      title: this.document?.title || '',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.document?.subtitle || ''
+        }
+      ]
     }
   },
   computed: {

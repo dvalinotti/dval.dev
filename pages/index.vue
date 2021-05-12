@@ -80,8 +80,14 @@ export default {
   head() {
     return {
       title: 'Home',
-      description:
-        "Welcome to Dan Valinotti's web development portfolio website!"
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            "Welcome to Dan Valinotti's web development portfolio website!"
+        }
+      ]
     }
   }
 }
@@ -117,6 +123,7 @@ h1 {
   margin-top: 1rem;
   margin-left: -3.5rem;
   padding-left: 1rem;
+  z-index: 1;
 
   @media screen and (min-width: 768px) {
     margin-left: 0;
@@ -131,6 +138,7 @@ h1 {
     height: 100%;
     width: 2px;
     background: #0087d6;
+    z-index: -1;
   }
 }
 
