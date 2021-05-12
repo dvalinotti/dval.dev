@@ -37,9 +37,18 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/content
-    '@nuxt/content'
+    '@nuxt/content',
+    'vue-plausible'
   ],
 
+  // Plausible Analytics module config: https://github.com/moritzsternemann/vue-plausible
+  plausible: {
+    domain: 'dval.dev',
+    trackLocalhost: false
+    // trackLocalhost: true
+  },
+
+  // TailwindCSS Module config
   tailwindcss: {
     config: {
       darkMode: 'class',
@@ -47,6 +56,7 @@ export default {
     }
   },
 
+  // Fontawesome module config
   fontawesome: {
     component: 'Fa',
     suffix: false,
@@ -60,6 +70,7 @@ export default {
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},
 
+  // Hooks used for adding reading time to blog posts
   hooks: {
     'content:file:beforeInsert': (document) => {
       if (document.extension === '.md') {
