@@ -52,7 +52,8 @@ export default {
     suffix: false,
     icons: {
       regular: ['faEnvelope', 'faSun', 'faMoon'],
-      brands: ['faGithub', 'faLinkedin', 'faHackerrank']
+      brands: ['faGithub', 'faLinkedin', 'faHackerrank'],
+      solid: ['faTachometerAlt', 'faUniversalAccess', 'faUserLock']
     }
   },
 
