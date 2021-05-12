@@ -6,6 +6,7 @@ category: "Migration"
 featuredImage: nextjs-part-2-thumbnail.png
 featuredImageAlt: A brain-exploding emoji with React, GraphQL and Next.js logos above
 tags: ["nextjs", "react"]
+keywords: 'web development,react,reactjs,next,nextjs,server side rendering,ssr,ecommcerce,shopify,e-commerce,dtc,direct to consumer,javascript,typescript,refactoring'
 ---
 
 Hello. It's been a while.

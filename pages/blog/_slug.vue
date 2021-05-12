@@ -45,6 +45,11 @@ export default {
           hid: 'description',
           name: 'description',
           content: this.document?.subtitle || ''
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: this.document?.keywords || ''
         }
       ]
     }
