@@ -5,14 +5,21 @@
       <span class="text-gray-700 text-sm dark:text-gray-200"
         >{{ publishDate }} - {{ document.readingTime.text }}</span
       >
+      <div class="banner-img">
+        <img
+          class="absolute top-0 left-0 w-full h-full object-cover object-center"
+          :src="getThumbnail(document.featuredImage)"
+          :alt="document.featuredImageAlt"
+        />
+      </div>
       <nuxt-content :document="document" />
     </article>
-    <div class="flex items-center mt-16">
+    <div class="flex items-center mt-16 dark:text-white">
       <span class="italic font-bold mr-4">Tags:</span>
       <ul class="flex items-center">
         <li v-for="(tag, index) in document.tags" :key="index">
           <nuxt-link
-            class="bg-gray-200 rounded-lg px-3 py-2 mr-2"
+            class="bg-gray-200 dark:bg-gray-700 rounded-lg px-3 py-2 mr-2"
             :to="`/blog/tags/${tag}`"
           >
             #{{ tag }}
@@ -73,6 +80,15 @@ export default {
         ? dateFormat(new Date(this.document.date), 'fullDate')
         : ''
     }
+  },
+  methods: {
+    getThumbnail(img) {
+      try {
+        return require(`~/assets/img/${img}`)
+      } catch (err) {
+        return null
+      }
+    }
   }
 }
 </script>
@@ -85,5 +101,17 @@ export default {
 }
 .container .prose h1 {
   margin-bottom: 0.5rem;
+}
+.banner-img {
+  width: 100%;
+  height: 0;
+  padding-top: 60%;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+.banner-img img {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 </style>

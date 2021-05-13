@@ -2,7 +2,7 @@
 title: "How to Create Reusable Web Components with Lit and Vue"
 subtitle: "How lit is it, really?"
 date: "2020-05-13"
-featuredImage: hello.jpg
+featuredImage: lit+vue.png
 featuredImageAlt: "\"Hello\" text on a smartphone screen"
 category: "Other"
 tags: ["web-components", "vue"]
@@ -252,8 +252,8 @@ import App from  './App.vue'
 import  'ui-library/dist/ui-library.js'
 
 // IMPORTANT: Configure Vue to ignore any elements named base-button.
-//   If this isn't set, Vue will try to render base-button as a Vue component
-//   which will cause an error.
+//   If this isn't set, Vue will try to render base-button as a Vue 
+//   component which will cause an error.
 Vue.config.ignoredElements  = ['base-button']
 
 Vue.config.productionTip  =  false
