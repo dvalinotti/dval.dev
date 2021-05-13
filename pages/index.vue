@@ -26,11 +26,13 @@
             <div class="inline">
               <h3 class="text-3xl font-bold mt-2 md:mt-0">Performance</h3>
               <p class="sidebar">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-                porta diam in consequat vulputate. Mauris ex arcu, sagittis id
-                ex ac, malesuada semper sapien. Pellentesque in dapibus turpis.
-                Orci varius natoque penatibus et magnis dis parturient montes,
-                nascetur ridiculus mus.
+                Nothing is better than a beautiful site that doesn't make you
+                wait. Performance is one of my top priorities when doing any
+                kind of software development, and this website is a testament to
+                that. The website is built with Nuxt.js, which allows me to
+                write clean, maintainable source code that is
+                <strong>statically-generated</strong> for optimal page load
+                times.
               </p>
             </div>
           </div>

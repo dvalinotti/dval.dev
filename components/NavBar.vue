@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-white dark:bg-gray-900 dark:text-white relative">
+  <nav class="bg-white dark:bg-gray-800 dark:text-white relative">
     <ul class="mx-auto flex items-center justify-center py-4">
       <li v-for="(item, index) in items" :key="index">
         <nuxt-link

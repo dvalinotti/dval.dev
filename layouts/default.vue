@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white dark:bg-gray-800">
+  <div class="bg-white dark:bg-gray-900">
     <div class="min-h-screen">
       <NavBar :items="navItems" />
       <div class="page">

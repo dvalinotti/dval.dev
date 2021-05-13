@@ -1,0 +1,51 @@
+html.dark .prose h1,
+html.dark .prose h2,
+html.dark .prose h3,
+html.dark .prose h4,
+html.dark .prose strong,
+html.dark .prose a,
+html.dark .prose blockquote,
+html.dark .prose code {
+  color: white;
+}
+html.dark .prose pre,
+html.dark .prose .operator {
+  background: black;
+}
+html.dark .prose code .token {
+  text-shadow: none;
+}
+html.dark .prose code .token.atrule,
+html.dark .prose code .token.attr-value,
+html.dark .prose code .token.keyword {
+  color: #00b3ff;
+}
+html.dark .prose code .token.function,
+html.dark .prose code .token.class-name {
+  color: #ff4f73;
+}
+
+html.dark .prose code .token.selector,
+html.dark .prose code .token.attr-name,
+html.dark .prose code .token.string,
+html.dark .prose code .token.char,
+html.dark .prose code .token.builtin,
+html.dark .prose code .token.inserted {
+  color: #a6f900;
+}
+html.dark .prose code .token.operator,
+html.dark .prose code .token.entity,
+html.dark .prose code .token.url,
+html.dark .prose code .language-css .token.string,
+html.dark .prose code .style .token.string {
+  color: #ff8a00;
+}
+html.dark .prose code .token.boolean,
+html.dark .prose code .token.constant,
+html.dark .prose code .token.deleted,
+html.dark .prose code .token.number,
+html.dark .prose code .token.property,
+html.dark .prose code .token.symbol,
+html.dark .prose code .token.tag {
+  color: #ff34a5;
+}
