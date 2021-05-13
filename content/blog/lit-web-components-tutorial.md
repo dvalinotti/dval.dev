@@ -1,7 +1,7 @@
 ---
 title: "How to Create Reusable Web Components with Lit and Vue"
 subtitle: "How lit is it, really?"
-date: "2020-05-13"
+date: "2021-05-13"
 featuredImage: lit+vue.png
 featuredImageAlt: "\"Hello\" text on a smartphone screen"
 category: "Other"
