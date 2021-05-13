@@ -7,6 +7,19 @@
       >
       <nuxt-content :document="document" />
     </article>
+    <div class="flex items-center mt-16">
+      <span class="italic font-bold mr-4">Tags:</span>
+      <ul class="flex items-center">
+        <li v-for="(tag, index) in document.tags" :key="index">
+          <nuxt-link
+            class="bg-gray-200 rounded-lg px-3 py-2 mr-2"
+            :to="`/blog/tags/${tag}`"
+          >
+            #{{ tag }}
+          </nuxt-link>
+        </li>
+      </ul>
+    </div>
   </main>
 </template>
 
