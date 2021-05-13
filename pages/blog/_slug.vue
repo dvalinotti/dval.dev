@@ -102,6 +102,9 @@ export default {
 .container .prose h1 {
   margin-bottom: 0.5rem;
 }
+.container .prose code {
+  font-size: 1.125em;
+}
 .banner-img {
   width: 100%;
   height: 0;

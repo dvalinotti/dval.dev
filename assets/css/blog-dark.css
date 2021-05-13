@@ -15,7 +15,7 @@ html.dark .prose .operator {
 html.dark .prose code .token {
   text-shadow: none;
 }
-html.dark .prose code .token.atrule,
+/* html.dark .prose code .token.atrule,
 html.dark .prose code .token.attr-value,
 html.dark .prose code .token.keyword {
   color: #00b3ff;
@@ -48,4 +48,4 @@ html.dark .prose code .token.property,
 html.dark .prose code .token.symbol,
 html.dark .prose code .token.tag {
   color: #ff34a5;
-}
+} */

@@ -75,12 +75,23 @@ export default {
     icons: {
       regular: ['faEnvelope', 'faSun', 'faMoon'],
       brands: ['faGithub', 'faLinkedin', 'faHackerrank'],
-      solid: ['faTachometerAlt', 'faUniversalAccess', 'faUserLock']
+      solid: [
+        'faTachometerAlt',
+        'faUniversalAccess',
+        'faUserLock',
+        'faChevronRight'
+      ]
     }
   },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
-  content: {},
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-vsc-dark-plus.css'
+      }
+    }
+  },
 
   // Hooks used for adding reading time to blog posts
   hooks: {

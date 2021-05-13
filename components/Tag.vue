@@ -1,6 +1,8 @@
 <template>
   <button @click.prevent="$router.push(`/blog/tags/${text}`)">
-    <div class="rounded-2xl px-3 py-1 bg-gray-200">
+    <div
+      class="rounded-2xl px-3 py-1 bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
+    >
       {{ text }}
     </div>
   </button>

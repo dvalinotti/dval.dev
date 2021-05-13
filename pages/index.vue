@@ -3,7 +3,7 @@
     <main class="dark:text-white">
       <div class="w-full">
         <span class="text-lg italic leading-3">Hi, my name is</span>
-        <h1 class="font-bold dark:text-white">Dan Valinotti</h1>
+        <h1 class="font-bold dark:text-white">Dan Valinotti.</h1>
         <p class="p-4 bg-gray-100 max-w-sm dark:bg-gray-700">
           I am a Full-Stack Software Engineer with a passion for building clean,
           performant, and accessible websites and applications. Adaptable,
@@ -11,12 +11,12 @@
           with strong architecture and solutions skills.
         </p>
       </div>
-      <div class="w-full my-16 dark:text-white">
+      <div class="section">
         <span class="text-lg italic leading-3">My Guiding</span>
         <h2 class="text-6xl h-underline font-bold dark:text-white">
           Principles.
         </h2>
-        <div class="w-full max-w-2xl flex flex-col items-start justify-start">
+        <div class="w-full flex flex-col items-start justify-start">
           <div class="flex items-start justify-start my-4">
             <fa
               :icon="['fas', 'tachometer-alt']"
@@ -45,11 +45,18 @@
             <div class="inline">
               <h3 class="text-3xl font-bold mt-2 md:mt-0">Accessibility</h3>
               <p class="sidebar">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-                porta diam in consequat vulputate. Mauris ex arcu, sagittis id
-                ex ac, malesuada semper sapien. Pellentesque in dapibus turpis.
-                Orci varius natoque penatibus et magnis dis parturient montes,
-                nascetur ridiculus mus.
+                Everyone deserves the right to a great user experience on the
+                web. I am committed to making sure that all of my work
+                <strong>meets and exceeds web accessibility standards.</strong>
+                I use several tools like Axe from Deque to test accessibility,
+                as well as tab-navigating myself to make sure keyboard-only
+                users can do everything they need. If you're having trouble on
+                this site, please reach out to me on my
+                <nuxt-link
+                  to="/contact"
+                  class="text-blue-700 dark:text-blue-500"
+                  >contact page</nuxt-link
+                >.
               </p>
             </div>
           </div>
@@ -62,15 +69,62 @@
             <div class="inline">
               <h3 class="text-3xl font-bold mt-2 md:mt-0">Privacy</h3>
               <p class="sidebar">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-                porta diam in consequat vulputate. Mauris ex arcu, sagittis id
-                ex ac, malesuada semper sapien. Pellentesque in dapibus turpis.
-                Orci varius natoque penatibus et magnis dis parturient montes,
-                nascetur ridiculus mus.
+                All users have a right to privacy on the web. I believe that all
+                websites and companies have a responsibility to their users to
+                collect as little data as possible, and make it clear when they
+                are doing so. I am using Plausible for analytics data
+                collection, which is lightweight, and captures only small
+                amounts of user interaction like page views and demographics.
               </p>
             </div>
           </div>
         </div>
+      </div>
+      <div class="section">
+        <span class="text-lg italic leading-3">My latest</span>
+        <h2 class="text-6xl h-underline font-bold dark:text-white">
+          Blog Posts.
+        </h2>
+        <ul class="flex flex-col items-start w-full">
+          <li
+            v-for="(post, index) in blogPosts"
+            :key="index"
+            class="w-full my-2"
+          >
+            <nuxt-link :to="`/blog/${post.slug}`">
+              <blog-post-card :post="post" />
+            </nuxt-link>
+          </li>
+        </ul>
+        <nuxt-link to="/blog" aria-label="All blog posts">
+          <button-simple color="blue" class="mt-4">
+            View all
+            <fa :icon="['fas', 'chevron-right']" class="ml-2" />
+            <fa :icon="['fas', 'chevron-right']" class="-ml-2" />
+          </button-simple>
+        </nuxt-link>
+      </div>
+      <div class="section">
+        <span class="text-lg italic leading-3">My recent</span>
+        <h2 class="text-6xl h-underline font-bold dark:text-white">
+          Projects.
+        </h2>
+        <ul class="flex flex-col items-start w-full">
+          <li
+            v-for="(project, index) in projects"
+            :key="index"
+            class="w-full my-2"
+          >
+            <project-card :project="project" />
+          </li>
+        </ul>
+        <nuxt-link to="/projects" aria-label="All projects">
+          <button-simple color="blue" class="mt-4">
+            View all
+            <fa :icon="['fas', 'chevron-right']" class="ml-2" />
+            <fa :icon="['fas', 'chevron-right']" class="-ml-2" />
+          </button-simple>
+        </nuxt-link>
       </div>
     </main>
   </div>
@@ -79,6 +133,28 @@
 <script>
 export default {
   name: 'Home',
+  async asyncData({ $content, error }) {
+    try {
+      const [blogPosts, projects] = await Promise.all([
+        $content('blog').sortBy('date', 'desc').limit(3).fetch(),
+        $content('projects')
+          .where({ tag: { $eq: 'professional' } })
+          .limit(3)
+          .fetch()
+      ])
+
+      return {
+        blogPosts,
+        projects
+      }
+    } catch (err) {
+      error(err)
+    }
+  },
+  data: () => ({
+    blogPosts: [],
+    projects: []
+  }),
   head() {
     return {
       title: 'Home',
@@ -121,26 +197,25 @@ h1 {
 }
 
 .sidebar {
-  position: relative;
   margin-top: 1rem;
   margin-left: -3.5rem;
   padding-left: 1rem;
-  z-index: 1;
+  border-left: 2px solid #0087d6;
 
   @media screen and (min-width: 768px) {
     margin-left: 0;
     margin-top: 0.5rem;
   }
+}
+.section {
+  width: 100%;
+  max-width: 48rem;
+  margin: 4rem auto;
+}
 
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background: #0087d6;
-    z-index: -1;
+@media (prefers-color-scheme: dark) {
+  .section {
+    color: white;
   }
 }
 
