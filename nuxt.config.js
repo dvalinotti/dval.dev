@@ -38,8 +38,20 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    '@nuxtjs/sitemap',
     'vue-plausible'
   ],
+
+  sitemap: {
+    hostname: 'https://dval.dev',
+    gzip: true,
+    routes: [
+      '/blog/hello-world',
+      '/blog/node-cli-tutorial',
+      '/blog/rebuilding-ecommerce-from-scratch',
+      '/blog/lit-web-components-tutorial'
+    ]
+  },
 
   // Plausible Analytics module config: https://github.com/moritzsternemann/vue-plausible
   plausible: {
