@@ -1,6 +1,6 @@
 <template>
   <main class="container mx-auto px-4 max-w-4xl">
-    <div>
+    <div class="contact-page">
       <h1 class="h-underline font-bold text-4xl dark:text-white">Contact Me</h1>
       <p class="mt-8 mb-4 max-w-md dark:text-white">
         If you'd like to get in touch with me, you can contact me through any of
@@ -68,6 +68,10 @@ export default {
 </script>
 
 <style scoped>
+.contact-page {
+  height: 100%;
+  min-height: 85ch;
+}
 li a {
   position: relative;
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-4 md:px-8">
     <main class="dark:text-white">
-      <div class="w-full">
+      <div class="w-full max-w-4xl mx-auto">
         <span class="text-lg italic leading-3">Hi, my name is</span>
         <h1 class="font-bold dark:text-white">Dan Valinotti.</h1>
         <p class="p-4 bg-gray-100 max-w-sm dark:bg-gray-700">
