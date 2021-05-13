@@ -84,7 +84,7 @@ import { html, css, LitElement, property } from  'lit-element';
 Next, we'll declare our component similar to what was shown earlier in the `simple-greeting` example:
 
 ```ts
-export  class  BaseButton  extends  LitElement {
+export class BaseButton extends LitElement {
     // ...
 }
 ```
@@ -92,9 +92,9 @@ export  class  BaseButton  extends  LitElement {
 Now we have a custom element named "BaseButton", whose HTML tag will be named `base-button`. Next, we'll create a `render()` function which will return the HTML rendered by our custom element:
 
 ```ts
-export  class  BaseButton  extends  LitElement {
+export class BaseButton extends LitElement {
     render() {
-        return  html`
+        return html`
             <button class="base-btn">Base Button</button>
         `;
     }
@@ -108,14 +108,14 @@ When we use our `base-button` component in HTML, it will now render a `button` e
 Now lets define a property variable, which will add some dynamic content to our component:
 
 ```ts
-export  class  BaseButton  extends  LitElement {
+export class BaseButton extends LitElement {
     // New Property
     @property({ type: String })
     text = 'Base Button'
     
     render() {
         // Interpolate the property into our template
-        return  html`
+        return html`
             <button class="base-btn">${this.text}</button>
         `;
     }
@@ -137,7 +137,7 @@ Congrats, you just created your first dynamic web component!
 To see our work in action, we first need to register the component in the root file of our project, `ui-library.ts`. Place the following code in the file:
 
 ```ts
-import { BaseButton } from  './src/BaseButton.js';
+import { BaseButton } from './src/BaseButton.js';
 
 window.customElements.define('base-button', BaseButton);
 ```
@@ -145,16 +145,16 @@ window.customElements.define('base-button', BaseButton);
 Our custom element is now registered with the tag name `base-button`. Now we will change the contents of the file `/demo/index.html`, which is where we'll preview our changes in development:
 
 ```html
-<!doctype  html>
-<html  lang="en-GB">
+<!doctype html>
+<html lang="en-GB">
 <!-- ... -->
 <body>
-    <div  id="demo"></div>
-    <script  type="module">
-        import { html, render } from  'lit-html';
-        import  '../dist/ui-library.js';
+    <div id="demo"></div>
+    <script type="module">
+        import { html, render } from 'lit-html';
+        import '../dist/ui-library.js';
         
-        const  title  =  'Hello World!';
+        const title = 'Hello World!';
 
         render(
             html`
@@ -176,8 +176,8 @@ Now open your terminal, and run the command `npm start` (or `yarn start`) to sta
 Now lets add some CSS to our button to make it look a bit prettier. To add styles to our Lit Web Component, we define a static variable `styles` at the top of our component class:
 
 ```ts
-export  class  BaseButton  extends  LitElement {
-    static  styles  =  css`
+export class BaseButton extends LitElement {
+    static styles = css`
         button.base-btn {
             color: white;
             background: #2a63bf;
@@ -205,12 +205,12 @@ Now that we've added a pop of color and a cool hover effect, save the file and l
 Since we're building a button, we're going to want it to perform some action when a user clicks the button. One way we can do this is to define an attribute `@click` in our render function on the button element, and pass it an event handler function:
 
 ```ts
-export  class  BaseButton  extends  LitElement {
+export class BaseButton extends LitElement {
     // ...
     
     render() {
         // Add @click attribute with this.onClick function
-        return  html`
+        return html`
             <button class="base-btn" @click="${this.onClick}">
                 ${this.text}
             </button>
@@ -245,20 +245,20 @@ Next, we need to import our production build of the Web Component into our Vue a
 This will add our Web Components project as a Node dependency named `ui-library`. Now, we need to actually import `ui-library` in our Vue application - this will be done in the file `/src/main.js`, which is generally the entry-point of all Vue applications.
 
 ```js
-import Vue from  'vue'
-import App from  './App.vue'
+import Vue from 'vue'
+import App from './App.vue'
 
 // Import the ui-library package with our base-button Web Component
-import  'ui-library/dist/ui-library.js'
+import 'ui-library/dist/ui-library.js'
 
 // IMPORTANT: Configure Vue to ignore any elements named base-button.
 //   If this isn't set, Vue will try to render base-button as a Vue 
 //   component which will cause an error.
-Vue.config.ignoredElements  = ['base-button']
+Vue.config.ignoredElements = ['base-button']
 
-Vue.config.productionTip  =  false
-new  Vue({
-    render: h  =>  h(App),
+Vue.config.productionTip = false
+new Vue({
+    render: h => h(App),
 }).$mount('#app')
 ```
 
@@ -266,10 +266,10 @@ Now our `base-button` Web Component will be available to any Vue component in ou
 
 ```vue
 <template>
-    <div  id="app">
+    <div id="app">
         <h1>Web Components</h1>
         <!-- Our web component! -->
-        <base-button  text="Hello Vue"></base-button>
+        <base-button text="Hello Vue"></base-button>
     </div>
 </template>
 
