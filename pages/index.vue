@@ -99,8 +99,7 @@
         <nuxt-link to="/blog" aria-label="All blog posts">
           <button-simple color="blue" class="mt-4">
             View all
-            <fa :icon="['fas', 'chevron-right']" class="ml-2" />
-            <fa :icon="['fas', 'chevron-right']" class="-ml-2" />
+            <fa :icon="['fad', 'chevron-double-right']" class="ml-2" />
           </button-simple>
         </nuxt-link>
       </div>
@@ -121,8 +120,7 @@
         <nuxt-link to="/projects" aria-label="All projects">
           <button-simple color="blue" class="mt-4">
             View all
-            <fa :icon="['fas', 'chevron-right']" class="ml-2" />
-            <fa :icon="['fas', 'chevron-right']" class="-ml-2" />
+            <fa :icon="['fad', 'chevron-double-right']" class="ml-2" />
           </button-simple>
         </nuxt-link>
       </div>

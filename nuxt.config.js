@@ -73,20 +73,18 @@ export default {
     component: 'Fa',
     suffix: false,
     icons: {
-      regular: ['faEnvelope', 'faSun', 'faMoon'],
-      brands: ['faGithub', 'faLinkedin', 'faHackerrank'],
-      solid: ['faChevronRight']
+      regular: ['faEnvelope'],
+      brands: ['faGithub', 'faLinkedin', 'faHackerrank']
     },
     proIcons: {
       light: [
-        'faPaperPlane',
         'faSun',
         'faMoonStars',
         'faRabbitFast',
         'faUniversalAccess',
         'faUserShield'
       ],
-      duotone: ['faPaperPlane', 'faChevronDoubleRight']
+      duotone: ['faChevronDoubleRight']
     }
   },
 
