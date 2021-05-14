@@ -11,6 +11,9 @@
     "lint": "yarn lint:js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-pro": "^5.15.3",
+    "@fortawesome/pro-duotone-svg-icons": "^5.15.3",
+    "@fortawesome/pro-light-svg-icons": "^5.15.3",
     "@nuxt/content": "^1.14.0",
     "@nuxtjs/sitemap": "^2.4.0",
     "@tailwindcss/typography": "^0.4.0",

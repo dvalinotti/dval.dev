@@ -4,7 +4,7 @@
     aria-label="Toggle theme"
     @click="toggleTheme"
   >
-    <fa :icon="['far', isDark ? 'sun' : 'moon']" />
+    <fa :icon="['fal', isDark ? 'sun' : 'moon-stars']" class="fa-lg" />
   </button>
 </template>
 

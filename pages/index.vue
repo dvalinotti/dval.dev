@@ -19,7 +19,7 @@
         <div class="w-full flex flex-col items-start justify-start">
           <div class="flex items-start justify-start my-4">
             <fa
-              :icon="['fas', 'tachometer-alt']"
+              :icon="['fal', 'rabbit-fast']"
               class="fa-3x mr-4 md:mr-6"
               style="font-size: 2.75em"
             />
@@ -38,7 +38,7 @@
           </div>
           <div class="flex items-start justify-start my-4">
             <fa
-              :icon="['fas', 'universal-access']"
+              :icon="['fal', 'universal-access']"
               class="fa-3x mr-4 md:mr-6"
               style="font-size: 3.25em"
             />
@@ -62,7 +62,7 @@
           </div>
           <div class="flex items-start justify-start my-4">
             <fa
-              :icon="['fas', 'user-lock']"
+              :icon="['fal', 'user-shield']"
               class="fa-3x mr-4 md:mr-6"
               style="font-size: 2.75em"
             />

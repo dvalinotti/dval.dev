@@ -75,12 +75,18 @@ export default {
     icons: {
       regular: ['faEnvelope', 'faSun', 'faMoon'],
       brands: ['faGithub', 'faLinkedin', 'faHackerrank'],
-      solid: [
-        'faTachometerAlt',
+      solid: ['faChevronRight']
+    },
+    proIcons: {
+      light: [
+        'faPaperPlane',
+        'faSun',
+        'faMoonStars',
+        'faRabbitFast',
         'faUniversalAccess',
-        'faUserLock',
-        'faChevronRight'
-      ]
+        'faUserShield'
+      ],
+      duotone: ['faPaperPlane', 'faChevronDoubleRight']
     }
   },
 

@@ -27,7 +27,7 @@ We can use Web Components to solve the scenario I just described by creating a l
 
 Before we create our project, I'm going to start by showing a quick example of a component written in TypeScript using Lit. Lit is a new-ish framework from Google that makes it very simple to write Web Components. Here is a "Hello World" component from their documentation:
 
-```ts
+```ts {}[Example.ts]
 import {html, css, LitElement, property} from 'lit';
 
 export class SimpleGreeting extends LitElement {
@@ -53,7 +53,7 @@ Lets break this sample code down step-by-step:
 
 While this component might not seem useful as it is, you can see that we have much more than a static HTML element. It can be reused across many HTML templates, and it is dynamic in that we can provide any value for its properties and it will adapt accordingly. Here is how you might see this element used in an HTML document:
 
-```html
+```html {}[Example.html]
 <simple-greeting name="Mr. Jones" />
 <!-- output: <p>Hello, Mr. Jones!</p> -->
 ```
@@ -77,13 +77,13 @@ Now lets create our first Web Component, named `base-button` to represent a regu
 
 The first thing we need to do is import some modules from the `lit` package that will help us write our component:
 
-```ts
+```ts {}[/src/BaseButton.ts]
 import { html, css, LitElement, property } from  'lit-element';
 ```
 
 Next, we'll declare our component similar to what was shown earlier in the `simple-greeting` example:
 
-```ts
+```ts {}[/src/BaseButton.ts]
 export class BaseButton extends LitElement {
     // ...
 }
@@ -91,7 +91,7 @@ export class BaseButton extends LitElement {
 
 Now we have a custom element named "BaseButton", whose HTML tag will be named `base-button`. Next, we'll create a `render()` function which will return the HTML rendered by our custom element:
 
-```ts
+```ts {}[/src/BaseButton.ts]
 export class BaseButton extends LitElement {
     render() {
         return html`
@@ -101,13 +101,13 @@ export class BaseButton extends LitElement {
 }
 ```
 
-When we use our `base-button` component in HTML, it will now render a `button` element with the class "base-btn" and text content "Base Button". 
+When we use our `base-button` component in HTML, it will now render a `button` element with the class "base-btn" and text content "Base Button".
 
 ## Properties
 
 Now lets define a property variable, which will add some dynamic content to our component:
 
-```ts
+```ts {}[/src/BaseButton.ts]
 export class BaseButton extends LitElement {
     // New Property
     @property({ type: String })
@@ -124,7 +124,7 @@ export class BaseButton extends LitElement {
 
 Now we've defined a property `text` of type String, with a default value of "Base Button". If we were to use our component in HTML like so:
 
-```html
+```html {}[Example.html]
 <base-button text="Hello World" />
 <!-- output -->
 <button class="base-btn">Hello World</button>
@@ -136,7 +136,7 @@ Congrats, you just created your first dynamic web component!
 
 To see our work in action, we first need to register the component in the root file of our project, `ui-library.ts`. Place the following code in the file:
 
-```ts
+```ts {}[ui-library.ts]
 import { BaseButton } from './src/BaseButton.js';
 
 window.customElements.define('base-button', BaseButton);
@@ -144,7 +144,7 @@ window.customElements.define('base-button', BaseButton);
 
 Our custom element is now registered with the tag name `base-button`. Now we will change the contents of the file `/demo/index.html`, which is where we'll preview our changes in development:
 
-```html
+```html {}[/demo/index.html]
 <!doctype html>
 <html lang="en-GB">
 <!-- ... -->
@@ -175,7 +175,7 @@ Now open your terminal, and run the command `npm start` (or `yarn start`) to sta
 
 Now lets add some CSS to our button to make it look a bit prettier. To add styles to our Lit Web Component, we define a static variable `styles` at the top of our component class:
 
-```ts
+```ts {}[/src/BaseButton.ts]
 export class BaseButton extends LitElement {
     static styles = css`
         button.base-btn {
@@ -204,7 +204,7 @@ Now that we've added a pop of color and a cool hover effect, save the file and l
 
 Since we're building a button, we're going to want it to perform some action when a user clicks the button. One way we can do this is to define an attribute `@click` in our render function on the button element, and pass it an event handler function:
 
-```ts
+```ts {}[/src/BaseButton.ts]
 export class BaseButton extends LitElement {
     // ...
     
@@ -238,13 +238,13 @@ To make sure our Vue application can render Web Components, we need to install t
 
 Next, we need to import our production build of the Web Component into our Vue app. The easiest way to do this is by adding the following line to the `dependencies` section of our `package.json` file:
 
-```json
+```json {}[package.json]
 "ui-library": "../ui-library",
 ```
 
 This will add our Web Components project as a Node dependency named `ui-library`. Now, we need to actually import `ui-library` in our Vue application - this will be done in the file `/src/main.js`, which is generally the entry-point of all Vue applications.
 
-```js
+```js {}[/src/main.js]
 import Vue from 'vue'
 import App from './App.vue'
 
@@ -264,7 +264,7 @@ new Vue({
 
 Now our `base-button` Web Component will be available to any Vue component in our application. To test this out, open the `/src/App.vue` file and write the following code:
 
-```vue
+```vue {}[/src/App.vue]
 <template>
     <div id="app">
         <h1>Web Components</h1>

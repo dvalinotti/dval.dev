@@ -105,6 +105,32 @@ export default {
 .container .prose code {
   font-size: 1.125em;
 }
+.container .prose .nuxt-content-highlight {
+  position: relative;
+  margin-top: 3em;
+  z-index: 0;
+}
+.container .prose .nuxt-content-highlight > pre {
+  border-radius: 0 0 0.5em 0.5em;
+  box-shadow: 0px 3px 6px 2px rgba(0, 0, 0, 0.125);
+  position: relative;
+  overflow: visible;
+}
+.container .prose .nuxt-content-highlight > span.filename {
+  position: absolute;
+  top: -2.5em;
+  left: 0;
+  z-index: -1;
+  background: rgb(51, 61, 75);
+  color: white;
+  font-size: 0.875em;
+  width: 100%;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+  border-radius: 0.5em;
+}
 .banner-img {
   width: 100%;
   height: 0;
