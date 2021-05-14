@@ -114,7 +114,7 @@ export default {
   border-radius: 0 0 0.5em 0.5em;
   box-shadow: 0px 3px 6px 2px rgba(0, 0, 0, 0.125);
   position: relative;
-  overflow: visible;
+  overflow-y: visible;
 }
 .container .prose .nuxt-content-highlight > span.filename {
   position: absolute;
