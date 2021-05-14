@@ -82,6 +82,6 @@ html {
   background-color: #35495e;
 }
 .page {
-  padding-top: 45px;
+  padding-top: 90px;
 }
 </style>
