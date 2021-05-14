@@ -103,7 +103,18 @@ export default {
   margin-bottom: 0.5rem;
 }
 .container .prose code {
-  font-size: 1.125em;
+  padding: 0.25em 0.5em;
+  border-radius: 0.25em;
+  background: rgba(225, 225, 225);
+}
+.container .prose pre code {
+  font-size: initial;
+  padding: 0;
+  background: transparent;
+}
+.container .prose code::before,
+.container .prose code::after {
+  content: '';
 }
 .container .prose .nuxt-content-highlight {
   position: relative;
