@@ -28,34 +28,61 @@ export default {
   data: () => ({
     activeTab: '',
     scrollPosition: 0,
+    lastCheckpoint: 0,
+    direction: 'DOWN',
     show: true
   }),
   watch: {
+    // Update active tab link on route change
     $route() {
       this.activeTab = this.$route.name
+    },
+    // Update lastCheckpoint when user changes scroll direction
+    direction() {
+      this.lastCheckpoint = this.scrollPosition
     }
   },
   mounted() {
     this.activeTab = this.$route.name
+
+    // Init scroll watching for hide/show navbar
     window.addEventListener('scroll', this.onScroll)
     this.scrollPosition = window.scrollY
+    this.lastCheckpoint = window.scrollY
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
+    // Check if nuxt link is current url path
     isActivePath(path) {
       const current = this.$route.path
       return path === '/' ? current === '/' : current.startsWith(path)
     },
+    // Scroll event handler - control direction, scrollPosition, and show
     onScroll() {
-      const position = window.scrollY
-      if (position < this.scrollPosition && !this.show) {
+      // Update direction and scroll position
+      const currentPosition = window.scrollY
+      this.direction = this.getScrollDirection(currentPosition)
+      this.scrollPosition = currentPosition
+
+      // If user scrolling up and has scrolled 50px
+      if (
+        this.direction === 'UP' &&
+        this.lastCheckpoint - this.scrollPosition >= 50
+      ) {
         this.show = true
-      } else if (position > this.scrollPosition && this.show) {
+      }
+      // If user is scrolling down and has scrolled 50px
+      if (
+        this.direction === 'DOWN' &&
+        this.scrollPosition - this.lastCheckpoint >= 50
+      ) {
         this.show = false
       }
-      this.scrollPosition = position
+    },
+    getScrollDirection(current) {
+      return current < this.scrollPosition ? 'UP' : 'DOWN'
     }
   }
 }
