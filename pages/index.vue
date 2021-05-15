@@ -211,12 +211,6 @@ h1 {
   margin: 4rem auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  .section {
-    color: white;
-  }
-}
-
 @media screen and (min-width: 625px) {
   h1 {
     font-size: 3.5rem;
