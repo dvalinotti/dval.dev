@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-3 sm:px-4 max-w-4xl">
+  <div class="container min-h-75screen mx-auto px-3 sm:px-4 max-w-4xl">
     <main class="dark:text-white">
       <h1 class="h-underline page-header">Experience</h1>
       <div v-for="(exp, index) in expItems" :key="index" class="tl">
@@ -103,6 +103,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.min-h-75screen {
+  min-height: 75vh;
+}
 .tl {
   position: relative;
   display: grid;
