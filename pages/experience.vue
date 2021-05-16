@@ -1,16 +1,18 @@
 <template>
-  <div class="container mx-auto px-1 sm:px-4 max-w-4xl">
+  <div class="container mx-auto px-3 sm:px-4 max-w-4xl">
     <main class="dark:text-white">
-      <h1 class="h-underline page-header mx-3 sm:mx-0">Experience</h1>
+      <h1 class="h-underline page-header">Experience</h1>
       <div v-for="(exp, index) in expItems" :key="index" class="tl">
         <div class="tl--time">
-          <p v-if="exp.end" class="font-bold text-left pr-2 text-sm br-blue">
-            {{ exp.end }}
-          </p>
+          <div class="pr-2 br-blue flex flex-col items-start ml-auto">
+            <span class="font-bold text-xs md:text-sm text-left">
+              {{ exp.start }}<br />
+            </span>
+            <span class="dot font-bold text-xs md:text-sm text-left">
+              ↳ {{ exp.end }}
+            </span>
+          </div>
           <div class="divider br-blue"></div>
-          <p class="font-bold text-right pr-2 pb-10 text-sm br-blue">
-            {{ exp.start }}
-          </p>
         </div>
         <div class="tl--exp">
           <div class="flex flex-col md:flex-row pl-2">
@@ -43,8 +45,8 @@ export default {
   data: () => ({
     expItems: [
       {
-        start: '',
-        end: 'Jan 2020 ↳ Present',
+        start: 'Jan 2020',
+        end: 'Present',
         title: 'Full Stack Developer',
         at: 'Colgate-Palmolive',
         icons: [
@@ -65,8 +67,8 @@ export default {
             functionality. Deployed serverless applications with <strong>GCP</strong>.`
       },
       {
-        end: 'May 2019 ↳ Dec 2019',
-        start: '',
+        end: 'Dec 2019',
+        start: 'May 2019',
         title: 'Software Engineer',
         at: 'GalaxE Solutions',
         icons: ['java', 'react', 'js-square', 'css3', 'node', 'aws', 'github'],
@@ -77,7 +79,7 @@ export default {
             <strong>AWS and Python</strong>.`
       },
       {
-        end: 'April 2019',
+        end: 'Apr 2019',
         start: 'Sept 2018',
         title: 'Web Development Intern',
         at: 'Aardvark Brigade',
@@ -104,7 +106,7 @@ export default {
 .tl {
   position: relative;
   display: grid;
-  grid-template-columns: 75px auto;
+  grid-template-columns: 85px auto;
   grid-auto-flow: row;
   max-width: 625px;
   @media screen and (min-width: 500px) {
@@ -124,20 +126,20 @@ export default {
     }
     .br-blue {
       border-right: 2px solid #0087d6;
-    }
-    p.br-blue {
-      position: relative;
-      &::after {
-        content: '•';
-        position: absolute;
-        right: -0.25em;
-        top: 0;
-        font-size: 1.75em;
+      span.dot {
+        position: relative;
+        &::after {
+          content: '•';
+          position: absolute;
+          right: -0.65em;
+          bottom: 0.125em;
+          font-size: 1.75em;
+        }
       }
     }
   }
   &--exp {
-    padding-left: 1em;
+    padding-left: 0.75em;
   }
 }
 </style>
