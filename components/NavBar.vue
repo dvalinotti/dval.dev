@@ -12,6 +12,9 @@
       >
         <fa :icon="['fal', 'bars']" class="fa-2x" />
       </button>
+      <div class="home-link">
+        <nuxt-link to="/"> DVAL </nuxt-link>
+      </div>
       <ul class="nav-links mx-auto flex items-center justify-center py-4">
         <li v-for="(item, index) in items" :key="index">
           <nav-link :to="item.path" class="mx-2">
@@ -19,9 +22,6 @@
           </nav-link>
         </li>
       </ul>
-      <div class="home-link">
-        <nuxt-link to="/"> DVAL </nuxt-link>
-      </div>
       <theme-toggle class="absolute right-0 top-0" />
     </div>
   </nav>
@@ -140,7 +140,12 @@ nav.navbar {
       color: white;
     }
     @media screen and (min-width: 500px) {
-      display: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      a {
+        font-size: 1.125em;
+      }
     }
   }
 }
