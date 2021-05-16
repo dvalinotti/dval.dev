@@ -1,7 +1,7 @@
 <template>
   <main class="container mx-auto px-4 max-w-4xl">
     <h1 class="h-underline page-header dark:text-white">Latest Posts</h1>
-    <ul class="flex flex-col items-start justify-start w-full">
+    <ul class="flex-col-start w-full">
       <li v-for="(post, index) in posts" :key="index" class="pb-6 w-full">
         <nuxt-link :to="`/blog/${post.slug}`">
           <blog-post-card :post="post"></blog-post-card>

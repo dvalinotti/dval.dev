@@ -17,7 +17,11 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/css/fonts.css', '~/assets/css/index.css'],
+  css: [
+    '~/assets/css/fonts.css',
+    '~/assets/css/index.css',
+    '~/assets/css/utilities.css'
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -102,6 +106,7 @@ export default {
         'faMoonStars',
         'faRabbitFast',
         'faSun',
+        'faTimes',
         'faUniversalAccess',
         'faUserShield'
       ],

@@ -14,7 +14,7 @@
       <div class="section">
         <span class="text-lg italic leading-3">My Guiding</span>
         <h2 class="text-6xl h-underline font-bold">Principles.</h2>
-        <div class="w-full flex flex-col items-start justify-start">
+        <div class="w-full flex-col-start justify-start">
           <div class="flex items-start justify-start my-4">
             <fa
               :icon="['fal', 'rabbit-fast']"
@@ -83,7 +83,7 @@
         <h2 class="text-6xl h-underline font-bold dark:text-white">
           Blog Posts.
         </h2>
-        <ul class="flex flex-col items-start w-full">
+        <ul class="flex-col-start w-full">
           <li
             v-for="(post, index) in blogPosts"
             :key="index"
@@ -106,7 +106,7 @@
         <h2 class="text-6xl h-underline font-bold dark:text-white">
           Projects.
         </h2>
-        <ul class="flex flex-col items-start w-full">
+        <ul class="flex-col-start w-full">
           <li
             v-for="(project, index) in projects"
             :key="index"

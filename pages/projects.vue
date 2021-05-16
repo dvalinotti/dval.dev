@@ -4,7 +4,7 @@
       <h1 class="h-underline page-header dark:text-white">Projects</h1>
       <section id="professional">
         <h2 class="text-2xl font-bold mb-3 dark:text-white">Professional</h2>
-        <ul class="flex flex-col items-start justify-start w-full">
+        <ul class="flex-col-start w-full">
           <li
             v-for="(project, index) in filterProjects('professional')"
             :key="index"
@@ -16,7 +16,7 @@
       </section>
       <section id="personal">
         <h2 class="text-2xl font-bold mb-3 dark:text-white">Personal</h2>
-        <ul class="flex flex-col items-start justify-start w-full">
+        <ul class="flex-col-start w-full">
           <li
             v-for="(project, index) in filterProjects('personal')"
             :key="index"
