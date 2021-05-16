@@ -3,7 +3,7 @@
     <main class="dark:text-white">
       <div class="w-full max-w-4xl mx-auto">
         <span class="text-lg italic leading-3">Hi, my name is</span>
-        <h1 class="font-bold dark:text-white">Dan Valinotti.</h1>
+        <h1 class="h-underline font-bold">Dan Valinotti.</h1>
         <p class="p-4 bg-gray-100 max-w-sm dark:bg-gray-700">
           I am a Full-Stack Software Engineer with a passion for building clean,
           performant, and accessible websites and applications. Adaptable,
@@ -13,9 +13,7 @@
       </div>
       <div class="section">
         <span class="text-lg italic leading-3">My Guiding</span>
-        <h2 class="text-6xl h-underline font-bold dark:text-white">
-          Principles.
-        </h2>
+        <h2 class="text-6xl h-underline font-bold">Principles.</h2>
         <div class="w-full flex flex-col items-start justify-start">
           <div class="flex items-start justify-start my-4">
             <fa
@@ -181,17 +179,6 @@ h2 {
 }
 h3 {
   font-family: 'Poppins';
-}
-h1 {
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -0.5rem;
-    width: 100%;
-    height: 2px;
-    background: #0087d6;
-  }
 }
 
 .sidebar {

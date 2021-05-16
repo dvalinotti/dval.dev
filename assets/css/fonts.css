@@ -1,3 +1,6 @@
+/*
+ * Custom font declarations
+ */
 @font-face {
   font-family: 'Poppins';
   font-style: normal;
@@ -123,20 +126,4 @@
   font-weight: 100;
   font-display: swap;
   src: url('~assets/fonts/Poppins-ThinItalic.ttf') format('truetype');
-}
-
-.h-underline {
-  position: relative;
-  width: max-content;
-  z-index: 1;
-}
-.h-underline::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -0.25rem;
-  width: 100%;
-  height: 2px;
-  background: #0087d6;
-  z-index: -1;
 }

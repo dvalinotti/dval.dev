@@ -1,7 +1,7 @@
 <template>
   <main class="container mx-auto px-4 max-w-4xl">
     <div>
-      <h1 class="h-underline dark:text-white">Projects</h1>
+      <h1 class="h-underline page-header dark:text-white">Projects</h1>
       <section id="professional">
         <h2 class="text-2xl font-bold mb-3 dark:text-white">Professional</h2>
         <ul class="flex flex-col items-start justify-start w-full">
@@ -76,10 +76,5 @@ export default {
 
 <style lang="scss" scoped>
 h1 {
-  font-weight: 800;
-  font-size: 2.25em;
-  margin-top: 0;
-  margin-bottom: 0.8888889em;
-  line-height: 1.1111111;
 }
 </style>

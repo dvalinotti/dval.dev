@@ -17,7 +17,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/fonts.css', '~/assets/css/index.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -74,13 +74,33 @@ export default {
     suffix: false,
     icons: {
       regular: ['faEnvelope'],
-      brands: ['faGithub', 'faLinkedin', 'faHackerrank']
+      brands: [
+        'faAws',
+        'faBitbucket',
+        'faCss3',
+        'faGithub',
+        'faGoogle',
+        'faGrunt',
+        'faGulp',
+        'faHackerrank',
+        'faHtml5',
+        'faJava',
+        'faJsSquare',
+        'faLinkedin',
+        'faNode',
+        'faPhp',
+        'faPython',
+        'faReact',
+        'faShopify',
+        'faVuejs',
+        'faWordpressSimple'
+      ]
     },
     proIcons: {
       light: [
-        'faSun',
         'faMoonStars',
         'faRabbitFast',
+        'faSun',
         'faUniversalAccess',
         'faUserShield'
       ],

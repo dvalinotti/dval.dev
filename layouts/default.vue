@@ -25,6 +25,10 @@ export default {
         path: '/projects'
       },
       {
+        label: 'Experience',
+        path: '/experience'
+      },
+      {
         label: 'Contact',
         path: '/contact'
       }
