@@ -19,7 +19,9 @@
             <h2 class="font-bold text-lg mt-1 leading-4">
               {{ exp.title }}
             </h2>
-            <span class="text-gray-700 italic md:pl-2">@ {{ exp.at }}</span>
+            <span class="text-gray-700 dark:text-gray-300 italic md:pl-2">
+              @ {{ exp.at }}
+            </span>
           </div>
           <!-- eslint-disable-next-line vue/no-v-html -->
           <p class="text-sm ml-4 pr-4 py-2" v-html="exp.description"></p>
