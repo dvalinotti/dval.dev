@@ -1,7 +1,10 @@
 <template>
   <nav class="bg-white dark:bg-gray-800 dark:text-white" :class="{ show }">
-    <div class="w-full relative">
-      <ul class="mx-auto flex items-center justify-center py-4">
+    <div class="w-full relative flex">
+      <button class="menu-btn">
+        <fa :icon="['fal', 'bars']" class="fa-2x" />
+      </button>
+      <ul class="nav-links mx-auto flex items-center justify-center py-4">
         <li v-for="(item, index) in items" :key="index">
           <nuxt-link
             :to="item.path"
@@ -88,7 +91,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 nav {
   position: fixed;
   left: 0;
@@ -98,24 +101,37 @@ nav {
   box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.05);
   transition: transform 0.25s ease-in-out;
   transform: translateY(-120%);
-}
-nav.show {
-  transform: translateY(0);
-}
-nav a {
-  font-family: 'Poppins';
-  position: relative;
-}
-nav a.active {
-  font-weight: bold;
-}
-nav a.active::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  width: 100%;
-  background: #0087d6;
+
+  &.show {
+    transform: translateY(0);
+  }
+  .nav-links {
+    display: none;
+    @media screen and (min-width: 500px) {
+      display: flex;
+    }
+    a {
+      font-family: 'Poppins';
+      position: relative;
+      &.active {
+        font-weight: bold;
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: 2px;
+          width: 100%;
+          background: #0087d6;
+        }
+      }
+    }
+  }
+  .menu-btn {
+    padding: 1em;
+    @media screen and (min-width: 500px) {
+      display: none;
+    }
+  }
 }
 </style>

@@ -98,6 +98,7 @@ export default {
     },
     proIcons: {
       light: [
+        'faBars',
         'faMoonStars',
         'faRabbitFast',
         'faSun',

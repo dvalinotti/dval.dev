@@ -4,7 +4,7 @@
     aria-label="Toggle theme"
     @click="toggleTheme"
   >
-    <fa :icon="['fal', isDark ? 'sun' : 'moon-stars']" class="fa-lg" />
+    <fa :icon="['fal', isDark ? 'sun' : 'moon-stars']" class="theme-icon" />
   </button>
 </template>
 
@@ -39,3 +39,14 @@ export default {
   }
 }
 </script>
+
+<style>
+svg.theme-icon {
+  font-size: 2em;
+}
+@media screen and (min-width: 500px) {
+  svg.theme-icon {
+    font-size: 1.5em;
+  }
+}
+</style>
