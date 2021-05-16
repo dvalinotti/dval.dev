@@ -81,6 +81,10 @@ export default {
         : ''
     }
   },
+  mounted() {
+    // Make scrollable code blocks accessible
+    this.setCodeBlocksTabindex()
+  },
   methods: {
     getThumbnail(img) {
       try {
@@ -88,6 +92,12 @@ export default {
       } catch (err) {
         return null
       }
+    },
+    setCodeBlocksTabindex() {
+      const preEls = document.querySelectorAll('pre.line-numbers')
+      preEls.forEach((el) => {
+        el.setAttribute('tabindex', '0')
+      })
     }
   }
 }
@@ -102,10 +112,12 @@ export default {
 .container .prose h1 {
   margin-bottom: 0.5rem;
 }
-.container .prose code {
+.container .prose p > code,
+.container .prose li > code {
   padding: 0.25em 0.5em;
   border-radius: 0.25em;
   background: rgba(225, 225, 225);
+  color: black;
 }
 .container .prose pre code {
   font-size: initial;

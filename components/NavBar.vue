@@ -1,20 +1,27 @@
 <template>
-  <nav class="bg-white dark:bg-gray-800 dark:text-white" :class="{ show }">
+  <nav
+    class="navbar bg-white dark:bg-gray-800 dark:text-white"
+    title="Navigation Bar"
+    :class="{ show }"
+  >
     <div class="w-full relative flex">
-      <button class="menu-btn">
+      <button
+        class="menu-btn absolute left-0 top-0"
+        aria-label="Open navigation menu"
+        @click="onClickShowMenu"
+      >
         <fa :icon="['fal', 'bars']" class="fa-2x" />
       </button>
       <ul class="nav-links mx-auto flex items-center justify-center py-4">
         <li v-for="(item, index) in items" :key="index">
-          <nuxt-link
-            :to="item.path"
-            class="mx-2"
-            :class="{ active: isActivePath(item.path) }"
-          >
+          <nav-link :to="item.path" class="mx-2">
             {{ item.label }}
-          </nuxt-link>
+          </nav-link>
         </li>
       </ul>
+      <div class="home-link">
+        <nuxt-link to="/"> DVAL </nuxt-link>
+      </div>
       <theme-toggle class="absolute right-0 top-0" />
     </div>
   </nav>
@@ -28,12 +35,14 @@ export default {
       default: () => []
     }
   },
+  emits: ['show-menu'],
   data: () => ({
     activeTab: '',
     scrollPosition: 0,
     lastCheckpoint: 0,
     direction: 'DOWN',
-    show: true
+    show: true,
+    showMenu: false
   }),
   watch: {
     // Update active tab link on route change
@@ -57,42 +66,43 @@ export default {
     window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
-    // Check if nuxt link is current url path
-    isActivePath(path) {
-      const current = this.$route.path
-      return path === '/' ? current === '/' : current.startsWith(path)
-    },
     // Scroll event handler - control direction, scrollPosition, and show
     onScroll() {
       // Update direction and scroll position
       const currentPosition = window.scrollY
       this.direction = this.getScrollDirection(currentPosition)
       this.scrollPosition = currentPosition
-
-      // If user scrolling up and has scrolled 50px
-      if (
-        this.direction === 'UP' &&
-        this.lastCheckpoint - this.scrollPosition >= 50
-      ) {
+      if (currentPosition === 0) {
         this.show = true
-      }
-      // If user is scrolling down and has scrolled 50px
-      if (
-        this.direction === 'DOWN' &&
-        this.scrollPosition - this.lastCheckpoint >= 50
-      ) {
-        this.show = false
+      } else {
+        // If user scrolling up and has scrolled 50px
+        if (
+          this.direction === 'UP' &&
+          this.lastCheckpoint - this.scrollPosition >= 50
+        ) {
+          this.show = true
+        }
+        // If user is scrolling down and has scrolled 50px
+        if (
+          this.direction === 'DOWN' &&
+          this.scrollPosition - this.lastCheckpoint >= 50
+        ) {
+          this.show = false
+        }
       }
     },
     getScrollDirection(current) {
       return current < this.scrollPosition ? 'UP' : 'DOWN'
+    },
+    onClickShowMenu() {
+      this.$emit('show-menu')
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-nav {
+nav.navbar {
   position: fixed;
   left: 0;
   top: 0;
@@ -110,25 +120,25 @@ nav {
     @media screen and (min-width: 500px) {
       display: flex;
     }
-    a {
-      font-family: 'Poppins';
-      position: relative;
-      &.active {
-        font-weight: bold;
-        &::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          height: 2px;
-          width: 100%;
-          background: #0087d6;
-        }
-      }
-    }
   }
   .menu-btn {
     padding: 1em;
+    @media screen and (min-width: 500px) {
+      display: none;
+    }
+  }
+  .home-link {
+    padding: 1em;
+    margin: 0 auto;
+    a {
+      font-weight: bold;
+      font-size: 1.25em;
+      font-style: italic;
+      padding: 0.125em 0.5em;
+      font-family: 'Poppins';
+      background: #0087d6;
+      color: white;
+    }
     @media screen and (min-width: 500px) {
       display: none;
     }

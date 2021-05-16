@@ -1,6 +1,9 @@
 <template>
   <div class="bg-white dark:bg-gray-900 overflow-y-hidden">
-    <NavBar :items="navItems" />
+    <transition name="zoom">
+      <NavMenu v-show="showMenu" :items="navItems" @close="toggleShowMenu" />
+    </transition>
+    <NavBar :items="navItems" @show-menu="toggleShowMenu" />
     <div class="page">
       <Nuxt />
     </div>
@@ -32,8 +35,14 @@ export default {
         label: 'Contact',
         path: '/contact'
       }
-    ]
-  })
+    ],
+    showMenu: false
+  }),
+  methods: {
+    toggleShowMenu() {
+      this.showMenu = !this.showMenu
+    }
+  }
 }
 </script>
 

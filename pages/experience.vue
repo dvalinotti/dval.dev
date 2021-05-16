@@ -4,7 +4,7 @@
       <h1 class="h-underline page-header mx-3 sm:mx-0">Experience</h1>
       <div v-for="(exp, index) in expItems" :key="index" class="tl">
         <div class="tl--time">
-          <p v-if="exp.end" class="font-bold text-right pr-2 text-sm br-blue">
+          <p v-if="exp.end" class="font-bold text-left pr-2 text-sm br-blue">
             {{ exp.end }}
           </p>
           <div class="divider br-blue"></div>
@@ -20,12 +20,12 @@
             <span class="text-gray-700 italic md:pl-2">@ {{ exp.at }}</span>
           </div>
           <!-- eslint-disable-next-line vue/no-v-html -->
-          <p class="text-sm ml-4 pr-4" v-html="exp.description"></p>
+          <p class="text-sm ml-4 pr-4 py-2" v-html="exp.description"></p>
           <ul class="flex flex-wrap ml-4 mt-2">
             <li v-for="(icon, i) in exp.icons" :key="i">
               <fa
                 :icon="['fab', icon]"
-                class="mr-2 fa-2x"
+                class="mr-3 fa-2x"
                 :aria-label="icon"
                 :title="icon"
               />
@@ -43,8 +43,8 @@ export default {
   data: () => ({
     expItems: [
       {
-        start: 'Jan 2020',
-        end: 'Present',
+        start: '',
+        end: 'Jan 2020 ↳ Present',
         title: 'Full Stack Developer',
         at: 'Colgate-Palmolive',
         icons: [
@@ -65,8 +65,8 @@ export default {
             functionality. Deployed serverless applications with <strong>GCP</strong>.`
       },
       {
-        end: 'Dec 2019',
-        start: 'May 2019',
+        end: 'May 2019 ↳ Dec 2019',
+        start: '',
         title: 'Software Engineer',
         at: 'GalaxE Solutions',
         icons: ['java', 'react', 'js-square', 'css3', 'node', 'aws', 'github'],
@@ -108,7 +108,7 @@ export default {
   grid-auto-flow: row;
   max-width: 625px;
   @media screen and (min-width: 500px) {
-    grid-template-columns: 85px auto;
+    grid-template-columns: 95px auto;
   }
 
   &--time {
