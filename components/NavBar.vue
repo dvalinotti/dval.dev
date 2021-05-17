@@ -13,7 +13,7 @@
         <fa :icon="['fal', 'bars']" class="fa-2x" />
       </button>
       <div class="home-link">
-        <nuxt-link to="/"> DVAL </nuxt-link>
+        <nuxt-link to="/"> DVal </nuxt-link>
       </div>
       <ul class="nav-links mx-auto flex items-center justify-center py-4">
         <li v-for="(item, index) in items" :key="index">
@@ -132,10 +132,10 @@ nav.navbar {
     margin: 0 auto;
     a {
       font-weight: bold;
-      font-size: 1.25em;
+      font-size: 1em;
       font-style: italic;
-      padding: 0.125em 0.5em;
-      font-family: 'Poppins';
+      padding: 0 0.75em;
+      font-family: 'RockSalt';
       background: #0087d6;
       color: white;
     }

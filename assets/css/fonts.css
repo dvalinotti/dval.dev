@@ -127,3 +127,10 @@
   font-display: swap;
   src: url('~assets/fonts/Poppins-ThinItalic.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'RockSalt';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('~assets/fonts/RockSalt-Regular.ttf') format('truetype');
+}
