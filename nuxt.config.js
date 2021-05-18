@@ -36,7 +36,8 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/fontawesome',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/imagemin'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -46,6 +47,8 @@ export default {
     '@nuxtjs/sitemap',
     'vue-plausible'
   ],
+
+  imagemin: {},
 
   sitemap: {
     hostname: 'https://dval.dev',
