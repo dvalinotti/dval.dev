@@ -24,6 +24,10 @@ export default {
     '~/assets/css/transitions.css'
   ],
 
+  styleResources: {
+    scss: ['~/assets/scss/variables.scss']
+  },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
@@ -45,6 +49,7 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
     '@nuxtjs/sitemap',
+    '@nuxtjs/style-resources',
     'vue-plausible'
   ],
 

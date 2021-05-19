@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 footer {
   box-shadow: 0px -5px 5px 5px rgba(0, 0, 0, 0.05);
 }
@@ -78,14 +78,14 @@ footer a.nuxt-link {
   transition: color 0.25s ease-in-out;
 }
 footer a.nuxt-link:hover {
-  color: #0087d6;
+  color: $theme-blue;
 }
 footer a.nuxt-link:hover::after {
-  background: #0087d6;
+  background: $theme-blue;
   bottom: -3px;
 }
 html.dark footer a.nuxt-link:hover::after {
-  background: #0087d6;
+  background: $theme-blue;
 }
 footer a.nuxt-link::after {
   content: '';

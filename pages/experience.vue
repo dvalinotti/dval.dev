@@ -130,7 +130,7 @@ export default {
       margin-left: auto;
     }
     .br-blue {
-      border-right: 2px solid #0087d6;
+      border-right: 2px solid $theme-blue;
       span.dot {
         position: relative;
         &::after {

@@ -128,7 +128,7 @@ nav.navbar {
     }
   }
   .home-link {
-    padding: 1em;
+    padding: 1.25em;
     margin: 0 auto;
     a {
       font-weight: bold;
@@ -136,10 +136,11 @@ nav.navbar {
       font-style: italic;
       padding: 0 0.75em;
       font-family: 'RockSalt';
-      background: #0087d6;
+      background: $theme-blue;
       color: white;
     }
     @media screen and (min-width: 500px) {
+      padding: 1em;
       position: absolute;
       left: 0;
       top: 0;

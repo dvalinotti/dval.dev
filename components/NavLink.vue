@@ -38,7 +38,7 @@ a.nav-link {
       bottom: 0;
       height: 2px;
       width: 100%;
-      background: #0087d6;
+      background: $theme-blue;
     }
   }
 }

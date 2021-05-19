@@ -185,7 +185,7 @@ h3 {
   margin-top: 1rem;
   margin-left: -3.5rem;
   padding-left: 1rem;
-  border-left: 2px solid #0087d6;
+  border-left: 2px solid $theme-blue;
 
   @media screen and (min-width: 768px) {
     margin-left: 0;
