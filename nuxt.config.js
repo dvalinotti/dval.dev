@@ -112,7 +112,7 @@ export default {
         'faUniversalAccess',
         'faUserShield'
       ],
-      duotone: ['faChevronDoubleRight']
+      duotone: ['faChevronDoubleRight', 'faSpinnerThird']
     }
   },
 
