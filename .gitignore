@@ -88,3 +88,6 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# Don't commit draft blog posts.
+*-DRAFT.md
