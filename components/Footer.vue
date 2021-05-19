@@ -1,8 +1,10 @@
 <template>
   <footer class="w-full pt-8 pb-8 mt-16 dark:bg-gray-800 dark:text-white">
     <div class="flex flex-col items-center justify-center">
-      <ul class="w-full max-w-md mx-auto flex items-center justify-center">
-        <li v-for="(item, index) in items" :key="index" class="mx-2">
+      <ul
+        class="w-full max-w-md mx-auto flex flex-wrap items-center justify-center px-8"
+      >
+        <li v-for="(item, index) in items" :key="index" class="mx-2 mb-1">
           <nuxt-link :to="item.path" class="nuxt-link">
             {{ item.label }}
           </nuxt-link>

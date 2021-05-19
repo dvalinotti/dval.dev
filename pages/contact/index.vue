@@ -2,18 +2,27 @@
   <main class="container mx-auto px-4 max-w-4xl">
     <div class="contact-page">
       <h1 class="h-underline page-header dark:text-white">Contact Me</h1>
+      <p class="mt-8 mb-4 max-w-lg dark:text-white">
+        If you'd like to get in touch with me, you can fill out this form with
+        your information and I will get back to you as soon as I can!
+      </p>
+      <contact-form />
       <p class="mt-8 mb-4 max-w-md dark:text-white">
-        If you'd like to get in touch with me, you can contact me through any of
-        the following links:
+        Alternatively, you can contact me through any of the following links:
       </p>
       <ul class="mt-4">
         <li
           v-for="(link, index) in links"
           :key="index"
-          class="dark:text-white flex items-center justify-start my-4"
+          class="dark:text-white flex items-center justify-start my-2"
         >
           <fa :icon="[link.iconPrefix, link.icon]" class="fa-2x" />
-          <a :href="link.value" target="_blank" class="ml-4" rel="noopener">
+          <a
+            :href="link.value"
+            target="_blank"
+            class="ml-4 my-2"
+            rel="noopener"
+          >
             {{ link.label }}
           </a>
         </li>
