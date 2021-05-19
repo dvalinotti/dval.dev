@@ -2,7 +2,6 @@
 title: "How I Convinced the Business Team to Rebuild our eCommerce Site"
 subtitle: "What if... we nuked our working website... and started from scratch... haha aha jk... unless..?"
 date: "2020-04-25"
-category: "Migration"
 featuredImage: nextjs-part-2-thumbnail.png
 featuredImageAlt: A brain-exploding emoji with React, GraphQL and Next.js logos above
 tags: ["nextjs", "react"]

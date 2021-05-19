@@ -3,7 +3,6 @@ title: "My first blog post"
 date: "2020-03-01"
 featuredImage: hello.jpg
 featuredImageAlt: "\"Hello\" text on a smartphone screen"
-category: "Other"
 subtitle: "Hello world!"
 tags: ["other"]
 keywords: 'welcome,welcome to my blog,dan valinotti,web development,introduction,programming,javascript,typescript,blog,blogging'

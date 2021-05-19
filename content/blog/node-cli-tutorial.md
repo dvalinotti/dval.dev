@@ -2,7 +2,6 @@
 title: "Creating a CLI tool using Node.js"
 subtitle: "Spend time learning to save time working."
 date: "2020-03-11"
-category: "Tutorials"
 featuredImage: cli-tool.jpg
 featuredImageAlt: A picture of a computer terminal window
 tags: ["tutorial", "nodejs"]

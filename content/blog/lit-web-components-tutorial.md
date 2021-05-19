@@ -3,10 +3,9 @@ title: "How to Create Reusable Web Components with Lit and Vue"
 subtitle: "How lit is it, really?"
 date: "2021-05-13"
 featuredImage: lit+vue.png
-featuredImageAlt: "\"Hello\" text on a smartphone screen"
-category: "Other"
-tags: ["web-components", "vue"]
-keywords: 'welcome,welcome to my blog,dan valinotti,web development,introduction,programming,javascript,typescript,blog,blogging'
+featuredImageAlt: "Lit and Vue logos on a light background"
+tags: ["web-components", "vue", "tutorials"]
+keywords: 'web components,web,components,typescript,lit,lit elements,vue,vuejs,javascript,typescript,shadow dom,tutorial,example,vue 2,vue 3,lit.dev'
 ---
 
 ## Introduction
