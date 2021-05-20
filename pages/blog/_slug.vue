@@ -116,7 +116,7 @@ export default {
 .container .prose li > code {
   padding: 0.25em 0.5em;
   border-radius: 0.25em;
-  background: rgba(225, 225, 225);
+  background: rgba(235, 235, 235);
   color: black;
 }
 .container .prose pre code {

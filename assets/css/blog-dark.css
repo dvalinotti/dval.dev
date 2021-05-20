@@ -15,3 +15,8 @@ html.dark .prose .operator {
 html.dark .prose code .token {
   text-shadow: none;
 }
+html.dark .prose p > code,
+html.dark .prose li > code {
+  background-color: rgb(40, 50, 75);
+  color: white;
+}
