@@ -19,7 +19,7 @@
       <ul class="flex items-center">
         <li v-for="(tag, index) in document.tags" :key="index">
           <nuxt-link
-            class="bg-gray-200 dark:bg-gray-700 rounded-lg px-3 py-2 mr-2"
+            class="bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 rounded-lg px-3 py-2 mr-2"
             :to="`/blog/tags/${tag}`"
           >
             #{{ tag }}
