@@ -145,7 +145,7 @@ nav.navbar {
       left: 0;
       top: 0;
       a {
-        font-size: 1.125em;
+        font-size: 1.05em;
       }
     }
   }
