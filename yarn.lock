@@ -7045,6 +7045,11 @@ koa@^2.12.0:
     type-is "^1.6.16"
     vary "^1.1.2"
 
+kyanite@1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/kyanite/-/kyanite-1.4.2.tgz#35c99f3615d1e7f3fd0767d408ca2da4f66a2989"
+  integrity sha512-KgbQVuEReZm9/UJo8XOmOM6XxEsh9YxELVZhhUa6OclnBfe5Yd+qtAryhY13Oup5xjEVEGRWg2S1WHiOYS5eAQ==
+
 last-call-webpack-plugin@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/last-call-webpack-plugin/-/last-call-webpack-plugin-3.0.0.tgz#9742df0e10e3cf46e5c0381c2de90d3a7a2d7555"
@@ -8694,6 +8699,13 @@ pend@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/pend/-/pend-1.2.0.tgz#7a57eb550a6783f9115331fcf4663d5c8e007a50"
   integrity sha1-elfrVQpng/kRUzH89GY9XI4AelA=
+
+phone-fns@^3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/phone-fns/-/phone-fns-3.2.3.tgz#1f5a2e83a8f8bc270a888d7cf63a88f3a9ebe742"
+  integrity sha512-G17QdE8Er2Xek6vt0XknZf1cGRRQeMp6HxlGA5rvPyykEQv0Hq1yj7ur1osWoA6opNBEUTFPfXM0TezFR+eGsA==
+  dependencies:
+    kyanite "1.4.2"
 
 picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3:
   version "2.2.3"

@@ -43,8 +43,10 @@
         id="phone"
         v-model="phone"
         class="dark:bg-gray-700 dark:text-white"
-        type="text"
+        type="tel"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
         name="phone"
+        @blur="formatPhoneNumber"
       />
       <label class="dark:text-white" for="message">
         Message: <span class="text-red-500">*</span>
@@ -68,6 +70,8 @@
 </template>
 
 <script>
+import { format } from 'phone-fns'
+
 export default {
   data: () => ({
     name: '',
@@ -80,6 +84,9 @@ export default {
     onSubmit() {
       this.loading = !this.loading
       this.$refs.contactForm.submit()
+    },
+    formatPhoneNumber() {
+      this.phone = format('NNN-NNN-NNNN', this.phone)
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <button
     class="py-2 px-3 mr-2 text-white rounded-lg"
-    :class="[...colorClasses[color]]"
+    :class="`btn-theme-${color}`"
     @click="onClick"
   >
     <slot></slot>
@@ -22,12 +22,7 @@ export default {
   emits: ['click'],
   data: () => ({
     colorClasses: {
-      blue: [
-        `bg-blue-600`,
-        `hover:bg-blue-500`,
-        `dark:bg-blue-700`,
-        `dark:hover:bg-blue-600`
-      ],
+      blue: [`btn-blue`, `dark:bg-blue-700`, `dark:hover:bg-blue-600`],
       red: [
         `bg-red-600`,
         `hover:bg-red-500`,
@@ -49,3 +44,23 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+$colors: (
+  theme-blue: $theme-blue,
+  theme-red: $theme-red,
+  theme-green: $theme-green
+);
+
+@each $color, $value in $colors {
+  .btn-#{$color} {
+    background-color: $value;
+    &:hover {
+      background-color: lighten($value, 5%);
+    }
+  }
+}
+button {
+  transition: background-color 200ms ease-in-out;
+}
+</style>
