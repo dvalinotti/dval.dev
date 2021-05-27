@@ -10,3 +10,15 @@
   opacity: 0;
   transform: scale(0);
 }
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 200ms cubic-bezier(0.5, 0.2, 0.3, 1.0);
+  transform: translateX(0);
+}
+
+.slide-enter,
+.slide-leave-to {
+  /* opacity: 0; */
+  transform: translateX(-100%);
+}

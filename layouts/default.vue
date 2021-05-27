@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white dark:bg-gray-900 overflow-y-hidden">
-    <transition name="zoom">
+    <transition name="slide">
       <NavMenu v-show="showMenu" :items="navItems" @close="toggleShowMenu" />
     </transition>
     <NavBar :items="navItems" @show-menu="toggleShowMenu" />
