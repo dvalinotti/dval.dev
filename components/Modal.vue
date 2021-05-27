@@ -3,11 +3,11 @@
     <div v-show="show" class="modal">
       <div class="modal-window bg-white dark:bg-gray-800">
         <button
-          class="modal-close-btn"
+          class="modal-close-btn hover:bg-gray-200 dark:hover:bg-gray-700"
           aria-label="Close modal"
           @click="onClose"
         >
-          <fa :icon="['fal', 'times']" class="fa-2x"></fa>
+          <fa :icon="['fal', 'times']" class="fa-2x dark:text-white"></fa>
         </button>
         <slot></slot>
       </div>
@@ -61,7 +61,13 @@ export default {
       position: absolute;
       top: 0;
       right: 0;
-      padding: 1rem 1.5rem;
+      padding: 0.5rem 0.9rem;
+      margin: 0.5rem;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 200ms ease-in-out;
     }
   }
 }

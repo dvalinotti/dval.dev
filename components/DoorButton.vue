@@ -28,7 +28,7 @@ export default {
 
 <style lang="scss" scoped>
 .door {
-  color: brown;
+  color: #9e5d3e;
   font-size: 10rem;
 }
 </style>

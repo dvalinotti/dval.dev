@@ -9,7 +9,9 @@
     <Modal :show="showModal" @close="toggleShowModal">
       <div class="flex flex-col justify-center items-center">
         <door-button />
-        <p class="poppins text-xl font-bold mt-4">The door beckons.</p>
+        <p class="poppins text-2xl font-bold mt-4 dark:text-white">
+          The door beckons.
+        </p>
       </div>
     </Modal>
   </main>
