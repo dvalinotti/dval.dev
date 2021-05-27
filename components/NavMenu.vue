@@ -50,6 +50,11 @@ export default {
     }
   },
   emits: ['close'],
+  watch: {
+    show(value) {
+      document.body.style.overflowY = value ? 'hidden' : 'auto'
+    }
+  },
   methods: {
     onClickClose() {
       this.$emit('close')
