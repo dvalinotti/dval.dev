@@ -1,5 +1,5 @@
 <template>
-  <main class="container mx-auto px-4 max-w-4xl">
+  <div class="container mx-auto px-4 max-w-4xl">
     <div class="contact-page">
       <h1 class="h-underline page-header dark:text-white">Success!</h1>
       <p class="max-w-xs mb-4 dark:text-white">
@@ -9,7 +9,7 @@
         Back to home
       </nuxt-link>
     </div>
-  </main>
+  </div>
 </template>
 
 <script>

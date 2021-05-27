@@ -103,6 +103,7 @@ export default {
       ]
     },
     proIcons: {
+      regular: ['faEggFried'],
       light: [
         'faBars',
         'faMoonStars',
@@ -112,7 +113,12 @@ export default {
         'faUniversalAccess',
         'faUserShield'
       ],
-      duotone: ['faChevronDoubleRight', 'faSpinnerThird']
+      duotone: [
+        'faChevronDoubleRight',
+        'faSpinnerThird',
+        'faDoorOpen',
+        'faDoorClosed'
+      ]
     }
   },
 

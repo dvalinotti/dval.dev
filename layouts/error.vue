@@ -1,6 +1,6 @@
 <template>
   <div class="error-page container mx-auto px-4 md:px-8">
-    <main class="dark:text-white">
+    <div class="dark:text-white">
       <p v-if="notFound" class="error-code">{{ code }}</p>
       <h1 class="h-underline text-4xl font-bold">
         {{ notFound ? 'Page not found.' : 'Uh oh!' }}
@@ -19,7 +19,7 @@
         <nuxt-link to="/contact" class="link">contact page</nuxt-link>
         to reach out to me.
       </p>
-    </main>
+    </div>
   </div>
 </template>
 

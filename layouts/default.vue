@@ -1,15 +1,23 @@
 <template>
-  <div class="bg-white dark:bg-gray-900 overflow-y-hidden">
+  <main class="bg-white dark:bg-gray-900 overflow-y-hidden">
     <NavMenu :show="showMenu" :items="navItems" @close="toggleShowMenu" />
     <NavBar :items="navItems" @show-menu="toggleShowMenu" />
     <div class="page">
       <Nuxt />
     </div>
     <Footer :items="navItems" />
-  </div>
+    <Modal :show="showModal" @close="toggleShowModal">
+      <div class="flex flex-col justify-center items-center">
+        <door-button />
+        <p class="poppins text-xl font-bold mt-4">The door beckons.</p>
+      </div>
+    </Modal>
+  </main>
 </template>
 
 <script>
+import * as koco from 'ko-co'
+
 export default {
   data: () => ({
     navItems: [
@@ -34,11 +42,22 @@ export default {
         path: '/contact'
       }
     ],
-    showMenu: false
+    showMenu: false,
+    showModal: false
   }),
+  mounted() {
+    koco.addSupportForTheKonamiCode()
+    window.addEventListener('konamicode', this.toggleShowModal)
+  },
+  beforeDestroy() {
+    window.removeEventListener('konamicode', this.toggleShowModal)
+  },
   methods: {
     toggleShowMenu() {
       this.showMenu = !this.showMenu
+    },
+    toggleShowModal() {
+      this.showModal = !this.showModal
     }
   }
 }

@@ -983,6 +983,13 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.35"
 
+"@fortawesome/pro-regular-svg-icons@^5.15.3":
+  version "5.15.3"
+  resolved "https://npm.fontawesome.com/@fortawesome/pro-regular-svg-icons/-/5.15.3/pro-regular-svg-icons-5.15.3.tgz#0b70f7ba6212dfa9bf17f9a82422e5fe7864b5b2"
+  integrity sha512-p546sg0iF4qbng79wQZuyOIDBwF51crLS63nwEP9vpwFJKFkOhg1i8W4TUy0tosas2jcuseJSa5fGb9d/7bPug==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.35"
+
 "@fortawesome/vue-fontawesome@^0.1.9":
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.10.tgz#eeeec1e4e8850bed0468f938292b06cda793bf34"
@@ -6978,6 +6985,11 @@ klona@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.4.tgz#7bb1e3affb0cb8624547ef7e8f6708ea2e39dfc0"
   integrity sha512-ZRbnvdg/NxqzC7L9Uyqzf4psi1OM4Cuc+sJAkQPjO6XkQIJTNbfK2Rsmbw8fx1p2mkZdp2FZYo2+LwXYY/uwIA==
+
+ko-co@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/ko-co/-/ko-co-1.5.1.tgz#da52f20eba37203a6d90c195c14b89cc1476c722"
+  integrity sha512-Bkwd2XjVFLaj02IUysxWY7wp6FRa/fHBLDU2wBOVEiq/L88P6XG/h5HL1tampL+1Kl8R+XX2ikfuGS2D3is65g==
 
 koa-compose@^3.0.0:
   version "3.2.1"

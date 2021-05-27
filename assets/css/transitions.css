@@ -19,6 +19,16 @@
 
 .slide-enter,
 .slide-leave-to {
-  /* opacity: 0; */
   transform: translateX(-100%);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 200ms cubic-bezier(0.5, 0.2, 0.3, 1.0);
+  opacity: 1;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto px-4 md:px-8">
-    <main class="dark:text-white">
+    <div class="dark:text-white">
       <div class="w-full max-w-4xl mx-auto">
         <span class="text-lg italic leading-3">Hi, my name is</span>
         <h1 class="h-underline font-bold">Dan Valinotti.</h1>
@@ -122,7 +122,7 @@
           </button-simple>
         </nuxt-link>
       </div>
-    </main>
+    </div>
   </div>
 </template>
 

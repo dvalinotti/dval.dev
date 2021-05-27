@@ -1,5 +1,5 @@
 <template>
-  <main class="container mx-auto px-4 max-w-4xl">
+  <div class="container mx-auto px-4 max-w-4xl">
     <div class="contact-page">
       <h1 class="h-underline page-header dark:text-white">Contact Me</h1>
       <p class="mt-8 mb-4 max-w-lg dark:text-white">
@@ -28,7 +28,7 @@
         </li>
       </ul>
     </div>
-  </main>
+  </div>
 </template>
 
 <script>

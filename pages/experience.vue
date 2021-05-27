@@ -1,6 +1,6 @@
 <template>
   <div class="container min-h-75screen mx-auto px-3 sm:px-4 max-w-4xl">
-    <main class="dark:text-white">
+    <div class="dark:text-white">
       <h1 class="h-underline page-header">Experience</h1>
       <div v-for="(exp, index) in expItems" :key="index" class="tl">
         <div class="tl--time">
@@ -38,7 +38,7 @@
           <div class="border-b-2 border-b-gray-700 my-4 mx-4"></div>
         </div>
       </div>
-    </main>
+    </div>
   </div>
 </template>
 
