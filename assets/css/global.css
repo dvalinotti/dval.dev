@@ -1,6 +1,12 @@
 /**
  * Global Styles
  */
+html {
+  min-height: 100vh;
+}
+html.dark {
+  background-color: rgb(31, 41, 55);
+}
 .h-underline {
   position: relative;
   width: max-content;
@@ -23,4 +29,8 @@
   margin-top: 0;
   margin-bottom: 0.8888889em;
   line-height: 1.1111111;
+}
+.link {
+  font-weight: bold;
+  text-decoration: underline;
 }
