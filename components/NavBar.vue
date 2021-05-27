@@ -117,13 +117,13 @@ nav.navbar {
   }
   .nav-links {
     display: none;
-    @media screen and (min-width: 500px) {
+    @media screen and (min-width: 600px) {
       display: flex;
     }
   }
   .menu-btn {
     padding: 1em;
-    @media screen and (min-width: 500px) {
+    @media screen and (min-width: 600px) {
       display: none;
     }
   }
@@ -139,7 +139,7 @@ nav.navbar {
       background: $theme-blue;
       color: white;
     }
-    @media screen and (min-width: 500px) {
+    @media screen and (min-width: 600px) {
       padding: 1em;
       position: absolute;
       left: 0;

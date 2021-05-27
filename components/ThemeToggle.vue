@@ -44,7 +44,7 @@ export default {
 svg.theme-icon {
   font-size: 2em;
 }
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 600px) {
   svg.theme-icon {
     font-size: 1.5em;
   }
