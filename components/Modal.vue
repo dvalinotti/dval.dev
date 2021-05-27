@@ -1,7 +1,10 @@
 <template>
   <transition name="fade">
     <div v-show="show" class="modal">
-      <div class="modal-window bg-white dark:bg-gray-800">
+      <div
+        v-click-outside="onClickOutside"
+        class="modal-window bg-white dark:bg-gray-800"
+      >
         <button
           class="modal-close-btn hover:bg-gray-200 dark:hover:bg-gray-700"
           aria-label="Close modal"
@@ -16,7 +19,12 @@
 </template>
 
 <script>
+import vClickOutside from 'v-click-outside'
+
 export default {
+  directives: {
+    clickOutside: vClickOutside.directive
+  },
   props: {
     show: {
       type: Boolean,
@@ -27,6 +35,11 @@ export default {
   methods: {
     onClose() {
       this.$emit('close')
+    },
+    onClickOutside(e) {
+      if (this.show) {
+        this.$emit('close')
+      }
     }
   }
 }
