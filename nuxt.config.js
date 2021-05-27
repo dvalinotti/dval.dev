@@ -17,12 +17,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '~/assets/css/fonts.css',
-    '~/assets/css/index.css',
-    '~/assets/css/utilities.css',
-    '~/assets/css/transitions.css'
-  ],
+  css: ['~/assets/css/index.css'],
 
   styleResources: {
     scss: ['~/assets/scss/variables.scss']
