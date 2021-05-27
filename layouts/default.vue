@@ -1,8 +1,6 @@
 <template>
   <div class="bg-white dark:bg-gray-900 overflow-y-hidden">
-    <transition name="slide">
-      <NavMenu v-show="showMenu" :items="navItems" @close="toggleShowMenu" />
-    </transition>
+    <NavMenu :show="showMenu" :items="navItems" @close="toggleShowMenu" />
     <NavBar :items="navItems" @show-menu="toggleShowMenu" />
     <div class="page">
       <Nuxt />

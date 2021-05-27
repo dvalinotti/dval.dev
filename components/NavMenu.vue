@@ -1,37 +1,40 @@
 <template>
-  <nav
-    class="nav-menu bg-white dark:bg-gray-900"
-    title="Mobile Navigation Menu"
-  >
-    <div class="flex-col-start h-full">
-      <button
-        class="p-4 dark:text-white"
-        aria-label="Close navigation menu"
-        @click="onClickClose"
-      >
-        <fa :icon="['fal', 'times']" class="fa-2x" />
-      </button>
-      <ul class="flex-col-start px-4">
-        <li
-          v-for="(item, index) in items"
-          :key="index"
-          class="my-2"
+  <transition name="slide">
+    <nav
+      v-show="show"
+      class="nav-menu bg-white dark:bg-gray-900"
+      title="Mobile Navigation Menu"
+    >
+      <div class="flex-col-start h-full">
+        <button
+          class="p-4 dark:text-white"
+          aria-label="Close navigation menu"
           @click="onClickClose"
         >
-          <nav-link :to="item.path" class="text-4xl" :aria-label="item.label">
-            {{ item.label }}
-          </nav-link>
-        </li>
-      </ul>
-      <button
-        class="mt-auto mx-auto mb-4 p-4 dark:text-white"
-        aria-label="Close navigation menu"
-        @click="onClickClose"
-      >
-        <span class="text-xl font-bold underline">Close</span>
-      </button>
-    </div>
-  </nav>
+          <fa :icon="['fal', 'times']" class="fa-2x" />
+        </button>
+        <ul class="flex-col-start px-4">
+          <li
+            v-for="(item, index) in items"
+            :key="index"
+            class="my-2"
+            @click="onClickClose"
+          >
+            <nav-link :to="item.path" class="text-4xl" :aria-label="item.label">
+              {{ item.label }}
+            </nav-link>
+          </li>
+        </ul>
+        <button
+          class="mt-auto mx-auto mb-4 p-4 dark:text-white"
+          aria-label="Close navigation menu"
+          @click="onClickClose"
+        >
+          <span class="text-xl font-bold underline">Close</span>
+        </button>
+      </div>
+    </nav>
+  </transition>
 </template>
 
 <script>
@@ -40,6 +43,10 @@ export default {
     items: {
       type: Array,
       default: () => []
+    },
+    show: {
+      type: Boolean,
+      default: false
     }
   },
   emits: ['close'],
