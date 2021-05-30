@@ -2,6 +2,10 @@
   <div class="container mx-auto px-4 md:px-8 max-w-4xl">
     <article class="prose text-left dark:text-white">
       <h1>{{ document.title }}</h1>
+      <span class="text-gray-900 text-sm dark:text-white">
+        by <strong>Dan Valinotti</strong>
+      </span>
+      |
       <span class="text-gray-700 text-sm dark:text-gray-200"
         >{{ publishDate }} - {{ document.readingTime.text }}</span
       >
