@@ -1,15 +1,26 @@
 <template>
   <div class="container mx-auto px-4 md:px-8">
     <div class="dark:text-white">
-      <div class="w-full max-w-4xl mx-auto">
-        <span class="text-lg italic leading-3">Hi, my name is</span>
-        <h1 class="h-underline font-bold">Dan Valinotti.</h1>
-        <p class="p-4 bg-gray-100 max-w-sm dark:bg-gray-700">
-          I am a Full-Stack Software Engineer with a passion for building clean,
-          performant, and accessible websites and applications. Adaptable,
-          design oriented, and user-focused applications are my specialty, along
-          with strong architecture and solutions skills.
-        </p>
+      <div
+        class="w-full max-w-4xl mx-auto flex flex-col-reverse md:flex-row justify-center items-center"
+      >
+        <div class="lg:pr-4">
+          <span class="text-lg italic leading-3">Hi, my name is</span>
+          <h1 class="h-underline font-bold">Dan Valinotti.</h1>
+          <p class="p-4 bg-gray-100 max-w-sm dark:bg-gray-700">
+            I am a Full-Stack Software Engineer with a passion for building
+            clean, performant, and accessible websites and applications.
+            Adaptable, design oriented, and user-focused applications are my
+            specialty, along with strong architecture and solutions skills.
+          </p>
+        </div>
+        <div
+          class="flex items-center justify-center p-6 md:p-0 md:pl-16 lg:pl-24"
+        >
+          <div class="me-container">
+            <img src="/img/me.jpg" alt="A great picture of me!" class="me" />
+          </div>
+        </div>
       </div>
       <div class="section">
         <span class="text-lg italic leading-3">My Guiding</span>
@@ -179,6 +190,52 @@ h2 {
 }
 h3 {
   font-family: 'Poppins';
+}
+
+@keyframes example {
+  0% {
+    transform: rotate(0deg) scale(1);
+    transition-delay: 0ms;
+  }
+  40% {
+    transform: rotate(5deg) scale(1.025);
+    box-shadow: 0px 3px 8px 2px rgba(0, 0, 0, 0.25);
+  }
+  55% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    transition-delay: 0ms;
+  }
+}
+
+.me-container {
+  width: 265px;
+  height: 265px;
+  margin: auto;
+  border-radius: 100%;
+  overflow: hidden;
+  border: 8px solid $theme-blue;
+  transition: all 200ms ease-in-out;
+  transition-delay: 550ms;
+  animation-delay: 0ms;
+  animation-duration: 750ms;
+
+  &:hover {
+    cursor: pointer;
+    animation-name: example;
+  }
+
+  img.me {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
 }
 
 .sidebar {
