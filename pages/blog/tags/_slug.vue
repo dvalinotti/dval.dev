@@ -18,6 +18,7 @@ export default {
       const tag = params.slug
       const posts = await $content('blog')
         .where({ tags: { $contains: tag } })
+        .sortBy('date', 'desc')
         .fetch()
         .catch(() => {
           error({
