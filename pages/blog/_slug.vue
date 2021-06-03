@@ -36,8 +36,6 @@
 
 <script>
 import dateFormat from 'dateformat'
-import Prism from 'prismjs'
-import 'prismjs/plugins/line-numbers/prism-line-numbers.js'
 
 export default {
   name: 'BlogPost',
@@ -90,9 +88,6 @@ export default {
   mounted() {
     // Make scrollable code blocks accessible
     this.setCodeBlocksTabindex()
-
-    // Enable Prismjs line numbers
-    Prism.highlightAll()
   },
   methods: {
     getThumbnail(img) {
@@ -116,7 +111,7 @@ export default {
 @import '~/assets/css/blog-dark.css';
 
 .container .prose {
-  max-width: 75ch;
+  max-width: 80ch;
 }
 .container .prose h1 {
   margin-bottom: 0.5rem;
@@ -163,6 +158,9 @@ export default {
   padding-bottom: 1em;
   border-radius: 0.5em;
 }
+.container .prose img {
+  box-shadow: 0px 3px 6px 2px rgba(0, 0, 0, 0.125);
+}
 .banner-img {
   width: 100%;
   height: 0;
@@ -174,45 +172,5 @@ export default {
 .banner-img img {
   margin-top: 0;
   margin-bottom: 0;
-}
-
-.container .prose pre[class*='language-'].line-numbers {
-  position: relative;
-  padding-left: 3.8em;
-  counter-reset: linenumber;
-}
-
-.container .prose pre[class*='language-'].line-numbers > code {
-  position: relative;
-  white-space: inherit;
-}
-
-.container .prose .line-numbers .line-numbers-rows {
-  position: absolute;
-  pointer-events: none;
-  top: 0;
-  font-size: 100%;
-  left: -3.8em;
-  width: 3em; /* works for line-numbers below 1000 lines */
-  letter-spacing: -1px;
-  border-right: 1px solid #999;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.container .prose .line-numbers-rows > span {
-  display: block;
-  counter-increment: linenumber;
-}
-
-.container .prose .line-numbers-rows > span:before {
-  content: counter(linenumber);
-  color: #999;
-  display: block;
-  padding-right: 0.8em;
-  text-align: right;
 }
 </style>
