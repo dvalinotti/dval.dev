@@ -1,6 +1,6 @@
 ---
 title: Emulating Component Behavior with JavaScript Closures
-subtitle: ''
+subtitle: "Read along as I create a poor man's Virtual DOM API."
 date: '2021-06-03'
 featuredImage: closure-post-thumbnail.jpg
 featuredImageAlt: ''
