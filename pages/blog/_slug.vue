@@ -160,6 +160,7 @@ export default {
 }
 .container .prose img {
   box-shadow: 0px 3px 6px 2px rgba(0, 0, 0, 0.125);
+  border-radius: 4px;
 }
 .banner-img {
   width: 100%;

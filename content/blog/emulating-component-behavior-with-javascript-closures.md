@@ -2,7 +2,7 @@
 title: Emulating Component Behavior with JavaScript Closures
 subtitle: ''
 date: '2021-06-03'
-featuredImage: lit+vue.png
+featuredImage: closure-post-thumbnail.jpg
 featuredImageAlt: ''
 tags: ['javascript', 'tutorials']
 keywords: 'javascript,js,vanilla,vanilla javascript,components,function,var,const,let,closure,closures,scope,variable scope,tutorial'
@@ -64,7 +64,7 @@ NewComponent.init()
 NewComponent.render() // This will result in a TypeError!
 ```
 
-Now I've created the function `createComponent`, which returns a set of functions (for now, just `init()`), and also includes some constants that are accessible only to the functions executed inside the scope of `createComponent`. Then, I define a new variable `NewComponent` that evaluates to the return value of `createComponent`, which for now is just that `init()` function. After `NewComponent` is initialized, I can call the `init()` function from it, but I won't be able to directly access the values of `propsMap` and `render`.
+Now I've created the function `createComponent`, which returns a set of functions (for now, just `init()`), and also includes some constants that are accessible only to the functions executed inside the scope of `createComponent`. Then, I define a new variable `NewComponent` that is assigned the return value of `createComponent`, which will be an object containing `init()`. After `NewComponent` is initialized, I can call the `init()` function from it, but I won't be able to directly access the values of `propsMap` and `render`.
 
 So we got something going here, but it doesn't really *do anything yet*. What I *want it to do* is, on calling `init()`, to **render a new HTML element** as a child of some other element, which in this case will be a `<div>` with an ID of "app". I also want those props I'm passing to be used in some way in that render.
 
