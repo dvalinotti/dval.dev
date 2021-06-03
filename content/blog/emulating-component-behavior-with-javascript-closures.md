@@ -240,7 +240,8 @@ component.render()
 
 Our end result is essentially a super-watered down Virtual DOM API, but I think it serves as a good example for how a Closure can be implemented in JavaScript in a way that is both useful and clear in its implementation. I hope this tutorial has been helpful for you, whether you had no idea what a Closure was, or if you already knew about Closures but have never seen how it's used.
 
-Here's a link to my code [repo on GitHub]()
+Here's a link to my code [repo on GitHub](https://github.com/dvalinotti/components-with-closure).
+
 If you'd like to mess around with this yourself, here is a link to the [project on CodeSandbox](https://codesandbox.io/s/funny-cannon-o0p75?file=/src/index.js).
 
 Thanks for reading! 😊
