@@ -45,8 +45,21 @@ export default {
     '@nuxt/content',
     '@nuxtjs/sitemap',
     '@nuxtjs/style-resources',
+    'nuxt-logrocket',
     'vue-plausible'
   ],
+
+  logRocket: {
+    logRocketId: process.env.LOGROCKET_ID,
+    devModeAllowed: false, // true,
+    config: {
+      dom: {
+        isEnabled: true,
+        inputSanitizer: true
+      },
+      shouldCaptureIp: false
+    }
+  },
 
   sitemap: {
     hostname: 'https://dval.dev',
