@@ -23,6 +23,7 @@
               format="webp"
               alt="A great picture of me!"
               class="me"
+              width="265px"
             />
           </div>
         </div>
