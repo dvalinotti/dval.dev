@@ -18,7 +18,12 @@
           class="flex items-center justify-center p-6 md:p-0 md:pl-16 lg:pl-24"
         >
           <div class="me-container">
-            <img src="/img/me.jpg" alt="A great picture of me!" class="me" />
+            <nuxt-picture
+              src="/img/me.jpg"
+              format="webp"
+              alt="A great picture of me!"
+              class="me"
+            />
           </div>
         </div>
       </div>

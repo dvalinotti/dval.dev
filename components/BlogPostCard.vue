@@ -1,8 +1,9 @@
 <template>
   <card type="3" class="w-full relative">
     <template #img>
-      <img
-        :src="getThumbnail(post.featuredImage)"
+      <nuxt-picture
+        :src="`/img/${post.featuredImage}`"
+        format="webp"
         :alt="post.featuredImageAlt"
       />
     </template>
@@ -38,13 +39,6 @@ export default {
     }
   },
   methods: {
-    getThumbnail(img) {
-      try {
-        return require(`~/assets/img/${img}`)
-      } catch (err) {
-        return null
-      }
-    },
     fmtDate(date) {
       return dateFormat(date, 'fullDate')
     }

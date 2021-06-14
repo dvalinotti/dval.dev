@@ -10,9 +10,10 @@
         >{{ publishDate }} - {{ document.readingTime.text }}</span
       >
       <div class="banner-img">
-        <img
+        <nuxt-picture
+          :src="`/img/${document.featuredImage}`"
+          format="webp"
           class="absolute top-0 left-0 w-full h-full object-cover object-center"
-          :src="getThumbnail(document.featuredImage)"
           :alt="document.featuredImageAlt"
         />
       </div>
@@ -90,13 +91,6 @@ export default {
     this.setCodeBlocksTabindex()
   },
   methods: {
-    getThumbnail(img) {
-      try {
-        return require(`~/assets/img/${img}`)
-      } catch (err) {
-        return null
-      }
-    },
     setCodeBlocksTabindex() {
       const preEls = document.querySelectorAll('pre.line-numbers')
       preEls.forEach((el) => {
@@ -170,8 +164,10 @@ export default {
   overflow: hidden;
   margin-top: 1rem;
 }
-.banner-img img {
+.container .banner-img img {
   margin-top: 0;
   margin-bottom: 0;
+  box-shadow: none;
+  border-radius: 0;
 }
 </style>

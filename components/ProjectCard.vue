@@ -1,7 +1,11 @@
 <template>
   <card img-size="sqr">
     <template #img>
-      <img :src="getThumbnail(project.image)" :alt="project.imageAlt" />
+      <nuxt-picture
+        :src="`/img/${project.image}`"
+        format="webp"
+        :alt="project.imageAlt"
+      />
     </template>
     <template #text>
       <h2 class="text-xl font-bold leading-5 mb-3 dark:text-white">
@@ -47,15 +51,6 @@ export default {
     project: {
       type: Object,
       default: () => ({})
-    }
-  },
-  methods: {
-    getThumbnail(img) {
-      try {
-        return require(`~/assets/img/${img}`)
-      } catch (err) {
-        return null
-      }
     }
   }
 }

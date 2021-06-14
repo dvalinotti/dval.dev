@@ -36,7 +36,8 @@ export default {
     '@nuxtjs/fontawesome',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/imagemin'
+    '@nuxtjs/imagemin',
+    '@nuxt/image'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -48,6 +49,9 @@ export default {
     'nuxt-logrocket',
     'vue-plausible'
   ],
+
+  // https://image.nuxtjs.org/
+  image: {},
 
   logRocket: {
     logRocketId: process.env.LOGROCKET_ID,
