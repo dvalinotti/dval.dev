@@ -5,6 +5,7 @@
         :src="`/img/${project.image}`"
         format="webp"
         :alt="project.imageAlt"
+        loading="lazy"
       />
     </template>
     <template #text>

@@ -5,6 +5,7 @@
         :src="`/img/${post.featuredImage}`"
         format="webp"
         :alt="post.featuredImageAlt"
+        loading="lazy"
       />
     </template>
     <template #text>

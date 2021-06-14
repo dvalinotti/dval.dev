@@ -109,7 +109,7 @@ Now I've fleshed out the `render` function to actually create a new element in t
 
 The meat of the `render` function is that it's getting the app element as a mounting point, creating a new `<div>` element with a unique ID, and set its `innerHTML` to the name string we pass in as props. Now, the result of running `NewComponent.init()` is shown below:
 
-<nuxt-picture format="webp" alt="Screenshot of the result of the current createComponent function" src="/img/closure-component-1.png" width="400px"></nuxt-picture>
+<nuxt-picture format="webp" alt="Screenshot of the result of the current createComponent function" src="/img/closure-component-1.png" width="400px" loading="lazy"></nuxt-picture>
 
 The result is that we have two independent components that render in the DOM, and are unaffected by each other. *Absolutely bonkers!!!* Nothing really crazy yet, but it's a start.
 

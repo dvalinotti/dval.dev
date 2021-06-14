@@ -70,7 +70,7 @@ Lets begin by creating a new web components project on our local machine.
 
 Now you should have a project directory that looks like this:
 
-<nuxt-picture format="webp" alt="Project directory structure" src="/img/web-components-project-dir.png" width="475px"></nuxt-picture>
+<nuxt-picture format="webp" alt="Project directory structure" src="/img/web-components-project-dir.png" width="475px" loading="lazy"></nuxt-picture>
 
 Now lets create our first Web Component, named `base-button` to represent a regular button in our UI Library. Create a file in the `src` directory named "BaseButton.ts", then open it up in your code editor.
 
@@ -168,7 +168,7 @@ Our custom element is now registered with the tag name `base-button`. Now we wil
 
 Now open your terminal, and run the command `npm start` (or `yarn start`) to start up the development server. After a few seconds, a browser window will open and you should see this:
 
-<nuxt-picture format="webp" alt="Web Component demo browser window" src="/img/web-components-demo.png" width="475px"></nuxt-picture>
+<nuxt-picture format="webp" alt="Web Component demo browser window" src="/img/web-components-demo.png" width="475px" loading="lazy"></nuxt-picture>
 
 ## Give It Some Style
 
@@ -225,7 +225,7 @@ export class BaseButton extends LitElement {
 
 Here, we're using the `text` property to send an alert to the browser when the user clicks our button. Now, when you click the button in the demo window you should see this alert popup:
 
-<nuxt-picture format="webp" alt="Web component click handler alert" src="/img/web-component-click.png" width="600px"></nuxt-picture>
+<nuxt-picture format="webp" alt="Web component click handler alert" src="/img/web-component-click.png" width="600px" loading="lazy"></nuxt-picture>
 
 Congratulations, now we have a good-looking, dynamic, and reusable Web Component that can be used in many different applications! To finalize our work, open a terminal and run the command `npm run build` (or `yarn build`) to build a production-ready version of our web component, with the output placed in the `/dist` directory.
 
@@ -292,6 +292,6 @@ export default {
 
 To start our Vue application development server, run the command `yarn serve` in your terminal and navigate to `http://localhost:8080` in your browser. If everything went well, you should see your web component rendered properly!
 
-<nuxt-picture format="webp" alt="Vue dev server running with Base Button web component" src="/img/vue-web-component.png" width="600px"></nuxt-picture>
+<nuxt-picture format="webp" alt="Vue dev server running with Base Button web component" src="/img/vue-web-component.png" width="600px" loading="lazy"></nuxt-picture>
 
 Now you can create more web components in the project we created, and reuse them across your Vue application. You can also use them in other applications, such as React or Angular which would require somewhat different configuration. I hope this tutorial has been helpful! If you have questions, you can contact me through any of the methods listed on my [contact page](/contact).
