@@ -1,4 +1,17 @@
-# danvalinotti.com-static
+# dval.dev
+
+Vue + Nuxt statically-generated site for my personal website/blog.
+
+[Live Site](https://dval.dev)
+
+## Dependencies
+
+- Nuxt + `@nuxt/content`
+- TailwindCSS
+- Prism code highlighting
+- FontAwesome Icons
+- Plausible.io Analytics
+- Image Optimization w/ `@nuxt/image` and `@nuxt/imagemin`
 
 ## Build Setup
 
