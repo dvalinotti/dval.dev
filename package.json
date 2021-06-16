@@ -20,13 +20,10 @@
     "dateformat": "^4.5.1",
     "ko-co": "^1.5.1",
     "nuxt": "^2.15.3",
-    "nuxt-logrocket": "^1.5.2",
     "phone-fns": "^3.2.3",
-    "prism-themes": "^1.7.0",
     "reading-time": "^1.3.0",
     "v-click-outside": "^3.1.2",
-    "vue-plausible": "^1.1.4",
-    "vuesax": "^4.0.1-alpha.25"
+    "vue-plausible": "^1.1.4"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-pro": "^5.15.3",
@@ -49,6 +46,8 @@
     "eslint-plugin-vue": "^7.7.0",
     "postcss": "^8.2.8",
     "prettier": "^2.2.1",
+    "prismjs": "^1.23.0",
+    "prism-themes": "^1.7.0",
     "sass": "^1.32.12",
     "sass-loader": "10"
   }

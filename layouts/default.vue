@@ -56,9 +56,6 @@ export default {
   },
   methods: {
     toggleShowMenu() {
-      this.$logRocket.log('konamicode', {
-        date: Date.now()
-      })
       this.showMenu = !this.showMenu
     },
     toggleShowModal() {

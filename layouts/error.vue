@@ -56,12 +56,6 @@ export default {
     message() {
       return this.error.message || 'Something went wrong.'
     }
-  },
-  mounted() {
-    this.$logRocket.error(this.message, {
-      code: this.code,
-      message: this.message
-    })
   }
 }
 </script>
