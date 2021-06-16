@@ -18,19 +18,20 @@ I think an easier way of understanding Closures is to think of them as a way of 
 
 ## Example
 
-```js{}[Closure.js]
+<code-block lang="js" filename="Closure.js" highlight-lines="7">
 function makeCalculator(x) {
   return function add(y) {
     return x + y
   }
 }
-
+&nbsp;
 const calculateFive = makeCalculator(5);
+&nbsp;
 console.log(calculateFive(4))
 // Prints "9"
 console.log(calculateFive.add(4))
 // TypeError - calculateFive.add is not a function
-```
+</code-block>
 
 So we now have a function called `makeCalculator` that takes a base value `x`, and returns a function that takes another parameter `y` and adds it to `x`. Note that, while the function `add(y)` exists in the function block of `makeCalculator(x)`, it is not accessible by any functions created with `makeCalculator`. Basically, we have a Calculator component generator that **obfuscates its addition logic** from everything else, but is still **clear in what it does** from an outside perspective.
 
@@ -42,27 +43,27 @@ After thinking about this unique behavior for a while (talking to my cat about i
 
 The first thing we need to do is write a function that, similar to `makeCalculator`, contains some data or functions related to our component, and returns a subset of those. And the first thing that we do with any variable, Class object, or component is *initialize it.* So lets write a function that does just that:
 
-```js{}[Component.js]
+<code-block lang="js" filename="Component.js" highlight-lines="16">
 const createComponent = function(props) {
   const propsMap = new Map();
-
+&nbsp;
   const render = (props) => {
     // Some rendering logic
   }
-  
+&nbsp;
   return {
     init() {
       // Some initialization stuff
     }
   }
 }
-
+&nbsp;
 // NewComponent is assigned the value returned by createComponent
 const NewComponent = createComponent({ name: 'Dan' })
-
+&nbsp;
 NewComponent.init()
 NewComponent.render() // This will result in a TypeError!
-```
+</code-block>
 
 Now I've created the function `createComponent`, which returns a set of functions (for now, just `init()`), and also includes some constants that are accessible only to the functions executed inside the scope of `createComponent`. Then, I define a new variable `NewComponent` that is assigned the return value of `createComponent`, which will be an object containing `init()`. After `NewComponent` is initialized, I can call the `init()` function from it, but I won't be able to directly access the values of `propsMap` and `render`.
 
