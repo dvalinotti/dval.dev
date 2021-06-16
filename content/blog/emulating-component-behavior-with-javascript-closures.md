@@ -8,6 +8,8 @@ tags: ['javascript', 'tutorials']
 keywords: 'javascript,js,vanilla,vanilla javascript,components,function,var,const,let,closure,closures,scope,variable scope,tutorial'
 ---
 
+## Introduction
+
 Recently, in an effort to level-up my advanced JavaScript knowledge, I've been diving into the "wonderful" world of Closures. If you've done any research on how Closures work in JavaScript for yourself, I'm sure you understand that it can be very confusing at first. For reference, here is the definition of a Closure from [the MDN Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures):
 
 > A **closure** is the combination of a function bundled together (enclosed) with references to its surrounding state (the **lexical environment**). In other words, a closure gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.

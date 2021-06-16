@@ -110,6 +110,18 @@ export default {
 .container .prose h1 {
   margin-bottom: 0.5rem;
 }
+.container .prose ul {
+  list-style: circle;
+}
+.container .prose ul > li {
+  padding-left: 0;
+  margin-left: 1.5em;
+  padding-left: 0.5em;
+}
+.container .prose ul > li::before,
+.container .prose ul > li::after {
+  content: none;
+}
 .container .prose p > code,
 .container .prose li > code {
   padding: 0.25em 0.5em;
@@ -124,7 +136,7 @@ export default {
 }
 .container .prose code::before,
 .container .prose code::after {
-  content: '';
+  content: none;
 }
 .container .prose .nuxt-content-highlight {
   position: relative;

@@ -71,6 +71,7 @@ div.prism {
 
     > .line-highlight {
       margin-top: 0.9em;
+      background: #252323;
     }
   }
 

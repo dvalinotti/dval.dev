@@ -98,7 +98,7 @@ Now we have a custom element named "BaseButton", whose HTML tag will be named `b
 export class BaseButton extends LitElement {
     render() {
         return html`
-            <button class="base-btn">Base Button</button>
+            &lt;button class="base-btn">Base Button&lt;/button>
         `;
     }
 }
