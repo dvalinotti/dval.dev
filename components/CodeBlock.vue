@@ -60,11 +60,19 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.prism {
+<style lang="scss">
+div.prism {
   position: relative;
-  margin-top: 3em;
+  margin-top: 3.5em;
   z-index: 0;
+
+  pre[class*='language-'].line-numbers {
+    padding-left: 1em;
+
+    > .line-highlight {
+      margin-top: 0.9em;
+    }
+  }
 
   > pre {
     border-radius: 0 0 0.5em 0.5em;
@@ -92,6 +100,7 @@ export default {
     > span.filename {
       color: white;
       font-size: 0.875em;
+      font-weight: bold;
     }
 
     > .btn-group {
@@ -104,7 +113,7 @@ export default {
         border-radius: 100%;
         border-width: 1px;
         border-style: solid;
-        margin: 0 0.25rem;
+        margin-left: 0.5rem;
 
         &.red {
           background-color: #ff6058;

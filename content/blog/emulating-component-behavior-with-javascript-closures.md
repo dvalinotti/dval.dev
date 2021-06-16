@@ -73,38 +73,38 @@ So we got something going here, but it doesn't really *do anything yet*. What I 
 
 Here's how I accomplished this task:
 
-```js{}[Component.js]
+<code-block lang="js" filename="Component.js" highlight-lines="6-15">
 const createComponent = function(props) {
   // Assign props value to propsMap so we can properly update them later
   var propsMap = new Map(Object.entries(props));
-
+&nbsp;
   const render = () => {
     var name = propsMap.get('name') || ''
     var app = document.getElementById("app");
     var el = document.createElement("div");
-
+&nbsp;
     // Assign an ID so I can reference it somewhere else
     el.id = "new-component";
     el.innerHTML = name;
-
+&nbsp;
     // Attach the new element to the root "app" node
     app.appendChild(el);
   };
-
+&nbsp;
   return {
     init() {
       render(props); // Called on `init`, but still not available to NewComponent
     }
   };
 };
-
+&nbsp;
 // Create two independent components
 const ComponentOne = createComponent({ name: 'Dan' })
 ComponentOne.init()
-
+&nbsp;
 const ComponentTwo = createComponent({ name: 'John' })
 ComponentOne.init()
-```
+</code-block>
 
 Now I've fleshed out the `render` function to actually create a new element in the DOM, and gave it an ID value so that we can reference it later through the `document` object. I also created an additional `Map` object named `propsMap` so that we can mutate props freely later on.
 
@@ -118,10 +118,10 @@ The result is that we have two independent components that render in the DOM, an
 
 The next step is to make our components dynamic, so that when we change the value of `props` the DOM element created by `render` will be updated accordingly. So we'll need another function available publically through `ComponentOne` or `ComponentTwo` so that we can update those props and trigger a re-render. We're also going to check the DOM before rendering to see if the component node already exists, to avoid duplicate nodes.
 
-```js{}[Component.js]
+<code-block lang="js" filename="Component.js" highlight-lines="6-9,17,19,50-52">
 const createComponent = function (props) {
   var propsMap = new Map();
-
+&nbsp;
   // Allows us to mutate props freely
   const setPropValues = (p) => {
     const propEntries = Object.entries(p);
@@ -129,41 +129,41 @@ const createComponent = function (props) {
       propsMap.set(key, value);
     });
   };
-
+&nbsp;
   // Returns the current DOM node, or creates a new one and returns it.
   const getRootNode = () => {
     var id = propsMap.get("id"); // new prop for element IDs
-
+&nbsp;
     // Check if the element exists in the DOM
     const existing = document.getElementById(id);
-
+&nbsp;
     if (!existing) {
       // Append the root node to our app element
       var app = document.getElementById("app");
       var el = document.createElement("div");
       el.id = id;
-
+&nbsp;
       app.appendChild(el);
-
+&nbsp;
       return el; // Return the new element...
     }
-
+&nbsp;
     return existing; // Otherwise, return the existing one.
   };
-
+&nbsp;
   const render = () => {
     var name = propsMap.get("name") || "";
     var el = getRootNode();
-
+&nbsp;
     el.innerHTML = name;
   };
-
+&nbsp;
   // Update props to values from p and render in DOM
   const renderWithProps = (p) => {
     setPropValues(p);
     render();
   };
-
+&nbsp;
   return {
     init() {
       renderWithProps(props); // props from creatComponent()
@@ -173,7 +173,7 @@ const createComponent = function (props) {
     }
   };
 };
-```
+</code-block>
 
 So, there's a few things going on here now.
 
@@ -185,15 +185,15 @@ So, there's a few things going on here now.
 
 To test the encapsulation of props and behavior of rendering vs. updating these components, I added a couple of buttons to the DOM that call `update({ ...newProps })` on click:
 
-```js{}[Component.js]
+<code-block lang="js" filename="Component.js" highlight-lines="11-15">
 const ComponentOne = createComponent({
   id: "component-one", // new prop
   name: "Dan",
 });
 ComponentOne.init();
-
-// ComponentTwo init code here
-
+&nbsp;
+// (ComponentTwo init code here)
+&nbsp;
 const btnOne = document.createElement("button");
 btnOne.innerHTML = "Update One";
 btnOne.addEventListener("click", function () {
@@ -201,9 +201,9 @@ btnOne.addEventListener("click", function () {
     name: "Peter"
   });
 });
-
+&nbsp;
 // btnTwo code here that updates ComponentTwo
-```
+</code-block>
 
 ## The Moment of Truth
 
@@ -221,23 +221,23 @@ The Closure here exists in `createComponent` and the functions contained and ret
 
 The code snippet below, similar to the first example, demonstrates this distinction between our "public" and "private" values:
 
-```js{}[Result.js]
+<code-block lang="js" filename="Result.js" highlight-lines="7,10-12,15">
 const component = createComponent({
   id: 'example',
   name: 'Dan'
 })
-
+&nbsp;
 // Renders a new node in the DOM with the text "Dan"
 component.init()
-
+&nbsp;
 // Updates the props of our component and updates the existing DOM node
 component.update({
   name: 'Peter'
 })
-
+&nbsp;
 // Results in a TypeError - component.render is not a function!
 component.render()
-```
+</code-block>
 
 Our end result is essentially a super-watered down Virtual DOM API, but I think it serves as a good example for how a Closure can be implemented in JavaScript in a way that is both useful and clear in its implementation. I hope this tutorial has been helpful for you, whether you had no idea what a Closure was, or if you already knew about Closures but have never seen how it's used.
 
