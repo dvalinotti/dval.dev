@@ -26,20 +26,24 @@ We can use Web Components to solve the scenario I just described by creating a l
 
 Before we create our project, I'm going to start by showing a quick example of a component written in TypeScript using Lit. Lit is a new-ish framework from Google that makes it very simple to write Web Components. Here is a "Hello World" component from their documentation:
 
-```ts {}[Example.ts]
-import {html, css, LitElement, property} from 'lit';
+<!-- <code-block lang="ts" filename="Example.ts">
+&nbsp;
+</code-block> -->
 
+<code-block lang="ts" filename="Example.ts">
+import {html, css, LitElement, property} from 'lit';
+&nbsp;
 export class SimpleGreeting extends LitElement {
   static styles = css`p { color: blue }`;
-
+&nbsp;
   @property({ type: String })
   name = 'Somebody';
-
+&nbsp;
   render() {
     return html`<p>Hello, ${this.name}!</p>`;
   }
 }
-```
+</code-block>
 
 Lets break this sample code down step-by-step:
 
@@ -52,10 +56,10 @@ Lets break this sample code down step-by-step:
 
 While this component might not seem useful as it is, you can see that we have much more than a static HTML element. It can be reused across many HTML templates, and it is dynamic in that we can provide any value for its properties and it will adapt accordingly. Here is how you might see this element used in an HTML document:
 
-```html {}[Example.html]
-<simple-greeting name="Mr. Jones" />
-<!-- output: <p>Hello, Mr. Jones!</p> -->
-```
+<code-block lang="html" filename="Example.html">
+&lt;simple-greeting name="Mr. Jones" />
+&lt;!-- output: &lt;p>Hello, Mr. Jones!&lt;/p> -->
+</code-block>
 
 Now lets create a web component of our own!
 
@@ -76,21 +80,21 @@ Now lets create our first Web Component, named `base-button` to represent a regu
 
 The first thing we need to do is import some modules from the `lit` package that will help us write our component:
 
-```ts {}[/src/BaseButton.ts]
+<code-block lang="ts" filename="/src/BaseButton.ts">
 import { html, css, LitElement, property } from  'lit-element';
-```
+</code-block>
 
 Next, we'll declare our component similar to what was shown earlier in the `simple-greeting` example:
 
-```ts {}[/src/BaseButton.ts]
+<code-block lang="ts" filename="/src/BaseButton.ts">
 export class BaseButton extends LitElement {
     // ...
 }
-```
+</code-block>
 
 Now we have a custom element named "BaseButton", whose HTML tag will be named `base-button`. Next, we'll create a `render()` function which will return the HTML rendered by our custom element:
 
-```ts {}[/src/BaseButton.ts]
+<code-block lang="ts" filename="/src/BaseButton.ts">
 export class BaseButton extends LitElement {
     render() {
         return html`
@@ -98,7 +102,7 @@ export class BaseButton extends LitElement {
         `;
     }
 }
-```
+</code-block>
 
 When we use our `base-button` component in HTML, it will now render a `button` element with the class "base-btn" and text content "Base Button".
 
@@ -106,28 +110,28 @@ When we use our `base-button` component in HTML, it will now render a `button` e
 
 Now lets define a property variable, which will add some dynamic content to our component:
 
-```ts {}[/src/BaseButton.ts]
+<code-block lang="ts" filename="/src/BaseButton.ts">
 export class BaseButton extends LitElement {
     // New Property
     @property({ type: String })
     text = 'Base Button'
-    
+&nbsp;
     render() {
         // Interpolate the property into our template
         return html`
-            <button class="base-btn">${this.text}</button>
+            &lt;button class="base-btn">${this.text}&lt;/button>
         `;
     }
 }
-```
+</code-block>
 
 Now we've defined a property `text` of type String, with a default value of "Base Button". If we were to use our component in HTML like so:
 
-```html {}[Example.html]
-<base-button text="Hello World" />
-<!-- output -->
-<button class="base-btn">Hello World</button>
-```
+<code-block lang="html" filename="Example.html">
+&lt;base-button text="Hello World" />
+&lt!-- output -->
+&lt;button class="base-btn">Hello World&lt;/button>
+</code-block>
 
 Congrats, you just created your first dynamic web component!
 
@@ -135,36 +139,36 @@ Congrats, you just created your first dynamic web component!
 
 To see our work in action, we first need to register the component in the root file of our project, `ui-library.ts`. Place the following code in the file:
 
-```ts {}[ui-library.ts]
+<code-block lang="ts" filename="ui-library.ts">
 import { BaseButton } from './src/BaseButton.js';
-
+&nbsp;
 window.customElements.define('base-button', BaseButton);
-```
+</code-block>
 
 Our custom element is now registered with the tag name `base-button`. Now we will change the contents of the file `/demo/index.html`, which is where we'll preview our changes in development:
 
-```html {}[/demo/index.html]
-<!doctype html>
-<html lang="en-GB">
-<!-- ... -->
-<body>
-    <div id="demo"></div>
-    <script type="module">
+<code-block lang="html" filename="/demo/index.html">
+&lt;!doctype html>
+&lt;html lang="en-GB">
+&lt;!-- ... -->
+&lt;body>
+    &lt;div id="demo">&lt;/div>
+    &lt;script type="module">
         import { html, render } from 'lit-html';
         import '../dist/ui-library.js';
-        
+&nbsp;
         const title = 'Hello World!';
-
+&nbsp;
         render(
             html`
-                <base-button text="${title}"></base-button>
+                &lt;base-button text="${title}">&lt;/base-button>
             `,
             document.querySelector('#demo')
         );
-    </script>
-</body>
-</html>
-```
+    &lt;/script>
+&lt;/body>
+&lt;/html>
+</code-block>
 
 Now open your terminal, and run the command `npm start` (or `yarn start`) to start up the development server. After a few seconds, a browser window will open and you should see this:
 
@@ -174,7 +178,7 @@ Now open your terminal, and run the command `npm start` (or `yarn start`) to sta
 
 Now lets add some CSS to our button to make it look a bit prettier. To add styles to our Lit Web Component, we define a static variable `styles` at the top of our component class:
 
-```ts {}[/src/BaseButton.ts]
+<code-block lang="ts" filename="/src/BaseButton.ts">
 export class BaseButton extends LitElement {
     static styles = css`
         button.base-btn {
@@ -193,7 +197,7 @@ export class BaseButton extends LitElement {
     `;
     // ...
 }
-```
+</code-block>
 
 Now that we've added a pop of color and a cool hover effect, save the file and look back at the browser window to see your updated component:
 
@@ -203,25 +207,25 @@ Now that we've added a pop of color and a cool hover effect, save the file and l
 
 Since we're building a button, we're going to want it to perform some action when a user clicks the button. One way we can do this is to define an attribute `@click` in our render function on the button element, and pass it an event handler function:
 
-```ts {}[/src/BaseButton.ts]
+<code-block lang="ts" filename="/src/BaseButton.ts">
 export class BaseButton extends LitElement {
     // ...
-    
+&nbsp;
     render() {
         // Add @click attribute with this.onClick function
         return html`
-            <button class="base-btn" @click="${this.onClick}">
+            &lt;button class="base-btn" @click="${this.onClick}">
                 ${this.text}
-            </button>
+            &lt;/button>
         `;
     }
-    
+&nbsp;
     // Button click event handler
     onClick() {
         window.alert(`${this.text} has been clicked!`);
     }
 }
-```
+</code-block>
 
 Here, we're using the `text` property to send an alert to the browser when the user clicks our button. Now, when you click the button in the demo window you should see this alert popup:
 
@@ -237,48 +241,48 @@ To make sure our Vue application can render Web Components, we need to install t
 
 Next, we need to import our production build of the Web Component into our Vue app. The easiest way to do this is by adding the following line to the `dependencies` section of our `package.json` file:
 
-```json {}[package.json]
+<code-block lang="json" filename="package.json">
 "ui-library": "../ui-library",
-```
+</code-block>
 
 This will add our Web Components project as a Node dependency named `ui-library`. Now, we need to actually import `ui-library` in our Vue application - this will be done in the file `/src/main.js`, which is generally the entry-point of all Vue applications.
 
-```js {}[/src/main.js]
+<code-block lang="js" filename="/src/main.js">
 import Vue from 'vue'
 import App from './App.vue'
-
+&nbsp;
 // Import the ui-library package with our base-button Web Component
 import 'ui-library/dist/ui-library.js'
-
+&nbsp;
 // IMPORTANT: Configure Vue to ignore any elements named base-button.
 //   If this isn't set, Vue will try to render base-button as a Vue 
 //   component which will cause an error.
 Vue.config.ignoredElements = ['base-button']
-
+&nbsp;
 Vue.config.productionTip = false
 new Vue({
     render: h => h(App),
 }).$mount('#app')
-```
+</code-block>
 
 Now our `base-button` Web Component will be available to any Vue component in our application. To test this out, open the `/src/App.vue` file and write the following code:
 
-```vue {}[/src/App.vue]
-<template>
-    <div id="app">
-        <h1>Web Components</h1>
-        <!-- Our web component! -->
-        <base-button text="Hello Vue"></base-button>
-    </div>
-</template>
-
-<script>
+<code-block lang="html" filename="/src/App.vue">
+&lt;template>
+    &lt;div id="app">
+        &lt;h1>Web Components&lt;/h1>
+        &lt;!-- Our web component! -->
+        &lt;base-button text="Hello Vue">&lt;/base-button>
+    &lt;/div>
+&lt;/template>
+&nbsp;
+&lt;script>
 export default {
     name: 'App',
 }
-</script>
-
-<style>
+&lt;/script>
+&nbsp;
+&lt;style>
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -287,8 +291,8 @@ export default {
     color: #2c3e50;
     margin-top: 60px;
 }
-</style>
-```
+&lt;/style>
+</code-block>
 
 To start our Vue application development server, run the command `yarn serve` in your terminal and navigate to `http://localhost:8080` in your browser. If everything went well, you should see your web component rendered properly!
 
