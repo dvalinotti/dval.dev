@@ -1,6 +1,13 @@
 <template>
   <div class="prism">
-    <span class="filename">{{ filename }}</span>
+    <div class="prism-bar">
+      <span class="filename">{{ filename }}</span>
+      <div class="btn-group">
+        <span class="btn-group-item red"></span>
+        <span class="btn-group-item yellow"></span>
+        <span class="btn-group-item green"></span>
+      </div>
+    </div>
     <pre
       class="line-numbers"
       :class="`language-${lang}`"
@@ -66,20 +73,53 @@ export default {
     overflow-y: visible;
   }
 
-  > span.filename {
+  .prism-bar {
     position: absolute;
     top: -2.5em;
     left: 0;
     z-index: -1;
-    background: rgb(51, 61, 75);
-    color: white;
-    font-size: 0.875em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding-left: 0.75em;
     padding-right: 0.75em;
     padding-top: 0.5em;
     padding-bottom: 1em;
     border-radius: 0.5em;
+    background: rgb(51, 61, 75);
+
+    > span.filename {
+      color: white;
+      font-size: 0.875em;
+    }
+
+    > .btn-group {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      .btn-group-item {
+        width: 12px;
+        height: 12px;
+        border-radius: 100%;
+        border-width: 1px;
+        border-style: solid;
+        margin: 0 0.25rem;
+
+        &.red {
+          background-color: #ff6058;
+          border-color: #e24940;
+        }
+        &.yellow {
+          background-color: #ffbd2e;
+          border-color: #e2a221;
+        }
+        &.green {
+          background-color: #29ca41;
+          border-color: #16ae2e;
+        }
+      }
+    }
   }
 }
 </style>
