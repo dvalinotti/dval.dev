@@ -102,6 +102,7 @@ export default {
         'faPython',
         'faReact',
         'faShopify',
+        'faTwitter',
         'faVuejs',
         'faWordpressSimple'
       ]

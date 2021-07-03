@@ -5,21 +5,22 @@
         class="w-full max-w-md mx-auto flex flex-wrap items-center justify-center px-8"
       >
         <li v-for="(item, index) in items" :key="index" class="mx-2 mb-1">
-          <nuxt-link :to="item.path" class="nuxt-link">
+          <fancy-link :to="item.path">
             {{ item.label }}
-          </nuxt-link>
+          </fancy-link>
         </li>
       </ul>
       <ul class="w-full max-w-md mx-auto mt-4 flex items-center justify-center">
         <li v-for="(link, index) in socialLinks" :key="index" class="mx-2">
-          <a
-            :href="link.path"
-            target="_blank"
+          <fancy-link
+            :to="link.path"
+            :new-tab="true"
+            :underline="false"
             :aria-label="link.label"
             rel="noopener"
           >
             <fa :icon="[link.iconPrefix, link.icon]" class="fa-lg" />
-          </a>
+          </fancy-link>
         </li>
       </ul>
       <span class="text-xs text-gray-700 dark:text-gray-200 mt-4">
@@ -50,6 +51,12 @@ export default {
         iconPrefix: 'fab',
         path: 'https://github.com/dvalinotti',
         label: 'Github'
+      },
+      {
+        icon: 'twitter',
+        iconPrefix: 'fab',
+        path: 'https://twitter.com/dan_valinotti',
+        label: 'Twitter'
       },
       {
         icon: 'linkedin',

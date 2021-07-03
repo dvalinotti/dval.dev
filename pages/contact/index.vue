@@ -17,14 +17,14 @@
           class="dark:text-white flex items-center justify-start my-2"
         >
           <fa :icon="[link.iconPrefix, link.icon]" class="fa-2x" />
-          <a
-            :href="link.value"
-            target="_blank"
+          <fancy-link
+            :to="link.path"
+            :new-tab="true"
             class="ml-4 my-2"
             rel="noopener"
           >
             {{ link.label }}
-          </a>
+          </fancy-link>
         </li>
       </ul>
     </div>
@@ -38,25 +38,31 @@ export default {
       {
         icon: 'envelope',
         iconPrefix: 'far',
-        value: 'mailto:dvalinotti@icloud.com',
+        path: 'mailto:dvalinotti@icloud.com',
         label: 'Email'
       },
       {
         icon: 'github',
         iconPrefix: 'fab',
-        value: 'https://github.com/dvalinotti',
+        path: 'https://github.com/dvalinotti',
         label: 'Github'
+      },
+      {
+        icon: 'twitter',
+        iconPrefix: 'fab',
+        path: 'https://twitter.com/dan_valinotti',
+        label: 'Twitter'
       },
       {
         icon: 'linkedin',
         iconPrefix: 'fab',
-        value: 'https://www.linkedin.com/in/daniel-valinotti/',
+        path: 'https://www.linkedin.com/in/daniel-valinotti/',
         label: 'LinkedIn'
       },
       {
         icon: 'hackerrank',
         iconPrefix: 'fab',
-        value: 'https://www.hackerrank.com/dvalinotti',
+        path: 'https://www.hackerrank.com/dvalinotti',
         label: 'HackerRank'
       }
     ]
