@@ -178,6 +178,9 @@ export default {
           content:
             "Welcome to Dan Valinotti's web development portfolio website!"
         }
+      ],
+      script: [
+        { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }
       ]
     }
   }
