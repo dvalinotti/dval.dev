@@ -15,7 +15,6 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "@nuxtjs/style-resources": "^1.0.0",
     "@tailwindcss/typography": "^0.4.0",
-    "contentful": "^8.3.5",
     "core-js": "^3.9.1",
     "dateformat": "^4.5.1",
     "ko-co": "^1.5.1",
@@ -46,8 +45,8 @@
     "eslint-plugin-vue": "^7.7.0",
     "postcss": "^8.2.8",
     "prettier": "^2.2.1",
-    "prismjs": "^1.24.0",
     "prism-themes": "^1.7.0",
+    "prismjs": "^1.24.0",
     "sass": "^1.32.12",
     "sass-loader": "10"
   }
