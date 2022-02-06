@@ -85,6 +85,7 @@ export default {
     icons: {
       regular: ['faEnvelope'],
       brands: [
+        'faAngular',
         'faAws',
         'faBitbucket',
         'faCss3',
@@ -108,7 +109,7 @@ export default {
       ]
     },
     proIcons: {
-      regular: ['faEggFried'],
+      regular: ['faAd', 'faEggFried'],
       light: [
         'faBars',
         'faMoonStars',

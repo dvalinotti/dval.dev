@@ -26,9 +26,17 @@
           <!-- eslint-disable-next-line vue/no-v-html -->
           <p class="text-sm ml-4 pr-4 py-2" v-html="exp.description"></p>
           <ul class="flex flex-wrap ml-4 mt-2">
-            <li v-for="(icon, i) in exp.icons" :key="i">
+            <li
+              v-for="(icon, i) in exp.icons"
+              :key="i"
+              class="flex items-center"
+            >
+              <span v-if="['Typescript', 'Dart'].includes(icon)">
+                {{ icon }}{{ isLastIcon(index, i) ? '' : ',&nbsp;' }}
+              </span>
               <fa
-                :icon="['fab', icon]"
+                v-else
+                :icon="[icon !== 'ad' ? 'fab' : 'far', icon]"
                 class="mr-3 fa-2x"
                 :aria-label="icon"
                 :title="icon"
@@ -47,8 +55,29 @@ export default {
   data: () => ({
     expItems: [
       {
-        start: 'Jan 2020',
+        start: 'Oct 2021',
         end: 'Present',
+        title: 'Software Engineer',
+        at: 'Google',
+        icons: [
+          'angular',
+          'java',
+          'js-square',
+          'html5',
+          'css3',
+          'ad',
+          'Dart',
+          'Typescript'
+        ],
+        description: `Currently working on Google Ads products for dynamic
+            creative ad development, such as <strong>Ads Creative Studio, Display &
+            Video 360, and Studio</strong>. Using <strong>AngularDart</strong>
+            and <strong>Angular TypeScript</strong> for frontend and
+            <strong>Java</strong> for backend.`
+      },
+      {
+        start: 'Jan 2020',
+        end: 'Oct 2021',
         title: 'Full Stack Developer',
         at: 'Colgate-Palmolive',
         icons: [
@@ -100,7 +129,12 @@ export default {
             Vagrant.</strong>`
       }
     ]
-  })
+  }),
+  methods: {
+    isLastIcon(expIndex, iconIndex) {
+      return this.expItems[expIndex].icons.length - 1 === iconIndex
+    }
+  }
 }
 </script>
 
