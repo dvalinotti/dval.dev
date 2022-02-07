@@ -1,0 +1,38 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "parser": "@babel/eslint-parser",
+    "requireConfigFile": false
+  },
+  "extends": [
+    "@nuxtjs",
+    "plugin:prettier/recommended",
+    "plugin:nuxt/recommended"
+  ],
+  "plugins": [],
+  // add your custom rules here
+  "rules": {
+    "vue/attribute-hyphenation": ["error", "never", {
+      "ignore": ["img-attrs", "img-size"]
+    }],
+    "vue/multi-word-component-names": ["error", {
+      "ignores": [
+        "index",
+        "default",
+        "projects",
+        "experience",
+        "success",
+        "slug",
+        "Avatar",
+        "Card",
+        "Footer",
+        "Modal",
+        "Tag"
+      ]
+    }]
+  }
+}
