@@ -9,7 +9,7 @@
       />
     </template>
     <template #text>
-      <div class="flex items-center mb-3">
+      <div class="flex items-center mb-1">
         <h2 class="text-xl font-bold leading-5 mb-0 dark:text-white">
           {{ project.title }}
         </h2>
@@ -20,6 +20,7 @@
           BETA
         </span>
       </div>
+      <p class="italic dark:text-white mb-3">{{ project.company }}</p>
       <nuxt-content :document="project" class="mb-4 dark:text-gray-200" />
       <div class="flex items-center justify-start mb-2">
         <a
