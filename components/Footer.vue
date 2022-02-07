@@ -14,7 +14,7 @@
         <li v-for="(link, index) in socialLinks" :key="index" class="mx-2">
           <fancy-link
             :to="link.path"
-            :new-tab="true"
+            :newTab="true"
             :underline="false"
             :aria-label="link.label"
             rel="noopener"

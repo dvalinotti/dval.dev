@@ -6,6 +6,7 @@
         format="webp"
         :alt="project.imageAlt"
         loading="lazy"
+        :imgAttrs="{ class: 'rounded-md' }"
       />
     </template>
     <template #text>
