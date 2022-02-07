@@ -31,9 +31,9 @@
               :key="i"
               class="flex items-center"
             >
-              <span v-if="['Typescript', 'Dart'].includes(icon)">
+              <p v-if="['Typescript', 'Dart'].includes(icon)" class="font-bold">
                 {{ icon }}{{ isLastIcon(index, i) ? '' : ',&nbsp;' }}
-              </span>
+              </p>
               <fa
                 v-else
                 :icon="[icon !== 'ad' ? 'fab' : 'far', icon]"

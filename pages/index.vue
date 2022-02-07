@@ -137,20 +137,22 @@
 
 <script>
 export default {
-  name: 'Home',
   async asyncData({ $content, error }) {
     try {
       const [blogPosts, projects] = await Promise.all([
         $content('blog').sortBy('date', 'desc').limit(3).fetch(),
         $content('projects')
           .where({ tag: { $eq: 'professional' } })
-          .limit(3)
           .fetch()
       ])
 
       return {
         blogPosts,
-        projects
+        projects: projects
+          .sort((a, b) => {
+            return a.position - b.position
+          })
+          .slice(0, 3)
       }
     } catch (err) {
       error(err)
