@@ -33,14 +33,14 @@
           <button-simple color="blue"> GitHub Repo </button-simple>
         </a>
         <a
-          v-if="project.liveUrl"
-          :href="project.liveUrl"
+          v-if="hasLiveUrl || hasReadMoreUrl"
+          :href="urlButtonHref"
           target="_blank"
-          :aria-label="`${project.title} Live Site`"
+          :aria-label="`${project.title} ${urlButtonLabel}`"
           rel="noopener"
         >
           <button-simple color="green">
-            {{ project.isBeta ? 'Read More' : 'Live Site' }}
+            {{ urlButtonLabel }}
           </button-simple>
         </a>
         <a
@@ -63,6 +63,20 @@ export default {
     project: {
       type: Object,
       default: () => ({})
+    }
+  },
+  computed: {
+    hasLiveUrl() {
+      return this.project.liveUrl
+    },
+    hasReadMoreUrl() {
+      return this.project.readMoreUrl && !this.project.liveUrl
+    },
+    urlButtonLabel() {
+      return this.hasLiveUrl ? 'Live Site' : 'Read More'
+    },
+    urlButtonHref() {
+      return this.hasLiveUrl ? this.project.liveUrl : this.project.readMoreUrl
     }
   }
 }

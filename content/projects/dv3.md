@@ -2,7 +2,7 @@
 title: Google Ads Display & Video 360
 image: dv3.png
 imageAlt: Google Ads Display & Video 360 logo on dark gray background
-liveUrl: https://marketingplatform.google.com/about/display-video-360/
+readMoreUrl: https://marketingplatform.google.com/about/display-video-360/
 position: 1
 tag: 'professional'
 company: 'Google'
