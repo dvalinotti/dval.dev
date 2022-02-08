@@ -34,10 +34,11 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/fontawesome',
+    '@nuxtjs/imagemin',
+    '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/imagemin',
-    '@nuxt/image'
+    '@nuxt/image',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -48,6 +49,20 @@ export default {
     '@nuxtjs/style-resources',
     'vue-plausible'
   ],
+
+  pwa: {
+    meta: {
+      name: "dval.dev",
+      description: "Dan Valinotti's personal website",
+      theme_color: "#0078c0"
+    },
+    manifest: {
+      name: "dval.dev",
+      short_name: "dval.dev",
+      description: "Dan Valinotti's personal website",
+      theme_color: "#0078c0"
+    }
+  },
 
   // https://image.nuxtjs.org/
   image: {},
