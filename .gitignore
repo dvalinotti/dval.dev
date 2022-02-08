@@ -91,3 +91,6 @@ sw.*
 
 # Don't commit draft blog posts.
 *-DRAFT.md
+
+# pwa
+sw.*
