@@ -61,8 +61,20 @@ interface ExpItem {
 
 const expItems: ExpItem[] = [
   {
-    start: 'Oct 2021',
+    start: 'Oct 2025',
     end: 'Present',
+    title: 'UI Software Engineer',
+    at: 'Netflix',
+    icons: ['react', 'js-square', 'html5', 'css3', 'Typescript'],
+    description: `Building creative development and management tools for
+        <strong>Netflix Ads Suite</strong>, enabling internal ad account managers
+        to build, manage, and deliver ad creatives across the Netflix Ads platform.
+        Using <strong>React</strong>, <strong>TypeScript</strong>,
+        <strong>GraphQL</strong>, and modern CSS.`
+  },
+  {
+    start: 'Oct 2021',
+    end: 'Sept 2025',
     title: 'Software Engineer',
     at: 'Google',
     icons: [
@@ -75,11 +87,13 @@ const expItems: ExpItem[] = [
       'Dart',
       'Typescript'
     ],
-    description: `Currently working on Google Ads products for dynamic
-        creative ad development, such as <strong>Ads Creative Studio, Display &
-        Video 360, and Studio</strong>. Using <strong>AngularDart</strong>
-        and <strong>Angular TypeScript</strong> for frontend and
-        <strong>Java</strong> for backend.`
+    description: `Worked on Google Ads products for dynamic creative ad
+        development, including <strong>Ads Creative Studio, Display &
+        Video 360, and Studio</strong>. Built new recommendation surfaces in
+        <strong>Google Ads Campaign Manager</strong> to help advertisers
+        improve performance through asset insights. Used
+        <strong>AngularDart</strong>, <strong>Angular TypeScript</strong>
+        for frontend and <strong>Java</strong> for backend.`
   },
   {
     start: 'Jan 2020',

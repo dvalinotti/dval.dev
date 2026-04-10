@@ -3,7 +3,7 @@ title: Ads Creative Studio
 image: acs.jpg
 imageAlt: Ads Creative studio illustration
 readMoreUrl: https://blog.google/products/ads-commerce/ads-creative-studio-launch-cannes/
-position: 0
+position: 1
 isBeta: true
 tag: 'professional'
 company: 'Google'

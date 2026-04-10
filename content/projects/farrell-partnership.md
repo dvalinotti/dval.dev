@@ -3,7 +3,7 @@ title: Farrell Partnership Website
 image: FPLogo.png
 imageAlt: Farrell Partnership company logo on orange background
 liveUrl: https://farrellpartnership.com
-position: 4
+position: 5
 tag: 'professional'
 company: 'Freelance'
 ---
