@@ -33,7 +33,7 @@
 import dateFormat from 'dateformat'
 
 const props = defineProps<{
-  post: Record<string, any>
+  post: Record<string, unknown>
 }>()
 
 function extractPlainText(value: unknown): string {

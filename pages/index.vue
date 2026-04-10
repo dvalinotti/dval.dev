@@ -59,9 +59,7 @@
                 as well as tab-navigating myself to make sure keyboard-only
                 users can do everything they need. If you're having trouble on
                 this site, please reach out to me on my
-                <NuxtLink
-                  to="/contact"
-                  class="text-blue-700 dark:text-blue-500"
+                <NuxtLink to="/contact" class="text-blue-700 dark:text-blue-500"
                   >contact page</NuxtLink
                 >.
               </p>
@@ -146,8 +144,8 @@ const { data: allProjects } = await useAsyncData('home-projects', () =>
 
 const projects = computed(() =>
   (allProjects.value || [])
-    .filter((p: any) => p.tag === 'professional')
-    .sort((a: any, b: any) => a.position - b.position)
+    .filter((p) => p.tag === 'professional')
+    .sort((a, b) => (a.position as number) - (b.position as number))
     .slice(0, 3)
 )
 
@@ -156,12 +154,12 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: "Welcome to Dan Valinotti's web development portfolio website!",
-    },
+      content: "Welcome to Dan Valinotti's web development portfolio website!"
+    }
   ],
   script: [
-    { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
-  ],
+    { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }
+  ]
 })
 </script>
 

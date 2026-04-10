@@ -52,11 +52,14 @@ const emit = defineEmits<{
   close: []
 }>()
 
-watch(() => props.show, (value) => {
-  if (import.meta.client) {
-    document.body.style.overflowY = value ? 'hidden' : 'auto'
+watch(
+  () => props.show,
+  (value) => {
+    if (import.meta.client) {
+      document.body.style.overflowY = value ? 'hidden' : 'auto'
+    }
   }
-})
+)
 </script>
 
 <style lang="scss" scoped>

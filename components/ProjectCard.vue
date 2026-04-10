@@ -60,11 +60,17 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  project: Record<string, any>
+  project: Record<string, unknown>
 }>()
 
 const hasLiveUrl = computed(() => props.project.liveUrl)
-const hasReadMoreUrl = computed(() => props.project.readMoreUrl && !props.project.liveUrl)
-const urlButtonLabel = computed(() => hasLiveUrl.value ? 'Live Site' : 'Read More')
-const urlButtonHref = computed(() => hasLiveUrl.value ? props.project.liveUrl : props.project.readMoreUrl)
+const hasReadMoreUrl = computed(
+  () => props.project.readMoreUrl && !props.project.liveUrl
+)
+const urlButtonLabel = computed(() =>
+  hasLiveUrl.value ? 'Live Site' : 'Read More'
+)
+const urlButtonHref = computed(() =>
+  hasLiveUrl.value ? props.project.liveUrl : props.project.readMoreUrl
+)
 </script>

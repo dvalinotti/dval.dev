@@ -36,7 +36,7 @@ const { data: projects } = await useAsyncData('projects', () =>
 )
 
 function filterProjects(tag: string) {
-  return (projects.value || []).filter((project: any) => project.tag === tag)
+  return (projects.value || []).filter((project) => project.tag === tag)
 }
 
 useHead({
@@ -44,9 +44,9 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Latest professional and personal projects from Dan Valinotti',
-    },
-  ],
+      content: 'Latest professional and personal projects from Dan Valinotti'
+    }
+  ]
 })
 </script>
 

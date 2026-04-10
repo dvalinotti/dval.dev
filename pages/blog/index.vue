@@ -21,8 +21,8 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Latest blog posts from Dan Valinotti',
-    },
-  ],
+      content: 'Latest blog posts from Dan Valinotti'
+    }
+  ]
 })
 </script>

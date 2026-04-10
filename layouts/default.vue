@@ -25,7 +25,7 @@ const navItems = [
   { label: 'Blog', path: '/blog' },
   { label: 'Projects', path: '/projects' },
   { label: 'Experience', path: '/experience' },
-  { label: 'Contact', path: '/contact' },
+  { label: 'Contact', path: '/contact' }
 ]
 
 const showMenu = ref(false)
@@ -51,8 +51,15 @@ onBeforeUnmount(() => {
 
 <style lang="scss">
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    'Source Sans Pro',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

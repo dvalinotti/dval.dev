@@ -19,14 +19,17 @@
 </template>
 
 <script setup lang="ts">
-const props = withDefaults(defineProps<{
-  to: string
-  newTab?: boolean
-  underline?: boolean
-}>(), {
-  newTab: false,
-  underline: true,
-})
+const props = withDefaults(
+  defineProps<{
+    to: string
+    newTab?: boolean
+    underline?: boolean
+  }>(),
+  {
+    newTab: false,
+    underline: true
+  }
+)
 
 const isExternal = computed(() => {
   return props.to.includes('http') || props.to.includes('//')
@@ -57,7 +60,9 @@ a.fancy-underline::after {
   width: 100%;
   height: 2px;
   background: black;
-  transition: bottom 0.25s ease-in-out, background 0.25s ease-in-out;
+  transition:
+    bottom 0.25s ease-in-out,
+    background 0.25s ease-in-out;
 }
 html.dark a.fancy-underline::after {
   background: white;

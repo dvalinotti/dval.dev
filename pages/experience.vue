@@ -67,14 +67,20 @@ const expItems: ExpItem[] = [
     title: 'Software Engineer',
     at: 'Google',
     icons: [
-      'angular', 'java', 'js-square', 'html5', 'css3', 'ad',
-      'Dart', 'Typescript',
+      'angular',
+      'java',
+      'js-square',
+      'html5',
+      'css3',
+      'ad',
+      'Dart',
+      'Typescript'
     ],
     description: `Currently working on Google Ads products for dynamic
         creative ad development, such as <strong>Ads Creative Studio, Display &
         Video 360, and Studio</strong>. Using <strong>AngularDart</strong>
         and <strong>Angular TypeScript</strong> for frontend and
-        <strong>Java</strong> for backend.`,
+        <strong>Java</strong> for backend.`
   },
   {
     start: 'Jan 2020',
@@ -82,7 +88,13 @@ const expItems: ExpItem[] = [
     title: 'Full Stack Developer',
     at: 'Colgate-Palmolive',
     icons: [
-      'vuejs', 'node', 'js-square', 'css3', 'shopify', 'google', 'github',
+      'vuejs',
+      'node',
+      'js-square',
+      'css3',
+      'shopify',
+      'google',
+      'github'
     ],
     description: `E-commerce web app development in the DTC
         group, launching 2 new brands with headless frontend
@@ -90,7 +102,7 @@ const expItems: ExpItem[] = [
         <strong>Vue + Nuxt.</strong> Supported development of an
         existing <strong>Shopify Liquid</strong>. Developed <strong>Node.js
         modules and micro-backends </strong> to support extended site
-        functionality. Deployed serverless applications with <strong>GCP</strong>.`,
+        functionality. Deployed serverless applications with <strong>GCP</strong>.`
   },
   {
     end: 'Dec 2019',
@@ -102,22 +114,20 @@ const expItems: ExpItem[] = [
         industry. Built a market price tracking application for a financial team
         with <strong>Java + Spring</strong> in the backend and a <strong>React</strong>
         SPA on the frontend. Deployed scheduled and serverless functions with
-        <strong>AWS and Python</strong>.`,
+        <strong>AWS and Python</strong>.`
   },
   {
     end: 'Apr 2019',
     start: 'Sept 2018',
     title: 'Web Development Intern',
     at: 'Aardvark Brigade',
-    icons: [
-      'wordpress-simple', 'css3', 'html5', 'grunt', 'gulp', 'bitbucket',
-    ],
+    icons: ['wordpress-simple', 'css3', 'html5', 'grunt', 'gulp', 'bitbucket'],
     description: `Developed a range of <strong>WordPress</strong> websites for
         a web design agency. Learned the foundations of web development with
         <strong>CSS3</strong>, <strong>HTML5</strong>, and <strong>PHP</strong>.
         Configured local + production development with <strong>Gulp/Grunt and
-        Vagrant.</strong>`,
-  },
+        Vagrant.</strong>`
+  }
 ]
 
 function isLastIcon(expIndex: number, iconIndex: number) {

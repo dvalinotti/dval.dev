@@ -59,9 +59,7 @@ if (!doc.value) {
 }
 
 const publishDate = computed(() => {
-  return doc.value?.date
-    ? dateFormat(new Date(doc.value.date), 'fullDate')
-    : ''
+  return doc.value?.date ? dateFormat(new Date(doc.value.date), 'fullDate') : ''
 })
 
 useHead({
@@ -69,13 +67,13 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: doc.value?.subtitle || '',
+      content: doc.value?.subtitle || ''
     },
     {
       name: 'keywords',
-      content: doc.value?.keywords || '',
-    },
-  ],
+      content: doc.value?.keywords || ''
+    }
+  ]
 })
 
 onMounted(() => {

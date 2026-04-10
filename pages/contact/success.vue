@@ -18,9 +18,9 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Success - Dan Valinotti',
-    },
-  ],
+      content: 'Success - Dan Valinotti'
+    }
+  ]
 })
 </script>
 
@@ -40,7 +40,9 @@ li a::after {
   width: 100%;
   height: 2px;
   background: black;
-  transition: bottom 0.25s ease-in-out, background 0.25s ease-in-out;
+  transition:
+    bottom 0.25s ease-in-out,
+    background 0.25s ease-in-out;
 }
 html.dark li a::after {
   background: white;

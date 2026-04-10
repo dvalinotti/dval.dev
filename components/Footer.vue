@@ -45,32 +45,32 @@ const socialLinks = [
     icon: 'envelope',
     iconPrefix: 'far',
     path: 'mailto:dvalinotti@icloud.com',
-    label: 'Email',
+    label: 'Email'
   },
   {
     icon: 'github',
     iconPrefix: 'fab',
     path: 'https://github.com/dvalinotti',
-    label: 'Github',
+    label: 'Github'
   },
   {
     icon: 'twitter',
     iconPrefix: 'fab',
     path: 'https://twitter.com/dan_valinotti',
-    label: 'Twitter',
+    label: 'Twitter'
   },
   {
     icon: 'linkedin',
     iconPrefix: 'fab',
     path: 'https://www.linkedin.com/in/daniel-valinotti/',
-    label: 'LinkedIn',
+    label: 'LinkedIn'
   },
   {
     icon: 'hackerrank',
     iconPrefix: 'fab',
     path: 'https://www.hackerrank.com/dvalinotti',
-    label: 'HackerRank',
-  },
+    label: 'HackerRank'
+  }
 ]
 </script>
 
@@ -101,7 +101,9 @@ footer a.nuxt-link::after {
   width: 100%;
   height: 2px;
   background: black;
-  transition: bottom 0.25s ease-in-out, background 0.25s ease-in-out;
+  transition:
+    bottom 0.25s ease-in-out,
+    background 0.25s ease-in-out;
 }
 html.dark footer a.nuxt-link::after {
   background: white;

@@ -24,7 +24,7 @@ const emit = defineEmits<{
 $colors: (
   theme-blue: $theme-blue,
   theme-red: $theme-red,
-  theme-green: $theme-green,
+  theme-green: $theme-green
 );
 
 @each $color, $value in $colors {

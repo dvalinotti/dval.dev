@@ -11,8 +11,8 @@ export default defineContentConfig({
         featuredImageAlt: z.string(),
         subtitle: z.string(),
         tags: z.array(z.string()),
-        keywords: z.string().optional(),
-      }),
+        keywords: z.string().optional()
+      })
     }),
     projects: defineCollection({
       type: 'page',
@@ -27,8 +27,8 @@ export default defineContentConfig({
         github: z.string().optional(),
         liveUrl: z.string().optional(),
         readMoreUrl: z.string().optional(),
-        npm: z.string().optional(),
-      }),
-    }),
-  },
+        npm: z.string().optional()
+      })
+    })
+  }
 })

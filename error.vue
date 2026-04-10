@@ -41,9 +41,9 @@ useHead({
       name: 'description',
       content: notFound.value
         ? "The page you were looking for doesn't exist"
-        : 'An error has occurred.',
-    },
-  ],
+        : 'An error has occurred.'
+    }
+  ]
 })
 </script>
 

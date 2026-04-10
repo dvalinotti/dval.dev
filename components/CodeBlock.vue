@@ -40,15 +40,18 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight.css'
 import 'prismjs/plugins/highlight-keywords/prism-highlight-keywords'
 import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
 
-withDefaults(defineProps<{
-  lang?: string
-  filename?: string
-  highlightLines?: string
-}>(), {
-  lang: 'js',
-  filename: 'index.js',
-  highlightLines: '',
-})
+withDefaults(
+  defineProps<{
+    lang?: string
+    filename?: string
+    highlightLines?: string
+  }>(),
+  {
+    lang: 'js',
+    filename: 'index.js',
+    highlightLines: ''
+  }
+)
 
 const codeEl = ref<HTMLElement | null>(null)
 

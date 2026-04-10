@@ -16,7 +16,10 @@ const route = useRoute()
 const tag = route.params.slug as string
 
 const { data: posts } = await useAsyncData(`blog-tag-${tag}`, () =>
-  queryCollection('blog').where('tags', 'LIKE', `%${tag}%`).order('date', 'DESC').all()
+  queryCollection('blog')
+    .where('tags', 'LIKE', `%${tag}%`)
+    .order('date', 'DESC')
+    .all()
 )
 
 useHead({
@@ -24,9 +27,9 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: `Latest blog posts from Dan Valinotti tagged "${tag}"`,
-    },
-  ],
+      content: `Latest blog posts from Dan Valinotti tagged "${tag}"`
+    }
+  ]
 })
 </script>
 

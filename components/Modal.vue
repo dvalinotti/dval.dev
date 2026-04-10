@@ -1,10 +1,7 @@
 <template>
   <Transition name="fade">
     <div v-show="show" class="modal" @click.self="emit('close')">
-      <div
-        ref="modalWindow"
-        class="modal-window bg-white dark:bg-gray-800"
-      >
+      <div ref="modalWindow" class="modal-window bg-white dark:bg-gray-800">
         <button
           class="modal-close-btn hover:bg-gray-200 dark:hover:bg-gray-700"
           aria-label="Close modal"

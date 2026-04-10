@@ -17,11 +17,14 @@
 </template>
 
 <script setup lang="ts">
-withDefaults(defineProps<{
-  imgSize?: string
-}>(), {
-  imgSize: 'rect',
-})
+withDefaults(
+  defineProps<{
+    imgSize?: string
+  }>(),
+  {
+    imgSize: 'rect'
+  }
+)
 </script>
 
 <style>
@@ -31,7 +34,9 @@ withDefaults(defineProps<{
   border-radius: 0.5rem;
   border: 1px solid transparent;
   box-shadow: 0px 5px 7.5px 2.5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.125s ease-in-out, box-shadow 0.125s ease-in-out;
+  transition:
+    transform 0.125s ease-in-out,
+    box-shadow 0.125s ease-in-out;
 }
 .card:hover {
   cursor: pointer;
