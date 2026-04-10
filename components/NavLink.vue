@@ -2,8 +2,7 @@
   <NuxtLink
     :to="to"
     class="nav-link dark:text-white"
-    :class="{ active: isActive }"
-  >
+    :class="{ active: isActive }">
     <slot />
   </NuxtLink>
 </template>

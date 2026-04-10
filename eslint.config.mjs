@@ -7,8 +7,8 @@ export default withNuxt({
     'vue/html-self-closing': [
       'warn',
       {
-        html: { void: 'any' },
-      },
-    ],
-  },
+        html: { void: 'any' }
+      }
+    ]
+  }
 })

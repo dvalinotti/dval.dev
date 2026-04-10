@@ -6,7 +6,8 @@
         <div class="tl--time">
           <div class="pr-2 br-blue flex flex-col items-start ml-auto">
             <span class="font-bold text-xs md:text-sm text-left">
-              {{ exp.start }}<br />
+              {{ exp.start }}
+              <br />
             </span>
             <span class="dot font-bold text-xs md:text-sm text-left">
               &#8627; {{ exp.end }}
@@ -29,8 +30,7 @@
             <li
               v-for="(icon, i) in exp.icons"
               :key="i"
-              class="flex items-center"
-            >
+              class="flex items-center">
               <p v-if="['Typescript', 'Dart'].includes(icon)" class="font-bold">
                 {{ icon }}{{ isLastIcon(index, i) ? '' : ',&nbsp;' }}
               </p>
@@ -39,8 +39,7 @@
                 :icon="[icon !== 'ad' ? 'fab' : 'far', icon]"
                 class="mr-3 fa-2x"
                 :aria-label="icon"
-                :title="icon"
-              />
+                :title="icon" />
             </li>
           </ul>
           <div class="border-b-2 border-b-gray-700 my-4 mx-4" />

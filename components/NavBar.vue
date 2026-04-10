@@ -2,18 +2,16 @@
   <nav
     class="navbar bg-white dark:bg-gray-800 dark:text-white"
     title="Navigation Bar"
-    :class="{ show }"
-  >
+    :class="{ show }">
     <div class="w-full relative flex">
       <button
         class="menu-btn absolute left-0 top-0"
         aria-label="Open navigation menu"
-        @click="emit('showMenu')"
-      >
+        @click="emit('showMenu')">
         <Fa :icon="['fal', 'bars']" class="fa-2x" />
       </button>
       <div class="home-link">
-        <NuxtLink to="/"> DVal </NuxtLink>
+        <NuxtLink to="/">DVal</NuxtLink>
       </div>
       <ul class="nav-links mx-auto flex items-center justify-center py-4">
         <li v-for="(item, index) in items" :key="index">

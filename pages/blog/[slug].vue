@@ -3,19 +3,19 @@
     <article v-if="doc" class="prose text-left dark:text-white">
       <h1>{{ doc.title }}</h1>
       <span class="text-gray-900 text-sm dark:text-white">
-        by <strong>Dan Valinotti</strong>
+        by
+        <strong>Dan Valinotti</strong>
       </span>
       |
-      <span class="text-gray-700 text-sm dark:text-gray-200"
-        >{{ publishDate }} - {{ readingTimeText }}</span
-      >
+      <span class="text-gray-700 text-sm dark:text-gray-200">
+        {{ publishDate }} - {{ readingTimeText }}
+      </span>
       <div class="banner-img">
         <NuxtPicture
           :src="`/img/${doc.featuredImage}`"
           format="webp"
           class="absolute top-0 left-0 w-full h-full object-cover object-center"
-          :alt="doc.featuredImageAlt"
-        />
+          :alt="doc.featuredImageAlt" />
       </div>
       <ContentRenderer :value="doc" />
     </article>
@@ -25,8 +25,7 @@
         <li v-for="(tag, index) in doc.tags" :key="index">
           <NuxtLink
             class="bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 rounded-lg px-3 py-2 mr-2"
-            :to="`/blog/tags/${tag}`"
-          >
+            :to="`/blog/tags/${tag}`">
             #{{ tag }}
           </NuxtLink>
         </li>

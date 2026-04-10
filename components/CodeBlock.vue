@@ -11,8 +11,7 @@
     <pre
       class="line-numbers"
       :class="`language-${lang}`"
-      :data-line="highlightLines"
-    ><code ref="codeEl"><slot /></code></pre>
+      :data-line="highlightLines"><code ref="codeEl"><slot /></code></pre>
   </div>
 </template>
 

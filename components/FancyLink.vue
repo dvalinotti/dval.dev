@@ -4,16 +4,14 @@
     :href="to"
     :target="newTab ? '_blank' : undefined"
     class="dark:text-white"
-    :class="{ 'fancy-underline': underline }"
-  >
+    :class="{ 'fancy-underline': underline }">
     <slot />
   </a>
   <NuxtLink
     v-else
     :to="to"
     class="dark:text-white"
-    :class="{ 'fancy-underline': underline }"
-  >
+    :class="{ 'fancy-underline': underline }">
     <slot />
   </NuxtLink>
 </template>

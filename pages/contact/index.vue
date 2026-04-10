@@ -14,15 +14,13 @@
         <li
           v-for="(link, index) in links"
           :key="index"
-          class="dark:text-white flex items-center justify-start my-2"
-        >
+          class="dark:text-white flex items-center justify-start my-2">
           <Fa :icon="[link.iconPrefix, link.icon]" class="fa-2x" />
           <FancyLink
             :to="link.path"
             :new-tab="true"
             class="ml-4 my-2"
-            rel="noopener"
-          >
+            rel="noopener">
             {{ link.label }}
           </FancyLink>
         </li>

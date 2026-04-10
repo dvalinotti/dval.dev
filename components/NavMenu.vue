@@ -3,14 +3,12 @@
     <nav
       v-show="show"
       class="nav-menu bg-white dark:bg-gray-900"
-      title="Mobile Navigation Menu"
-    >
+      title="Mobile Navigation Menu">
       <div class="flex-col-start h-full">
         <button
           class="p-4 dark:text-white"
           aria-label="Close navigation menu"
-          @click="emit('close')"
-        >
+          @click="emit('close')">
           <Fa :icon="['fal', 'times']" class="fa-2x" />
         </button>
         <ul class="flex-col-start px-4">
@@ -18,8 +16,7 @@
             v-for="(item, index) in items"
             :key="index"
             class="my-2"
-            @click="emit('close')"
-          >
+            @click="emit('close')">
             <NavLink :to="item.path" class="text-4xl" :aria-label="item.label">
               {{ item.label }}
             </NavLink>
@@ -28,8 +25,7 @@
         <button
           class="mt-auto mx-auto mb-4 p-4 dark:text-white"
           aria-label="Close navigation menu"
-          @click="emit('close')"
-        >
+          @click="emit('close')">
           <span class="text-xl font-bold underline">Close</span>
         </button>
       </div>

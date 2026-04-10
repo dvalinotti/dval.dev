@@ -6,8 +6,7 @@
     class="modal-close-btn"
     aria-label="The Door"
     @mouseover="open = true"
-    @mouseout="open = false"
-  >
+    @mouseout="open = false">
     <Fa :icon="['fad', open ? 'door-open' : 'door-closed']" class="door" />
   </a>
 </template>

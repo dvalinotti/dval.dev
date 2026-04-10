@@ -12,9 +12,9 @@
               ? "Looks like the page you're looking for doesn't exist."
               : 'Something went wrong.'
           }}
-          <NuxtLink to="/" class="link" aria-label="Back to homepage"
-            >Click here</NuxtLink
-          >
+          <NuxtLink to="/" class="link" aria-label="Back to homepage">
+            Click here
+          </NuxtLink>
           to go back to the homepage, or if you'd like to report the problem,
           visit the
           <NuxtLink to="/contact" class="link">contact page</NuxtLink>

@@ -2,8 +2,7 @@
   <button
     class="p-4 dark:text-white"
     aria-label="Toggle theme"
-    @click="toggleTheme"
-  >
+    @click="toggleTheme">
     <Fa :icon="['fal', isDark ? 'sun' : 'moon-stars']" class="theme-icon" />
   </button>
 </template>

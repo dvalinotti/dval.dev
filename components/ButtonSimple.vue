@@ -2,8 +2,7 @@
   <button
     class="py-2 px-3 mr-2 text-white rounded-lg"
     :class="`btn-theme-${color}`"
-    @click="emit('click')"
-  >
+    @click="emit('click')">
     <slot />
   </button>
 </template>

@@ -2,8 +2,7 @@
   <div class="card dark:bg-gray-800">
     <div
       class="w-full h-full sm:w-1/3"
-      :class="{ 'sm:w-1/4': imgSize === 'sqr' }"
-    >
+      :class="{ 'sm:w-1/4': imgSize === 'sqr' }">
       <div class="card-img" :class="{ 'card-img-sqr': imgSize === 'sqr' }">
         <slot name="img" />
       </div>

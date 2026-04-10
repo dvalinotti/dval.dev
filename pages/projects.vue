@@ -8,8 +8,7 @@
           <li
             v-for="(project, index) in filterProjects('professional')"
             :key="index"
-            class="pb-6 w-full"
-          >
+            class="pb-6 w-full">
             <ProjectCard :project="project" />
           </li>
         </ul>
@@ -20,8 +19,7 @@
           <li
             v-for="(project, index) in filterProjects('personal')"
             :key="index"
-            class="pb-6 w-full"
-          >
+            class="pb-6 w-full">
             <ProjectCard :project="project" />
           </li>
         </ul>

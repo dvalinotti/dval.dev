@@ -5,8 +5,7 @@
         :src="`/img/${post.featuredImage}`"
         format="webp"
         :alt="post.featuredImageAlt"
-        loading="lazy"
-      />
+        loading="lazy" />
     </template>
     <template #text>
       <h2 class="text-lg font-bold leading-5 mb-1 dark:text-white">
@@ -19,8 +18,7 @@
         {{ post.subtitle }}
       </p>
       <ul
-        class="flex items-center justify-start absolute right-0 bottom-0 mx-2 my-3"
-      >
+        class="flex items-center justify-start absolute right-0 bottom-0 mx-2 my-3">
         <li v-for="(tag, i) in post.tags" :key="i" class="ml-2">
           <Tag :text="tag" />
         </li>

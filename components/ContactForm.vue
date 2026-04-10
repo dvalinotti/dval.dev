@@ -8,16 +8,17 @@
       netlify-honeypot="bot-field"
       class="contact-form"
       action="/contact/success"
-      @submit.prevent="onSubmit"
-    >
+      @submit.prevent="onSubmit">
       <p class="hidden">
         <label>
-          Don't fill this out if you're human: <input name="bot-field" />
+          Don't fill this out if you're human:
+          <input name="bot-field" />
         </label>
       </p>
       <input type="hidden" name="form-name" value="contact" />
       <label class="dark:text-white" for="name">
-        Name: <span class="text-red-500">*</span>
+        Name:
+        <span class="text-red-500">*</span>
       </label>
       <input
         id="name"
@@ -25,10 +26,10 @@
         class="dark:bg-gray-700 dark:text-white"
         type="text"
         name="name"
-        required
-      />
+        required />
       <label class="dark:text-white" for="email">
-        Email: <span class="text-red-500">*</span>
+        Email:
+        <span class="text-red-500">*</span>
       </label>
       <input
         id="email"
@@ -36,9 +37,8 @@
         class="dark:bg-gray-700 dark:text-white"
         type="email"
         name="email"
-        required
-      />
-      <label class="dark:text-white" for="phone"> Phone Number: </label>
+        required />
+      <label class="dark:text-white" for="phone">Phone Number:</label>
       <input
         id="phone"
         v-model="phone"
@@ -46,10 +46,10 @@
         type="tel"
         pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
         name="phone"
-        @blur="formatPhoneNumber"
-      />
+        @blur="formatPhoneNumber" />
       <label class="dark:text-white" for="message">
-        Message: <span class="text-red-500">*</span>
+        Message:
+        <span class="text-red-500">*</span>
       </label>
       <textarea
         id="message"
@@ -57,11 +57,11 @@
         class="dark:bg-gray-700 dark:text-white"
         name="message"
         rows="6"
-        required
-      />
+        required />
       <ButtonSimple type="submit" color="blue" class="mt-4">
         <span v-if="!loading">
-          Submit <Fa :icon="['fad', 'chevron-double-right']" class="ml-2" />
+          Submit
+          <Fa :icon="['fad', 'chevron-double-right']" class="ml-2" />
         </span>
         <Fa v-else :icon="['fad', 'spinner-third']" class="spinner fa-2x" />
       </ButtonSimple>

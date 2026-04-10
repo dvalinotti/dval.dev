@@ -6,8 +6,7 @@
         format="webp"
         :alt="project.imageAlt"
         loading="lazy"
-        :img-attrs="{ class: 'rounded-md' }"
-      />
+        :img-attrs="{ class: 'rounded-md' }" />
     </template>
     <template #text>
       <div class="flex items-center mb-1">
@@ -16,8 +15,7 @@
         </h2>
         <span
           v-if="project.isBeta"
-          class="bg-red-600 rounded-md text-white text-xs py-1 px-2 ml-2 font-bold"
-        >
+          class="bg-red-600 rounded-md text-white text-xs py-1 px-2 ml-2 font-bold">
           BETA
         </span>
       </div>
@@ -29,17 +27,15 @@
           :href="project.github"
           target="_blank"
           :aria-label="`${project.title} Github Repo`"
-          rel="noopener"
-        >
-          <ButtonSimple color="blue"> GitHub Repo </ButtonSimple>
+          rel="noopener">
+          <ButtonSimple color="blue">GitHub Repo</ButtonSimple>
         </a>
         <a
           v-if="hasLiveUrl || hasReadMoreUrl"
           :href="urlButtonHref"
           target="_blank"
           :aria-label="`${project.title} ${urlButtonLabel}`"
-          rel="noopener"
-        >
+          rel="noopener">
           <ButtonSimple color="green">
             {{ urlButtonLabel }}
           </ButtonSimple>
@@ -49,8 +45,7 @@
           :href="project.npm"
           target="_blank"
           :aria-label="`${project.title} NPM page`"
-          rel="noopener"
-        >
+          rel="noopener">
           <ButtonSimple color="red">NPM</ButtonSimple>
         </a>
       </div>

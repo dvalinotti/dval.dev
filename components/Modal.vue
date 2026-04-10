@@ -5,8 +5,7 @@
         <button
           class="modal-close-btn hover:bg-gray-200 dark:hover:bg-gray-700"
           aria-label="Close modal"
-          @click="emit('close')"
-        >
+          @click="emit('close')">
           <Fa :icon="['fal', 'times']" class="fa-2x dark:text-white" />
         </button>
         <slot />
