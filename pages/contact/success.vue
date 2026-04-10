@@ -5,28 +5,23 @@
       <p class="max-w-xs mb-4 dark:text-white">
         Thanks for reaching out! I'll get back to you as soon as possible. 😁
       </p>
-      <nuxt-link to="/" class="text-blue-700 dark:text-blue-500 underline">
+      <NuxtLink to="/" class="text-blue-700 dark:text-blue-500 underline">
         Back to home
-      </nuxt-link>
+      </NuxtLink>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  head() {
-    return {
-      title: 'Success',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Success - Dan Valinotti'
-        }
-      ]
+<script setup lang="ts">
+useHead({
+  title: 'Success',
+  meta: [
+    {
+      name: 'description',
+      content: 'Success - Dan Valinotti'
     }
-  }
-}
+  ]
+})
 </script>
 
 <style scoped>
@@ -45,7 +40,9 @@ li a::after {
   width: 100%;
   height: 2px;
   background: black;
-  transition: bottom 0.25s ease-in-out, background 0.25s ease-in-out;
+  transition:
+    bottom 0.25s ease-in-out,
+    background 0.25s ease-in-out;
 }
 html.dark li a::after {
   background: white;

@@ -2,103 +2,88 @@
   <nav
     class="navbar bg-white dark:bg-gray-800 dark:text-white"
     title="Navigation Bar"
-    :class="{ show }"
-  >
+    :class="{ show }">
     <div class="w-full relative flex">
       <button
         class="menu-btn absolute left-0 top-0"
         aria-label="Open navigation menu"
-        @click="onClickShowMenu"
-      >
-        <fa :icon="['fal', 'bars']" class="fa-2x" />
+        @click="emit('showMenu')">
+        <Fa :icon="['fal', 'bars']" class="fa-2x" />
       </button>
       <div class="home-link">
-        <nuxt-link to="/"> DVal </nuxt-link>
+        <NuxtLink to="/">DVal</NuxtLink>
       </div>
       <ul class="nav-links mx-auto flex items-center justify-center py-4">
         <li v-for="(item, index) in items" :key="index">
-          <nav-link :to="item.path" class="mx-2">
+          <NavLink :to="item.path" class="mx-2">
             {{ item.label }}
-          </nav-link>
+          </NavLink>
         </li>
       </ul>
-      <theme-toggle class="absolute right-0 top-0" />
+      <ThemeToggle class="absolute right-0 top-0" />
     </div>
   </nav>
 </template>
 
-<script>
-export default {
-  props: {
-    items: {
-      type: Array,
-      default: () => []
-    }
-  },
-  emits: ['show-menu'],
-  data: () => ({
-    activeTab: '',
-    scrollPosition: 0,
-    lastCheckpoint: 0,
-    direction: 'DOWN',
-    show: true,
-    showMenu: false
-  }),
-  watch: {
-    // Update active tab link on route change
-    $route() {
-      this.activeTab = this.$route.name
-    },
-    // Update lastCheckpoint when user changes scroll direction
-    direction() {
-      this.lastCheckpoint = this.scrollPosition
-    }
-  },
-  mounted() {
-    this.activeTab = this.$route.name
+<script setup lang="ts">
+interface NavItem {
+  label: string
+  path: string
+}
 
-    // Init scroll watching for hide/show navbar
-    window.addEventListener('scroll', this.onScroll)
-    this.scrollPosition = window.scrollY
-    this.lastCheckpoint = window.scrollY
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.onScroll)
-  },
-  methods: {
-    // Scroll event handler - control direction, scrollPosition, and show
-    onScroll() {
-      // Update direction and scroll position
-      const currentPosition = window.scrollY
-      this.direction = this.getScrollDirection(currentPosition)
-      this.scrollPosition = currentPosition
-      if (currentPosition === 0) {
-        this.show = true
-      } else {
-        // If user scrolling up and has scrolled 50px
-        if (
-          this.direction === 'UP' &&
-          this.lastCheckpoint - this.scrollPosition >= 50
-        ) {
-          this.show = true
-        }
-        // If user is scrolling down and has scrolled 50px
-        if (
-          this.direction === 'DOWN' &&
-          this.scrollPosition - this.lastCheckpoint >= 50
-        ) {
-          this.show = false
-        }
-      }
-    },
-    getScrollDirection(current) {
-      return current < this.scrollPosition ? 'UP' : 'DOWN'
-    },
-    onClickShowMenu() {
-      this.$emit('show-menu')
+defineProps<{
+  items: NavItem[]
+}>()
+
+const emit = defineEmits<{
+  showMenu: []
+}>()
+
+const scrollPosition = ref(0)
+const lastCheckpoint = ref(0)
+const direction = ref<'UP' | 'DOWN'>('DOWN')
+const show = ref(true)
+
+function getScrollDirection(current: number) {
+  return current < scrollPosition.value ? 'UP' : 'DOWN'
+}
+
+function onScroll() {
+  const currentPosition = window.scrollY
+  const newDirection = getScrollDirection(currentPosition)
+  if (newDirection !== direction.value) {
+    direction.value = newDirection
+    lastCheckpoint.value = scrollPosition.value
+  }
+  scrollPosition.value = currentPosition
+
+  if (currentPosition === 0) {
+    show.value = true
+  } else {
+    if (
+      direction.value === 'UP' &&
+      lastCheckpoint.value - scrollPosition.value >= 50
+    ) {
+      show.value = true
+    }
+    if (
+      direction.value === 'DOWN' &&
+      scrollPosition.value - lastCheckpoint.value >= 50
+    ) {
+      show.value = false
     }
   }
 }
+
+onMounted(() => {
+  window.addEventListener('scroll', onScroll)
+  scrollPosition.value = window.scrollY
+  lastCheckpoint.value = window.scrollY
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+})
 </script>
 
 <style lang="scss" scoped>

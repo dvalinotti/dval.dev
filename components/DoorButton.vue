@@ -5,25 +5,14 @@
     target="_blank"
     class="modal-close-btn"
     aria-label="The Door"
-    @mouseover="openDoor"
-    @mouseout="closeDoor"
-  >
-    <fa :icon="['fad', open ? 'door-open' : 'door-closed']" class="door"></fa>
+    @mouseover="open = true"
+    @mouseout="open = false">
+    <Fa :icon="['fad', open ? 'door-open' : 'door-closed']" class="door" />
   </a>
 </template>
 
-<script>
-export default {
-  data: () => ({ open: false }),
-  methods: {
-    openDoor() {
-      this.open = true
-    },
-    closeDoor() {
-      this.open = false
-    }
-  }
-}
+<script setup lang="ts">
+const open = ref(false)
 </script>
 
 <style lang="scss" scoped>

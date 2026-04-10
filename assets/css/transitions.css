@@ -1,11 +1,13 @@
 .zoom-enter-active,
 .zoom-leave-active {
-  transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+  transition:
+    opacity 250ms ease-in-out,
+    transform 250ms ease-in-out;
   transform-origin: top left;
   transform: scale(1);
 }
 
-.zoom-enter,
+.zoom-enter-from,
 .zoom-leave-to {
   opacity: 0;
   transform: scale(0);
@@ -13,22 +15,22 @@
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: transform 200ms cubic-bezier(0.5, 0.2, 0.3, 1.0);
+  transition: transform 200ms cubic-bezier(0.5, 0.2, 0.3, 1);
   transform: translateX(0);
 }
 
-.slide-enter,
+.slide-enter-from,
 .slide-leave-to {
   transform: translateX(-100%);
 }
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 200ms cubic-bezier(0.5, 0.2, 0.3, 1.0);
+  transition: opacity 200ms cubic-bezier(0.5, 0.2, 0.3, 1);
   opacity: 1;
 }
 
-.fade-enter,
+.fade-enter-from,
 .fade-leave-to {
   opacity: 0;
 }

@@ -3,32 +3,32 @@
     <div class="prism-bar">
       <span class="filename">{{ filename }}</span>
       <div class="btn-group">
-        <span class="btn-group-item red"></span>
-        <span class="btn-group-item yellow"></span>
-        <span class="btn-group-item green"></span>
+        <span class="btn-group-item red" />
+        <span class="btn-group-item yellow" />
+        <span class="btn-group-item green" />
       </div>
     </div>
     <pre
       class="line-numbers"
       :class="`language-${lang}`"
-      :data-line="highlightLines"
-    >
-      <code>
-        <slot></slot>
-      </code>
-    </pre>
+      :data-line="highlightLines"><code ref="codeEl"><slot /></code></pre>
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import Prism from 'prismjs'
 
+import 'prism-themes/themes/prism-vsc-dark-plus.css'
+
+import 'prismjs/components/prism-markup'
+import 'prismjs/components/prism-css'
 import 'prismjs/components/prism-markdown'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-json'
 import 'prismjs/components/prism-jsx'
 import 'prismjs/components/prism-tsx'
+import 'prismjs/components/prism-bash'
 
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
@@ -39,25 +39,28 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight.css'
 import 'prismjs/plugins/highlight-keywords/prism-highlight-keywords'
 import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
 
-export default {
-  props: {
-    lang: {
-      type: String,
-      default: 'js'
-    },
-    filename: {
-      type: String,
-      default: 'index.js'
-    },
-    highlightLines: {
-      type: String,
-      default: ''
-    }
-  },
-  mounted() {
-    Prism.highlightAll()
+withDefaults(
+  defineProps<{
+    lang?: string
+    filename?: string
+    highlightLines?: string
+  }>(),
+  {
+    lang: 'js',
+    filename: 'index.js',
+    highlightLines: ''
   }
-}
+)
+
+const codeEl = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+  nextTick(() => {
+    if (codeEl.value) {
+      Prism.highlightElement(codeEl.value)
+    }
+  })
+})
 </script>
 
 <style lang="scss">

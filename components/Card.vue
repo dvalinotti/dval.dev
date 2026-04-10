@@ -2,29 +2,28 @@
   <div class="card dark:bg-gray-800">
     <div
       class="w-full h-full sm:w-1/3"
-      :class="{ 'sm:w-1/4': imgSize === 'sqr' }"
-    >
+      :class="{ 'sm:w-1/4': imgSize === 'sqr' }">
       <div class="card-img" :class="{ 'card-img-sqr': imgSize === 'sqr' }">
-        <slot name="img"></slot>
+        <slot name="img" />
       </div>
     </div>
     <div class="w-full h-full sm:w-2/3 sm:pl-2">
       <div class="card-text">
-        <slot name="text"></slot>
+        <slot name="text" />
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    imgSize: {
-      type: String,
-      default: 'rect'
-    }
+<script setup lang="ts">
+withDefaults(
+  defineProps<{
+    imgSize?: string
+  }>(),
+  {
+    imgSize: 'rect'
   }
-}
+)
 </script>
 
 <style>
@@ -34,7 +33,9 @@ export default {
   border-radius: 0.5rem;
   border: 1px solid transparent;
   box-shadow: 0px 5px 7.5px 2.5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.125s ease-in-out, box-shadow 0.125s ease-in-out;
+  transition:
+    transform 0.125s ease-in-out,
+    box-shadow 0.125s ease-in-out;
 }
 .card:hover {
   cursor: pointer;

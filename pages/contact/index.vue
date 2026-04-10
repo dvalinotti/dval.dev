@@ -6,7 +6,7 @@
         If you'd like to get in touch with me, you can fill out this form with
         your information and I will get back to you as soon as I can!
       </p>
-      <contact-form />
+      <ContactForm />
       <p class="mt-8 mb-4 max-w-md dark:text-white">
         Alternatively, you can contact me through any of the following links:
       </p>
@@ -14,72 +14,64 @@
         <li
           v-for="(link, index) in links"
           :key="index"
-          class="dark:text-white flex items-center justify-start my-2"
-        >
-          <fa :icon="[link.iconPrefix, link.icon]" class="fa-2x" />
-          <fancy-link
+          class="dark:text-white flex items-center justify-start my-2">
+          <Fa :icon="[link.iconPrefix, link.icon]" class="fa-2x" />
+          <FancyLink
             :to="link.path"
             :new-tab="true"
             class="ml-4 my-2"
-            rel="noopener"
-          >
+            rel="noopener">
             {{ link.label }}
-          </fancy-link>
+          </FancyLink>
         </li>
       </ul>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  data: () => ({
-    links: [
-      {
-        icon: 'envelope',
-        iconPrefix: 'far',
-        path: 'mailto:dvalinotti@icloud.com',
-        label: 'Email'
-      },
-      {
-        icon: 'github',
-        iconPrefix: 'fab',
-        path: 'https://github.com/dvalinotti',
-        label: 'Github'
-      },
-      {
-        icon: 'twitter',
-        iconPrefix: 'fab',
-        path: 'https://twitter.com/dan_valinotti',
-        label: 'Twitter'
-      },
-      {
-        icon: 'linkedin',
-        iconPrefix: 'fab',
-        path: 'https://www.linkedin.com/in/daniel-valinotti/',
-        label: 'LinkedIn'
-      },
-      {
-        icon: 'hackerrank',
-        iconPrefix: 'fab',
-        path: 'https://www.hackerrank.com/dvalinotti',
-        label: 'HackerRank'
-      }
-    ]
-  }),
-  head() {
-    return {
-      title: 'Contact Me',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'How to get in contact with me - Dan Valinotti'
-        }
-      ]
-    }
+<script setup lang="ts">
+const links = [
+  {
+    icon: 'envelope',
+    iconPrefix: 'far',
+    path: 'mailto:dvalinotti@icloud.com',
+    label: 'Email'
+  },
+  {
+    icon: 'github',
+    iconPrefix: 'fab',
+    path: 'https://github.com/dvalinotti',
+    label: 'Github'
+  },
+  {
+    icon: 'twitter',
+    iconPrefix: 'fab',
+    path: 'https://twitter.com/dan_valinotti',
+    label: 'Twitter'
+  },
+  {
+    icon: 'linkedin',
+    iconPrefix: 'fab',
+    path: 'https://www.linkedin.com/in/daniel-valinotti/',
+    label: 'LinkedIn'
+  },
+  {
+    icon: 'hackerrank',
+    iconPrefix: 'fab',
+    path: 'https://www.hackerrank.com/dvalinotti',
+    label: 'HackerRank'
   }
-}
+]
+
+useHead({
+  title: 'Contact Me',
+  meta: [
+    {
+      name: 'description',
+      content: 'How to get in contact with me - Dan Valinotti'
+    }
+  ]
+})
 </script>
 
 <style scoped>
@@ -98,7 +90,9 @@ li a::after {
   width: 100%;
   height: 2px;
   background: black;
-  transition: bottom 0.25s ease-in-out, background 0.25s ease-in-out;
+  transition:
+    bottom 0.25s ease-in-out,
+    background 0.25s ease-in-out;
 }
 html.dark li a::after {
   background: white;

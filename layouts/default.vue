@@ -3,12 +3,12 @@
     <NavMenu :show="showMenu" :items="navItems" @close="toggleShowMenu" />
     <NavBar :items="navItems" @show-menu="toggleShowMenu" />
     <div class="page">
-      <Nuxt />
+      <slot />
     </div>
     <Footer :items="navItems" />
     <Modal :show="showModal" @close="toggleShowModal">
       <div class="flex flex-col justify-center items-center">
-        <door-button />
+        <DoorButton />
         <p class="poppins text-2xl font-bold mt-4 dark:text-white">
           The door beckons.
         </p>
@@ -17,58 +17,49 @@
   </main>
 </template>
 
-<script>
+<script setup lang="ts">
 import * as koco from 'ko-co'
 
-export default {
-  data: () => ({
-    navItems: [
-      {
-        label: 'Home',
-        path: '/'
-      },
-      {
-        label: 'Blog',
-        path: '/blog'
-      },
-      {
-        label: 'Projects',
-        path: '/projects'
-      },
-      {
-        label: 'Experience',
-        path: '/experience'
-      },
-      {
-        label: 'Contact',
-        path: '/contact'
-      }
-    ],
-    showMenu: false,
-    showModal: false
-  }),
-  mounted() {
-    koco.addSupportForTheKonamiCode()
-    window.addEventListener('konamicode', this.toggleShowModal)
-  },
-  beforeDestroy() {
-    window.removeEventListener('konamicode', this.toggleShowModal)
-  },
-  methods: {
-    toggleShowMenu() {
-      this.showMenu = !this.showMenu
-    },
-    toggleShowModal() {
-      this.showModal = !this.showModal
-    }
-  }
+const navItems = [
+  { label: 'Home', path: '/' },
+  { label: 'Blog', path: '/blog' },
+  { label: 'Projects', path: '/projects' },
+  { label: 'Experience', path: '/experience' },
+  { label: 'Contact', path: '/contact' }
+]
+
+const showMenu = ref(false)
+const showModal = ref(false)
+
+function toggleShowMenu() {
+  showMenu.value = !showMenu.value
 }
+
+function toggleShowModal() {
+  showModal.value = !showModal.value
+}
+
+onMounted(() => {
+  koco.addSupportForTheKonamiCode()
+  window.addEventListener('konamicode', toggleShowModal)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('konamicode', toggleShowModal)
+})
 </script>
 
 <style lang="scss">
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    'Source Sans Pro',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
