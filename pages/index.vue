@@ -58,9 +58,8 @@
                 <NuxtLink
                   to="/contact"
                   class="text-blue-700 dark:text-blue-500">
-                  contact page
+                  contact page.
                 </NuxtLink>
-                .
               </p>
             </div>
           </div>
