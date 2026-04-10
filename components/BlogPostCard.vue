@@ -36,12 +36,36 @@ const props = defineProps<{
   post: Record<string, any>
 }>()
 
+function extractPlainText(value: unknown): string {
+  if (typeof value === 'string') {
+    return value
+  }
+
+  if (Array.isArray(value)) {
+    return value.map(extractPlainText).filter(Boolean).join(' ')
+  }
+
+  if (value && typeof value === 'object') {
+    return Object.values(value as Record<string, unknown>)
+      .map(extractPlainText)
+      .filter(Boolean)
+      .join(' ')
+  }
+
+  return ''
+}
+
 const readingTimeText = computed(() => {
   if (props.post?.body) {
-    const words = JSON.stringify(props.post.body).split(/\s+/).length
-    const minutes = Math.max(1, Math.round(words / 200))
-    return `${minutes} min read`
+    const plainText = extractPlainText(props.post.body).trim()
+
+    if (plainText) {
+      const words = plainText.split(/\s+/).length
+      const minutes = Math.max(1, Math.round(words / 200))
+      return `${minutes} min read`
+    }
   }
+
   return ''
 })
 

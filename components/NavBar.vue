@@ -41,7 +41,6 @@ const emit = defineEmits<{
   showMenu: []
 }>()
 
-const route = useRoute()
 const scrollPosition = ref(0)
 const lastCheckpoint = ref(0)
 const direction = ref<'UP' | 'DOWN'>('DOWN')
