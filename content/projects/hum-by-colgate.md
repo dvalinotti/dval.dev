@@ -3,7 +3,7 @@ title: hum by Colgate
 image: hum.png
 imageAlt: hum by Colgate logo on a red background
 liveUrl: https://hum.colgate.com
-position: 2
+position: 3
 tag: 'professional'
 company: 'Colgate-Palmolive'
 ---

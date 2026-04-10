@@ -3,7 +3,7 @@ title: CO. by Colgate
 image: co.png
 imageAlt: CO. by Colgate logo on beige background
 liveUrl: https://co.colgate.com
-position: 3
+position: 4
 tag: 'professional'
 company: 'Colgate-Palmolive'
 ---
