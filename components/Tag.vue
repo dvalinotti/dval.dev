@@ -1,5 +1,5 @@
 <template>
-  <button @click.prevent="$router.push(`/blog/tags/${text}`)">
+  <button @click.prevent="navigateTo(`/blog/tags/${text}`)">
     <div
       class="tag bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-black dark:text-white"
     >
@@ -8,15 +8,10 @@
   </button>
 </template>
 
-<script>
-export default {
-  props: {
-    text: {
-      type: String,
-      default: ''
-    }
-  }
-}
+<script setup lang="ts">
+defineProps<{
+  text?: string
+}>()
 </script>
 
 <style scoped>

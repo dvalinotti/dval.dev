@@ -25,7 +25,7 @@
         <h2 class="text-6xl h-underline font-bold">Principles.</h2>
         <div class="w-full flex-col-start justify-start">
           <div class="flex items-start justify-start my-4">
-            <fa
+            <Fa
               :icon="['fal', 'rabbit-fast']"
               class="fa-3x mr-4 md:mr-6"
               style="font-size: 2.75em"
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="flex items-start justify-start my-4">
-            <fa
+            <Fa
               :icon="['fal', 'universal-access']"
               class="fa-3x mr-4 md:mr-6"
               style="font-size: 3.25em"
@@ -59,16 +59,16 @@
                 as well as tab-navigating myself to make sure keyboard-only
                 users can do everything they need. If you're having trouble on
                 this site, please reach out to me on my
-                <nuxt-link
+                <NuxtLink
                   to="/contact"
                   class="text-blue-700 dark:text-blue-500"
-                  >contact page</nuxt-link
+                  >contact page</NuxtLink
                 >.
               </p>
             </div>
           </div>
           <div class="flex items-start justify-start my-4">
-            <fa
+            <Fa
               :icon="['fal', 'user-shield']"
               class="fa-3x mr-4 md:mr-6"
               style="font-size: 2.75em"
@@ -98,17 +98,17 @@
             :key="index"
             class="w-full my-2"
           >
-            <nuxt-link :to="`/blog/${post.slug}`">
-              <blog-post-card :post="post" />
-            </nuxt-link>
+            <NuxtLink :to="post.path">
+              <BlogPostCard :post="post" />
+            </NuxtLink>
           </li>
         </ul>
-        <nuxt-link to="/blog" aria-label="All blog posts">
-          <button-simple color="blue" class="mt-4">
+        <NuxtLink to="/blog" aria-label="All blog posts">
+          <ButtonSimple color="blue" class="mt-4">
             View all
-            <fa :icon="['fad', 'chevron-double-right']" class="ml-2" />
-          </button-simple>
-        </nuxt-link>
+            <Fa :icon="['fad', 'chevron-double-right']" class="ml-2" />
+          </ButtonSimple>
+        </NuxtLink>
       </div>
       <div class="section">
         <span class="text-lg italic leading-3">My recent</span>
@@ -121,64 +121,48 @@
             :key="index"
             class="w-full my-2"
           >
-            <project-card :project="project" />
+            <ProjectCard :project="project" />
           </li>
         </ul>
-        <nuxt-link to="/projects" aria-label="All projects">
-          <button-simple color="blue" class="mt-4">
+        <NuxtLink to="/projects" aria-label="All projects">
+          <ButtonSimple color="blue" class="mt-4">
             View all
-            <fa :icon="['fad', 'chevron-double-right']" class="ml-2" />
-          </button-simple>
-        </nuxt-link>
+            <Fa :icon="['fad', 'chevron-double-right']" class="ml-2" />
+          </ButtonSimple>
+        </NuxtLink>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  async asyncData({ $content, error }) {
-    try {
-      const [blogPosts, projects] = await Promise.all([
-        $content('blog').sortBy('date', 'desc').limit(3).fetch(),
-        $content('projects')
-          .where({ tag: { $eq: 'professional' } })
-          .fetch()
-      ])
+<script setup lang="ts">
+const { data: blogPosts } = await useAsyncData('home-blog', () =>
+  queryCollection('blog').order('date', 'DESC').limit(3).all()
+)
 
-      return {
-        blogPosts,
-        projects: projects
-          .sort((a, b) => {
-            return a.position - b.position
-          })
-          .slice(0, 3)
-      }
-    } catch (err) {
-      error(err)
-    }
-  },
-  data: () => ({
-    blogPosts: [],
-    projects: []
-  }),
-  head() {
-    return {
-      title: 'Home',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            "Welcome to Dan Valinotti's web development portfolio website!"
-        }
-      ],
-      script: [
-        { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }
-      ]
-    }
-  }
-}
+const { data: allProjects } = await useAsyncData('home-projects', () =>
+  queryCollection('projects').all()
+)
+
+const projects = computed(() =>
+  (allProjects.value || [])
+    .filter((p: any) => p.tag === 'professional')
+    .sort((a: any, b: any) => a.position - b.position)
+    .slice(0, 3)
+)
+
+useHead({
+  title: 'Home',
+  meta: [
+    {
+      name: 'description',
+      content: "Welcome to Dan Valinotti's web development portfolio website!",
+    },
+  ],
+  script: [
+    { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
+  ],
+})
 </script>
 
 <style lang="scss" scoped>

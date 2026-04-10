@@ -5,26 +5,23 @@
       :class="{ 'sm:w-1/4': imgSize === 'sqr' }"
     >
       <div class="card-img" :class="{ 'card-img-sqr': imgSize === 'sqr' }">
-        <slot name="img"></slot>
+        <slot name="img" />
       </div>
     </div>
     <div class="w-full h-full sm:w-2/3 sm:pl-2">
       <div class="card-text">
-        <slot name="text"></slot>
+        <slot name="text" />
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    imgSize: {
-      type: String,
-      default: 'rect'
-    }
-  }
-}
+<script setup lang="ts">
+withDefaults(defineProps<{
+  imgSize?: string
+}>(), {
+  imgSize: 'rect',
+})
 </script>
 
 <style>

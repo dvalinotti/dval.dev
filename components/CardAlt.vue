@@ -2,12 +2,12 @@
   <div class="card dark:bg-gray-900">
     <div class="w-full h-full sm:w-1/3">
       <div class="card-img">
-        <slot name="img"></slot>
+        <slot name="img" />
       </div>
     </div>
     <div class="w-full h-full sm:w-2/3 sm:pl-2">
       <div class="card-text">
-        <slot name="text"></slot>
+        <slot name="text" />
       </div>
     </div>
   </div>

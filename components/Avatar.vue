@@ -1,12 +1,12 @@
 <template>
   <div class="relative">
     <div class="me-container">
-      <nuxt-picture
+      <NuxtPicture
         src="/img/me.jpg"
         format="webp"
         alt="A great picture of me!"
         class="me"
-        width="265px"
+        width="265"
       />
     </div>
     <svg

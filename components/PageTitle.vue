@@ -1,7 +1,7 @@
 <template>
   <div class="relative inline-flex my-4">
     <h1 class="h-underline relative z-10 page-header dark:text-white">
-      <slot></slot>
+      <slot />
     </h1>
     <svg class="blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <path

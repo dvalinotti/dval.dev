@@ -1,48 +1,31 @@
 <template>
-  <transition name="fade">
-    <div v-show="show" class="modal">
+  <Transition name="fade">
+    <div v-show="show" class="modal" @click.self="emit('close')">
       <div
-        v-click-outside="onClickOutside"
+        ref="modalWindow"
         class="modal-window bg-white dark:bg-gray-800"
       >
         <button
           class="modal-close-btn hover:bg-gray-200 dark:hover:bg-gray-700"
           aria-label="Close modal"
-          @click="onClose"
+          @click="emit('close')"
         >
-          <fa :icon="['fal', 'times']" class="fa-2x dark:text-white"></fa>
+          <Fa :icon="['fal', 'times']" class="fa-2x dark:text-white" />
         </button>
-        <slot></slot>
+        <slot />
       </div>
     </div>
-  </transition>
+  </Transition>
 </template>
 
-<script>
-import vClickOutside from 'v-click-outside'
+<script setup lang="ts">
+defineProps<{
+  show: boolean
+}>()
 
-export default {
-  directives: {
-    clickOutside: vClickOutside.directive
-  },
-  props: {
-    show: {
-      type: Boolean,
-      default: true // false
-    }
-  },
-  emits: ['close'],
-  methods: {
-    onClose() {
-      this.$emit('close')
-    },
-    onClickOutside(e) {
-      if (this.show) {
-        this.$emit('close')
-      }
-    }
-  }
-}
+const emit = defineEmits<{
+  close: []
+}>()
 </script>
 
 <style lang="scss" scoped>

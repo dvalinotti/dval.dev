@@ -12,7 +12,7 @@
     >
       <p class="hidden">
         <label>
-          Don’t fill this out if you’re human: <input name="bot-field" />
+          Don't fill this out if you're human: <input name="bot-field" />
         </label>
       </p>
       <input type="hidden" name="form-name" value="contact" />
@@ -59,36 +59,33 @@
         rows="6"
         required
       />
-      <button-simple type="submit" color="blue" class="mt-4">
+      <ButtonSimple type="submit" color="blue" class="mt-4">
         <span v-if="!loading">
-          Submit <fa :icon="['fad', 'chevron-double-right']" class="ml-2" />
+          Submit <Fa :icon="['fad', 'chevron-double-right']" class="ml-2" />
         </span>
-        <fa v-else :icon="['fad', 'spinner-third']" class="spinner fa-2x" />
-      </button-simple>
+        <Fa v-else :icon="['fad', 'spinner-third']" class="spinner fa-2x" />
+      </ButtonSimple>
     </form>
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import { format } from 'phone-fns'
 
-export default {
-  data: () => ({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-    loading: false
-  }),
-  methods: {
-    onSubmit() {
-      this.loading = !this.loading
-      this.$refs.contactForm.submit()
-    },
-    formatPhoneNumber() {
-      this.phone = format('NNN-NNN-NNNN', this.phone)
-    }
-  }
+const name = ref('')
+const email = ref('')
+const phone = ref('')
+const message = ref('')
+const loading = ref(false)
+const contactForm = ref<HTMLFormElement | null>(null)
+
+function onSubmit() {
+  loading.value = !loading.value
+  contactForm.value?.submit()
+}
+
+function formatPhoneNumber() {
+  phone.value = format('NNN-NNN-NNNN', phone.value)
 }
 </script>
 

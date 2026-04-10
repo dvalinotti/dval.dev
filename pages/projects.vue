@@ -10,7 +10,7 @@
             :key="index"
             class="pb-6 w-full"
           >
-            <project-card :project="project" />
+            <ProjectCard :project="project" />
           </li>
         </ul>
       </section>
@@ -22,7 +22,7 @@
             :key="index"
             class="pb-6 w-full"
           >
-            <project-card :project="project" />
+            <ProjectCard :project="project" />
           </li>
         </ul>
       </section>
@@ -30,48 +30,24 @@
   </div>
 </template>
 
-<script>
-export default {
-  async asyncData({ $content, error }) {
-    try {
-      const projects = await $content('projects')
-        .sortBy('position', 'asc')
-        .fetch()
-        .catch(() => {
-          error({
-            statusCode: 404,
-            message: 'No projects found.'
-          })
-        })
-      return {
-        projects
-      }
-    } catch (err) {
-      error(err)
-    }
-  },
-  data: () => ({
-    projects: []
-  }),
-  head() {
-    return {
-      title: 'Projects',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'Latest professional and personal projects from Dan Valinotti'
-        }
-      ]
-    }
-  },
-  methods: {
-    filterProjects(tag) {
-      return this.projects.filter((project) => project.tag === tag)
-    }
-  }
+<script setup lang="ts">
+const { data: projects } = await useAsyncData('projects', () =>
+  queryCollection('projects').order('position', 'ASC').all()
+)
+
+function filterProjects(tag: string) {
+  return (projects.value || []).filter((project: any) => project.tag === tag)
 }
+
+useHead({
+  title: 'Projects',
+  meta: [
+    {
+      name: 'description',
+      content: 'Latest professional and personal projects from Dan Valinotti',
+    },
+  ],
+})
 </script>
 
 <style lang="scss" scoped>

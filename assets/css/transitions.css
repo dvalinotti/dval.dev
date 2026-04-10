@@ -5,7 +5,7 @@
   transform: scale(1);
 }
 
-.zoom-enter,
+.zoom-enter-from,
 .zoom-leave-to {
   opacity: 0;
   transform: scale(0);
@@ -17,7 +17,7 @@
   transform: translateX(0);
 }
 
-.slide-enter,
+.slide-enter-from,
 .slide-leave-to {
   transform: translateX(-100%);
 }
@@ -28,7 +28,7 @@
   opacity: 1;
 }
 
-.fade-enter,
+.fade-enter-from,
 .fade-leave-to {
   opacity: 0;
 }

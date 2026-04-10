@@ -2,44 +2,35 @@
   <a
     v-if="isExternal"
     :href="to"
-    :target="newTab ? '_blank' : ''"
+    :target="newTab ? '_blank' : undefined"
     class="dark:text-white"
     :class="{ 'fancy-underline': underline }"
   >
     <slot />
   </a>
-  <nuxt-link
+  <NuxtLink
     v-else
     :to="to"
     class="dark:text-white"
     :class="{ 'fancy-underline': underline }"
   >
     <slot />
-  </nuxt-link>
+  </NuxtLink>
 </template>
 
-<script>
-export default {
-  props: {
-    to: {
-      type: String,
-      required: true
-    },
-    newTab: {
-      type: Boolean,
-      default: false
-    },
-    underline: {
-      type: Boolean,
-      default: true
-    }
-  },
-  computed: {
-    isExternal() {
-      return this.to.includes('http') || this.to.includes('//')
-    }
-  }
-}
+<script setup lang="ts">
+const props = withDefaults(defineProps<{
+  to: string
+  newTab?: boolean
+  underline?: boolean
+}>(), {
+  newTab: false,
+  underline: true,
+})
+
+const isExternal = computed(() => {
+  return props.to.includes('http') || props.to.includes('//')
+})
 </script>
 
 <style lang="scss" scoped>

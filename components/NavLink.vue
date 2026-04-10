@@ -1,28 +1,24 @@
 <template>
-  <nuxt-link
+  <NuxtLink
     :to="to"
     class="nav-link dark:text-white"
     :class="{ active: isActive }"
   >
-    <slot></slot>
-  </nuxt-link>
+    <slot />
+  </NuxtLink>
 </template>
 
-<script>
-export default {
-  props: {
-    to: {
-      type: String,
-      required: true
-    }
-  },
-  computed: {
-    isActive() {
-      const current = this.$route.path
-      return this.to === '/' ? current === '/' : current.startsWith(this.to)
-    }
-  }
-}
+<script setup lang="ts">
+const props = defineProps<{
+  to: string
+}>()
+
+const route = useRoute()
+
+const isActive = computed(() => {
+  const current = route.path
+  return props.to === '/' ? current === '/' : current.startsWith(props.to)
+})
 </script>
 
 <style lang="scss" scoped>
