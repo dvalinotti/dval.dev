@@ -10,7 +10,8 @@
     "preview": "nuxi preview",
     "postinstall": "nuxi prepare",
     "lint": "eslint .",
-    "cloudinary:list": "tsx --env-file=.env scripts/list-cloudinary-folder.ts"
+    "cloudinary:list": "tsx --env-file-if-exists=.env scripts/list-cloudinary-folder.ts",
+    "album:scaffold": "tsx --env-file-if-exists=.env scripts/scaffold-album.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.0",

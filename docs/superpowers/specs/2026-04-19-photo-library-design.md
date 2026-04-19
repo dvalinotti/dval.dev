@@ -268,14 +268,20 @@ const navItems = [
 
 ## 11. Authoring Workflow (per new album)
 
-1. **Upload to Cloudinary.** Upload the JPEGs into a folder (e.g., `dval-photos/<album-slug>/`) via the Cloudinary web UI or CLI. Cloudinary assigns public_ids (path includes the folder).
-2. **Generate YAML.** Run:
+Primary flow (recommended):
+
+1. **Upload to Cloudinary.** Upload the JPEGs into a folder (e.g., `dval-photos/<album-slug>/`) via the Cloudinary web UI or CLI.
+2. **Scaffold the album.** Run:
    ```
-   yarn cloudinary:list dval-photos/<album-slug>
+   yarn album:scaffold dval-photos/<album-slug>
    ```
-   This calls `scripts/list-cloudinary-folder.ts` which hits Cloudinary's Admin API (`GET /resources/by_asset_folder`) and prints a ready-to-paste YAML block containing `publicId`, `width`, and `height` for each asset. `CLOUDINARY_API_KEY` and `CLOUDINARY_API_SECRET` live in a gitignored `.env`.
-3. **Create markdown.** Create `content/photos/<slug>.md`, fill in frontmatter (`title`, `description`, `date`, `position`, `coverImage`), paste the YAML block under `photos:`, add `alt` strings (required) and optional `caption`s.
+   `scripts/scaffold-album.ts` hits Cloudinary's Admin API, interactively prompts for `title`, `description`, `date`, `position`, and cover-image selection, then writes `content/photos/<slug>.md` with the full frontmatter and photos list pre-populated (all `alt` fields blank). `CLOUDINARY_API_KEY` and `CLOUDINARY_API_SECRET` live in a gitignored `.env`.
+3. **Fill in alts + optional captions.** Open the generated file, add an `alt` string for each photo (required for accessibility), and add `caption:` lines on any notable shots.
 4. **Commit + deploy.** Push; static rebuild picks it up.
+
+Low-level alternative:
+
+- `yarn cloudinary:list dval-photos/<album-slug>` prints just the YAML photo block (no frontmatter, no prompts) if you want to paste into an existing file or do something custom.
 
 ## 12. Portability
 
