@@ -35,6 +35,45 @@ function yamlString(s: string): string {
   return `'${s.replace(/'/g, "''")}'`
 }
 
+/**
+ * Fetch resources from a Cloudinary folder, handling both folder modes:
+ * - "Dynamic folder mode" (newer accounts): folder is metadata, not a
+ *   public_id prefix. Queried via resources_by_asset_folder.
+ * - "Fixed folder mode" (legacy): folder prefixes the public_id. Queried
+ *   via resources({ prefix }).
+ *
+ * Tries dynamic mode first, falls back to fixed. Returns whichever yields
+ * results.
+ */
+async function fetchFolderResources(folder: string): Promise<Resource[]> {
+  // Dynamic folder mode
+  try {
+    const res = (await cloudinary.api.resources_by_asset_folder(folder, {
+      max_results: 500
+    })) as { resources: Resource[] }
+    if (res.resources.length > 0) {
+      console.log(`Found ${res.resources.length} via asset_folder (dynamic mode)`)
+      return res.resources
+    }
+  } catch (err) {
+    // Method may not exist on older SDK; ignore and fall through.
+    if (!(err instanceof TypeError)) {
+      console.debug('asset_folder lookup error (continuing):', err)
+    }
+  }
+
+  // Fixed folder mode (prefix)
+  const res = (await cloudinary.api.resources({
+    type: 'upload',
+    prefix: folder,
+    max_results: 500
+  })) as { resources: Resource[] }
+  if (res.resources.length > 0) {
+    console.log(`Found ${res.resources.length} via prefix (fixed mode)`)
+  }
+  return res.resources
+}
+
 async function main() {
   const folder = process.argv[2]
   if (!folder) {
@@ -47,14 +86,14 @@ async function main() {
     process.exit(1)
   }
 
-  const { resources } = (await cloudinary.api.resources({
-    type: 'upload',
-    prefix: folder,
-    max_results: 500
-  })) as { resources: Resource[] }
+  const resources = await fetchFolderResources(folder)
 
   if (resources.length === 0) {
-    console.error(`No resources found under prefix "${folder}".`)
+    console.error(
+      `No resources found in folder "${folder}".\n` +
+        'Checked both asset-folder (dynamic mode) and prefix (fixed mode).\n' +
+        'Make sure the folder path exactly matches what appears in the Cloudinary Media Library.'
+    )
     process.exit(1)
   }
 
