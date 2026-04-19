@@ -9,7 +9,9 @@
     "generate": "nuxi generate",
     "preview": "nuxi preview",
     "postinstall": "nuxi prepare",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "cloudinary:list": "tsx --env-file-if-exists=.env scripts/list-cloudinary-folder.ts",
+    "album:scaffold": "tsx --env-file-if-exists=.env scripts/scaffold-album.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.0",
@@ -21,10 +23,10 @@
     "@fortawesome/vue-fontawesome": "^3.0.0",
     "dateformat": "^5.0.3",
     "ko-co": "^1.5.1",
-    "phone-fns": "^3.2.3"
+    "phone-fns": "^3.2.3",
+    "photoswipe": "^5.4.4"
   },
   "devDependencies": {
-    "better-sqlite3": "^11.0.0",
     "@nuxt/content": "^3.0.0",
     "@nuxt/eslint": "^1.0.0",
     "@nuxt/image": "^1.9.0",
@@ -33,11 +35,14 @@
     "@nuxtjs/tailwindcss": "^6.12.0",
     "@tailwindcss/typography": "^0.5.15",
     "@vite-pwa/nuxt": "^0.10.0",
+    "better-sqlite3": "^11.0.0",
+    "cloudinary": "^2.9.0",
     "eslint": "^9.0.0",
     "nuxt": "^3.16.0",
     "prism-themes": "^1.9.0",
     "prismjs": "^1.29.0",
     "sass": "^1.80.0",
+    "tsx": "^4.21.0",
     "typescript": "^5.6.0"
   }
 }

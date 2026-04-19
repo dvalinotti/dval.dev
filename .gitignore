@@ -96,3 +96,6 @@ sw.*
 
 # pwa
 sw.*
+
+# superpowers brainstorm mockups
+.superpowers/
