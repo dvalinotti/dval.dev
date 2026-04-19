@@ -29,6 +29,24 @@ export default defineContentConfig({
         readMoreUrl: z.string().optional(),
         npm: z.string().optional()
       })
+    }),
+    photos: defineCollection({
+      type: 'page',
+      source: 'photos/**',
+      schema: z.object({
+        title: z.string(),
+        description: z.string().optional(),
+        date: z.string().regex(/^\d{4}-\d{2}(-\d{2})?$/),
+        position: z.number(),
+        coverImage: z.string(),
+        photos: z.array(z.object({
+          publicId: z.string(),
+          alt: z.string(),
+          width: z.number(),
+          height: z.number(),
+          caption: z.string().optional()
+        }))
+      })
     })
   }
 })
