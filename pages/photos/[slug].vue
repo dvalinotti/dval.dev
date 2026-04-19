@@ -13,7 +13,7 @@
       class="text-gray-600 dark:text-gray-400 mb-6">
       {{ album.description }}
     </p>
-    <PhotoGrid :photos="album.photos" @photo-click="onPhotoClick" />
+    <PhotoGrid :photos="album.photos" @photo-click="open" />
   </div>
 </template>
 
@@ -29,9 +29,23 @@ if (!album.value) {
   throw createError({ statusCode: 404, message: 'Album not found.' })
 }
 
-function onPhotoClick(index: number) {
-  console.debug('photo clicked', index)
-}
+const lightboxPhotos = computed(() => {
+  if (!album.value) return []
+  return album.value.photos.map((p) => {
+    const dims = cloudinaryDeliveredDims(p.width, p.height)
+    return {
+      src: cloudinaryUrl(p.publicId),
+      alt: p.alt,
+      width: dims.width,
+      height: dims.height,
+      caption: p.caption
+        ? `${album.value!.title} · ${p.caption}`
+        : album.value!.title
+    }
+  })
+})
+
+const { open } = useLightbox(lightboxPhotos)
 
 useHead(() => ({
   title: album.value?.title || 'Album',
