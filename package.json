@@ -9,7 +9,8 @@
     "generate": "nuxi generate",
     "preview": "nuxi preview",
     "postinstall": "nuxi prepare",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "cloudinary:list": "tsx --env-file=.env scripts/list-cloudinary-folder.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.0",
