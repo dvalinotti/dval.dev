@@ -1,5 +1,6 @@
 import PhotoSwipeLightbox from 'photoswipe/lightbox'
 import type { Ref } from 'vue'
+import type { $Img } from '@nuxt/image'
 import 'photoswipe/style.css'
 
 export interface LightboxPhoto {
@@ -8,6 +9,32 @@ export interface LightboxPhoto {
   height: number
   alt: string
   caption?: string
+}
+
+export interface AlbumPhoto {
+  publicId: string
+  alt: string
+  width: number
+  height: number
+  caption?: string
+}
+
+export function toLightboxPhoto(
+  img: $Img,
+  photo: AlbumPhoto,
+  titlePrefix: string
+): LightboxPhoto {
+  const dims = cloudinaryDeliveredDims(photo.width, photo.height)
+  return {
+    src: img(photo.publicId, {
+      width: LIGHTBOX_MAX_EDGE,
+      fit: 'coverLimit'
+    }),
+    alt: photo.alt,
+    width: dims.width,
+    height: dims.height,
+    caption: photo.caption ? `${titlePrefix} · ${photo.caption}` : titlePrefix
+  }
 }
 
 export function useLightbox(photos: Ref<LightboxPhoto[]>) {
@@ -53,12 +80,7 @@ export function useLightbox(photos: Ref<LightboxPhoto[]>) {
 
   function open(index: number) {
     if (!lightbox) return
-    lightbox.options.dataSource = photos.value.map(p => ({
-      src: p.src,
-      width: p.width,
-      height: p.height,
-      alt: p.alt
-    }))
+    lightbox.options.dataSource = photos.value
     lightbox.loadAndOpen(index)
   }
 

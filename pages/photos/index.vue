@@ -27,10 +27,7 @@ const { data: albums } = await useAsyncData('photos-index', () =>
   queryCollection('photos').order('position', 'ASC').all()
 )
 
-const route = useRoute()
-const view = computed(() =>
-  route.query.view === 'all' ? 'all' : 'albums'
-)
+const { view } = usePhotosView()
 
 interface AllPhotoItem {
   publicId: string
@@ -57,19 +54,9 @@ const allPhotoItems = computed<AllPhotoItem[]>(() => {
     )
 })
 
+const img = useImage()
 const lightboxPhotos = computed(() =>
-  allPhotoItems.value.map((p) => {
-    const dims = cloudinaryDeliveredDims(p.width, p.height)
-    return {
-      src: cloudinaryUrl(p.publicId),
-      alt: p.alt,
-      width: dims.width,
-      height: dims.height,
-      caption: p.caption
-        ? `${p.albumTitle} · ${p.caption}`
-        : p.albumTitle
-    }
-  })
+  allPhotoItems.value.map(p => toLightboxPhoto(img, p, p.albumTitle))
 )
 
 const { open } = useLightbox(lightboxPhotos)

@@ -29,21 +29,12 @@ if (!album.value) {
   throw createError({ statusCode: 404, message: 'Album not found.' })
 }
 
-const lightboxPhotos = computed(() => {
-  if (!album.value) return []
-  return album.value.photos.map((p) => {
-    const dims = cloudinaryDeliveredDims(p.width, p.height)
-    return {
-      src: cloudinaryUrl(p.publicId),
-      alt: p.alt,
-      width: dims.width,
-      height: dims.height,
-      caption: p.caption
-        ? `${album.value!.title} · ${p.caption}`
-        : album.value!.title
-    }
-  })
-})
+const img = useImage()
+const lightboxPhotos = computed(() =>
+  album.value
+    ? album.value.photos.map(p => toLightboxPhoto(img, p, album.value!.title))
+    : []
+)
 
 const { open } = useLightbox(lightboxPhotos)
 

@@ -17,22 +17,11 @@
 </template>
 
 <script setup lang="ts">
-type View = 'albums' | 'all'
+import type { PhotosView } from '~/composables/usePhotosView'
 
-const route = useRoute()
-const router = useRouter()
+const { view, setView } = usePhotosView()
 
-const view = computed<View>(() =>
-  route.query.view === 'all' ? 'all' : 'albums'
-)
-
-function setView(target: View) {
-  router.replace({
-    query: target === 'all' ? { view: 'all' } : {}
-  })
-}
-
-function buttonClass(target: View) {
+function buttonClass(target: PhotosView) {
   const base = 'px-4 py-2 text-sm font-medium transition-colors'
   return view.value === target
     ? `${base} bg-blue-600 text-white`
