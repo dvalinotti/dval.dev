@@ -26,10 +26,11 @@ export function toLightboxPhoto(
 ): LightboxPhoto {
   const dims = cloudinaryDeliveredDims(photo.width, photo.height)
   return {
-    src: img(photo.publicId, {
-      width: LIGHTBOX_MAX_EDGE,
-      fit: 'coverLimit'
-    }),
+    src: img(
+      photo.publicId,
+      { width: LIGHTBOX_MAX_EDGE, fit: 'coverLimit' },
+      { provider: 'cloudinary' }
+    ),
     alt: photo.alt,
     width: dims.width,
     height: dims.height,

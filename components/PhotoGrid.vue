@@ -9,6 +9,7 @@
         <NuxtPicture
           :src="photo.publicId"
           :alt="photo.alt"
+          provider="cloudinary"
           :width="photo.width"
           :height="photo.height"
           sizes="sm:100vw md:50vw lg:33vw"

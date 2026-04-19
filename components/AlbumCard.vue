@@ -5,6 +5,7 @@
       <NuxtImg
         :src="album.coverImage"
         :alt="`${album.title} album cover`"
+        provider="cloudinary"
         sizes="sm:100vw md:50vw lg:33vw"
         placeholder
         placeholder-class="blur-md"
